@@ -3,40 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:17:53 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/22 14:42:53 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/11/26 22:31:08 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_gnl.h"
-
-int	ft_istrlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s && s[i])
-		i++;
-	return (i);
-}
-
-void	*ft_calloc(size_t n, size_t size)
-{
-	unsigned char	*res;
-	size_t			i;
-
-	if (n > SIZE_MAX / size)
-		return (NULL);
-	res = malloc(n * size);
-	if (!res)
-		return (NULL);
-	i = -1;
-	while (++i < n * size)
-		res[i] = 0;
-	return (res);
-}
+#include "libft.h"
 
 char	*my_strjoin(char *s1, char *s2, size_t s2_n)
 {
@@ -78,15 +53,4 @@ char	*my_substr(char *s, size_t start, size_t end)
 		res[i] = s[i + start];
 	res[i] = 0;
 	return (res);
-}
-
-int	ft_stridxof(char *str, char c)
-{
-	int	i;
-
-	i = -1;
-	while (str && str[++i])
-		if (str[i] == c)
-			return (i);
-	return (-1);
 }

@@ -5,8 +5,8 @@ COMPILE = $(CC) $(CFLAGS) -c
 ARCHIVE = ar rc $(NAME)
 RM = rm -f
 
-SRC = ./src/char/ft_chartolower.c \
-	./src/char/ft_chartoupper.c \
+SRC = ./src/char/ft_ctolower.c \
+	./src/char/ft_ctoupper.c \
 	./src/converter/ft_atoi.c \
 	./src/converter/ft_itoa.c \
 	./src/converter/ft_itoa_base.c \

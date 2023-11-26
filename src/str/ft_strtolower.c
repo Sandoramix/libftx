@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtolower.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:52:19 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/22 14:24:01 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/11/26 23:49:41 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ char	*ft_strtolower(char *s)
 	if (!s)
 		return (s);
 	while (s[++i])
-		s[i] = ft_chartolower(s[i]);
+		s[i] = ft_ctolower(s[i]);
 	return (s);
 }

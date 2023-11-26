@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/22 14:15:44 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/11/26 23:46:35 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static size_t	count_char(const char *s, char chr)
 	return (res);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_strsplit(char const *s, char c)
 {
 	char	**res;
 	size_t	arr_len;
@@ -53,7 +53,7 @@ char	**ft_split(char const *s, char c)
 		if (is_delim(s[i], c) && !is_delim(s[i + 1], c))
 			start = i + 1;
 		if (!is_delim(s[i], c) && is_delim(s[i + 1], c))
-			res[idx++] = ft_substr(s, start, i + 1 - start);
+			res[idx++] = ft_strsubstr(s, start, i + 1 - start);
 		if (idx > 0 && !res[idx - 1])
 			return (ft_freemtx((void **)res, idx));
 		i++;

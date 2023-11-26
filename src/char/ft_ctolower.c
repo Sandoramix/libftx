@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chartolower.c                                   :+:      :+:    :+:   */
+/*   ft_ctolower.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:37:57 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/22 13:38:01 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/11/26 23:49:12 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_chartolower(int c)
+int	ft_ctolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);

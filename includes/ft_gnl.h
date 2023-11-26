@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_gnl.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:17:53 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/25 15:42:47 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/11/26 23:51:10 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,13 @@
 #  define BUFFER_SIZE 1024
 # endif
 
-
 /**
  * @brief Get the next line of given fd
  *
  * @param fd file descriptor
  * @param keep_nl Should the `\n` be kept inside the line or not
  * @attention Here the buffer is a static array
- * of maximum 4096 file descriptors (ulimit -n => 1024)
+ * of maximum 4096 file descriptors
  * @return Next line or `NULL` if reached the EOF / got an error
  */
 char	*get_next_line(int fd, bool keep_nl);

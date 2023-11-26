@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pfflag.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:00:18 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/22 14:25:31 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/11/26 23:48:58 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_pfflag	pf_parseflag(t_pfflag flag)
 	flag.wminus = !!ft_strchr(flag.flag, '-');
 	flag.wplus = !!ft_strchr(flag.flag, '+');
 	flag.wspaces = !!ft_strchr(flag.flag, ' ') && !flag.wplus;
-	flag.isupper = ft_chartolower(flag.flag[rawlen - 1]) != flag.flag[rawlen - 1];
+	flag.isupper = ft_ctolower(flag.flag[rawlen - 1]) != flag.flag[rawlen - 1];
 	flag.zero = false;
 	if (ft_strchr(flag.flag, '#'))
 		flag.convert = true;

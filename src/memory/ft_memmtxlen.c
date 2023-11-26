@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmtxlen.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 20:37:35 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/24 20:42:53 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/11/26 22:22:37 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memmtxlen(void *mem)
+int	ft_memmtxlen(void **mem)
 {
 	unsigned char	**m;
 	int				i;

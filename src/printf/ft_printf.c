@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:51:11 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/22 14:07:07 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/11/26 23:46:35 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	pf_parseargs(const char *s, va_list list, size_t *len)
 			start = i;
 			while (ft_strchr(PF_ARGS_WHITELIST, s[++i]))
 				;
-			flag = ft_substr(s, start, i - start + 1);
+			flag = ft_strsubstr(s, start, i - start + 1);
 			write(1, s + print_idx, start - print_idx);
 			print_idx = i + 1;
 			*len = (*len - (i - start + 1))

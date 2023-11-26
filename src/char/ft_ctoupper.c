@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chartoupper.c                                   :+:      :+:    :+:   */
+/*   ft_ctoupper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/22 13:53:56 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/11/26 23:49:23 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_chartoupper(int c)
+int	ft_ctoupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - 32);

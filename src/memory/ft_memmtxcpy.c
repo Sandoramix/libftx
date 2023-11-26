@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 20:18:03 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/26 21:21:40 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/11/26 22:22:38 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void	**ft_memmtxcpy(void **dest, void **src, size_t n)
 {
-	unsigned char	*d;
-	unsigned char	*s;
+	unsigned char	**d;
+	unsigned char	**s;
 	size_t			i;
 
-	if (!dest)
-		return (NULL);
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
+	if (!src)
+		return (dest);
+	d = (unsigned char **)dest;
+	s = (unsigned char **)src;
 	i = 0;
 	while (s && s[i] && i < n)
 	{
-		d[i] = d[i];
+		d[i] = s[i];
 		i++;
 	}
 	return (dest);
