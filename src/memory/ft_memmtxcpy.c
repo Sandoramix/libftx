@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmtxcpy.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 20:18:03 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/24 20:23:48 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/11/26 21:21:40 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	**ft_memmtxcpy(void **dest, void **src, size_t n)
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
 	i = 0;
-	while (src && src[i] && i < n)
+	while (s && s[i] && i < n)
 	{
-		dest[i] = src[i];
+		d[i] = d[i];
 		i++;
 	}
 	return (dest);
