@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:49 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/26 23:49:50 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/11/29 21:13:16 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int		ft_isascii(int c);
  */
 int		ft_isprint(int c);
 
+
 //!-------------------------CHAR----------------------------------
 
 /**
@@ -88,7 +89,14 @@ int		ft_ctoupper(int c);
  * if the conversion was not possible.
  */
 int		ft_ctolower(int c);
-
+/**
+ * @brief Check if `c1` and `c2` are equal
+ *
+ * @param c1 char
+ * @param c2 char
+ * @return true if `c1` and `c2` are equal, false otherwise
+ */
+bool	ft_charequals(char c1, char c2);
 //!-------------------------MEMORY-------------------------------
 
 /**
@@ -150,7 +158,7 @@ void	*ft_freemtx(void **mtx, size_t len);
  * @param s matrix
  * @return Length of the matrix as integer
  */
-int		ft_memmtxlen(void **mem);
+int		ft_memmtxlen(void *mem);
 /**
  * @brief This function copies `n` elements from memory area (a matrix) `src`
  * to memory area (matrix) `dest`.
@@ -408,7 +416,6 @@ int		ft_nbr_len(long long n, int base_len);
 int		ft_ulnbr_len(unsigned long n, int base_len);
 
 //!-------------------------STRINGS-----------------------------
-
 /**
  * @brief Returns a pointer to a new string
  * which is a duplicate of the string s.
@@ -648,5 +655,14 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * @param f The function to apply to each character.
  */
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-
+/**
+ * @brief Tests whether all characters in the string
+ * pass the test implemented by the provided function.
+ *
+ * @param str string to check
+ * @param check_fn function that takes a char as a parameter and returns a bool
+ * @note Example: `check_fn:` bool test(char);
+ * @return `true` if every characters pass the function test, `false` otherwise
+ */
+bool	ft_strevery(char *str, bool(*check_fn)(char));
 #endif

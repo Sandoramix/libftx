@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmtxlen.c                                     :+:      :+:    :+:   */
+/*   ft_strevery.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 20:37:35 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/29 21:13:08 by odudniak         ###   ########.fr       */
+/*   Created: 2023/11/29 20:12:05 by odudniak          #+#    #+#             */
+/*   Updated: 2023/11/29 20:12:13 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memmtxlen(void *mem)
+bool	ft_strevery(char *str, bool(*check_fn)(char))
 {
-	unsigned char	**m;
-	int				i;
+	int	i;
 
-	i = 0;
-	m = (unsigned char **)mem;
-	while (m && m[i])
-		i++;
-	return (i);
+	i = -1;
+	while (str && str[++i])
+		if (!(*check_fn)(str[i]))
+			return (false);
+	return (true);
 }

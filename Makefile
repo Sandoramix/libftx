@@ -5,7 +5,8 @@ COMPILE = $(CC) $(CFLAGS) -c
 ARCHIVE = ar rc $(NAME)
 RM = rm -f
 
-SRC = ./src/char/ft_ctolower.c \
+SRC = ./src/char/ft_charequals.c \
+	./src/char/ft_ctolower.c \
 	./src/char/ft_ctoupper.c \
 	./src/converter/ft_atoi.c \
 	./src/converter/ft_itoa.c \
@@ -61,6 +62,7 @@ SRC = ./src/char/ft_ctolower.c \
 	./src/str/ft_strlcpy.c \
 	./src/str/ft_strlen.c \
 	./src/str/ft_strmapi.c \
+	./src/str/ft_strevery.c \
 	./src/str/ft_strncmp.c \
 	./src/str/ft_strnstr.c \
 	./src/str/ft_strpad.c \

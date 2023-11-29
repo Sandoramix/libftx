@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmtxlen.c                                     :+:      :+:    :+:   */
+/*   ft_charcmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 20:37:35 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/29 21:13:08 by odudniak         ###   ########.fr       */
+/*   Created: 2023/11/29 19:25:38 by odudniak          #+#    #+#             */
+/*   Updated: 2023/11/29 19:26:54 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memmtxlen(void *mem)
+bool	ft_charequals(char c1, char c2)
 {
-	unsigned char	**m;
-	int				i;
-
-	i = 0;
-	m = (unsigned char **)mem;
-	while (m && m[i])
-		i++;
-	return (i);
+	return (c1 == c2);
 }
