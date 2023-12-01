@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:49 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/01 15:29:00 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/01 21:53:47 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
 //!-------------------------CTYPE--------------------------------
 
 /**
@@ -146,12 +151,12 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memrev(void *mem, size_t len);
 /**
  * @brief Free the matrix!
- * @param mtx void ** -> mtx
+ * @param mtx void * -> any **
  * @param len len
  * @return `NULL`
  * @attention Uses: free
  */
-void	*ft_freemtx(void **mtx, size_t len);
+void	*ft_freemtx(void *mtx, size_t len);
 /**
  * @brief Get the length of the given matrix
  *
@@ -431,6 +436,14 @@ int		ft_ulnbr_len(unsigned long n, int base_len);
  * @attention Uses: malloc
  */
 char	*ft_strdup(const char *s);
+/**
+ * @brief Duplicate an array of strings
+ * @param mtx array of strings
+ * @return pointer to the duplicated data
+ * or `NULL` if error occured
+ * @attention Uses: malloc + free
+ */
+char	**ft_strmtxdup(char **mtx);
 /**
  * @brief Get the length of a string
  * @param s (array of chars) | string

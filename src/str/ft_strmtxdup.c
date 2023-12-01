@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_freemtx.c                                       :+:      :+:    :+:   */
+/*   ft_strmtxdup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 13:44:16 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/01 21:53:25 by odudniak         ###   ########.fr       */
+/*   Created: 2023/12/01 21:42:16 by odudniak          #+#    #+#             */
+/*   Updated: 2023/12/01 21:52:34 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_freemtx(void *mtx, size_t rows)
+char	**ft_strmtxdup(char **mtx)
 {
-	unsigned char	**mtxp;
-	size_t			i;
+	char	**res;
+	int		i;
+	int		idx;
 
-	if (!mtx)
+	i = -1;
+	idx = 0;
+	res = ft_calloc(ft_memmtxlen(mtx) + 1, sizeof(char *));
+	if (!res)
 		return (NULL);
-	i = 0;
-	mtxp = (unsigned char **) mtx;
-	while (i < rows)
-		free(mtxp[i++]);
-	free(mtxp);
-	return (NULL);
+	while (mtx[++i])
+	{
+		res[idx++] = ft_strdup(mtx[i]);
+		if (!res[idx - 1])
+			return (ft_freemtx(res, idx));
+	}
+	return (res);
 }
