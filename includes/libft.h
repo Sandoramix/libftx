@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:49 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/29 21:13:16 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:29:00 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,6 +226,12 @@ char	*ft_getaddr(void *p);
  * @attention Uses: malloc
  */
 char	*ft_itoa(int n);
+/**
+ * @brief Get the boolean value as a string
+ * @param value boolean
+ * @return "true" if the value is `true` otherwise "false"
+ */
+char	*ft_boolstr(bool value);
 /**
  * @brief Converts the given string into a number.
  * It skips all the `isspace` characters on start, ignores all the non digits
