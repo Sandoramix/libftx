@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:42:16 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/01 21:52:34 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/02 10:14:55 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ char	**ft_strmtxdup(char **mtx)
 		if (!res[idx - 1])
 			return (ft_freemtx(res, idx));
 	}
+	mtx[i] = NULL;
 	return (res);
 }

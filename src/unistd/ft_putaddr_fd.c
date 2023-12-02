@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putaddr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/02 11:54:57 by odudniak         ###   ########.fr       */
+/*   Created: 2023/12/02 11:01:10 by odudniak          #+#    #+#             */
+/*   Updated: 2023/12/02 11:17:43 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-int	ft_putstr_fd(char *s, int fd)
+int	ft_putaddr_fd(void *p, int fd)
 {
-	int	len;
+	const uintptr_t	p_addr = (uintptr_t)p;
+	size_t			addr_len;
 
-	if (!s)
-		return (ft_putstr_fd("(null)", fd));
-	len = ft_istrlen(s);
-	write(fd, s, len);
-	return (len);
+	if (!p || !p_addr)
+		return (ft_putstr_fd("(nil)", fd));
+	addr_len = ft_ulnbr_len(p_addr, 16) + 2;
+	ft_putstr_fd("0x", fd);
+	ft_writeulbase_fd(p_addr, BASE16, fd);
+	return (addr_len);
 }

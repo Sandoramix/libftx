@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:04:19 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/22 14:14:28 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/02 12:39:36 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 typedef enum e_pftype
 {
-	PF_ESCAPE,
 	PF_UNKNOWN,
+	PF_ESCAPE,
 	PF_INT,
 	PF_UINT,
 	PF_CHAR,
@@ -33,6 +33,11 @@ typedef enum e_pftype
 
 typedef struct s_pfflag
 {
+	bool		simple;
+	char		*_str;
+	int			_start;
+	int			_end;
+
 	char		*flag;
 
 	char		*res;
@@ -62,7 +67,7 @@ typedef struct s_pfflag
 /**
  * @brief Like the original one ;)
  * Works well with: `-`-`-`-`+`-`#`-`.`
- *
+ * @attention It can use `malloc` if you use formatting
  * @param str Format
  * @param ... All necessary args
  * @return Total printed chars.
@@ -78,10 +83,12 @@ size_t		pf_handleflags(t_pfflag flag);
 /**
  * @brief Parse flag information
  *
- * @param f flag's string
+ * @param str pattern's string
+ * @param start Index of flag's start (included)
+ * @param end Index of flag's end (included)
  * @return t_pfflag the structure
  */
-t_pfflag	pf_getflag(char *f);
+t_pfflag	pf_getflag(char *str, int start, int end);
 size_t		pf_handle_flag_end(t_pfflag flag);
 size_t		pf_handle_flag_start(t_pfflag flag);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pflaghandler.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:07:41 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/22 14:18:01 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/02 12:38:41 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ size_t	pf_handleflags(t_pfflag flag)
 	flag.rlen = pf_handle_flag_end(flag);
 	offset = (flag.convert && !flag.zero) * 2;
 	free(flag.res);
+	free(flag.flag);
 	return (flag.llen + flag.rlen + flag.reslen + offset);
 }

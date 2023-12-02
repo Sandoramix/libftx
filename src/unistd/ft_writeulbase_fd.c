@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_writeulbase_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/02 11:54:57 by odudniak         ###   ########.fr       */
+/*   Created: 2023/12/02 10:54:41 by odudniak          #+#    #+#             */
+/*   Updated: 2023/12/02 11:19:10 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-int	ft_putstr_fd(char *s, int fd)
+int	ft_writeulbase_fd(unsigned long n, char *base, int fd)
 {
-	int	len;
+	const size_t	baselen = ft_istrlen(base);
 
-	if (!s)
-		return (ft_putstr_fd("(null)", fd));
-	len = ft_istrlen(s);
-	write(fd, s, len);
-	return (len);
+	if (n >= baselen)
+		ft_writeulbase_fd(n / baselen, base, fd);
+	if (n % baselen < 10)
+		ft_putchar_fd((n % baselen) + '0', fd);
+	else
+		ft_putchar_fd(base[n % baselen], fd);
+	return (ft_ulnbr_len(n, baselen));
 }

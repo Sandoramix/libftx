@@ -3,27 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2023/10/14 00:16:56 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:14:52 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(long long n, int fd)
 {
-	long	nl;
-
-	nl = n;
-	if (nl < 0)
+	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		nl = -nl;
+		n = -n;
 	}
-	if (nl >= 10)
-		ft_putnbr_fd(nl / 10, fd);
-	ft_putchar_fd((nl % 10) + '0', fd);
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + '0', fd);
+	return (ft_nbr_len(n, 10));
 }

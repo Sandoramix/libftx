@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:00:18 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/26 23:48:58 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/02 12:37:47 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,27 +42,52 @@ static t_pfflag	pf_parseflag(t_pfflag flag)
 	return (flag);
 }
 
-t_pfflag	pf_getflag(char *f)
+static t_pfflag	pf_fillempty(t_pfflag flag)
 {
-	size_t		f_len;
+	flag.res = NULL;
+	flag.reslen = 0;
+	flag.flag = NULL;
+	flag.convert = false;
+	flag.wzeros = false;
+	flag.width = 0;
+	flag.prec = -1;
+	flag.wminus = false;
+	flag.minus = false;
+	flag.wplus = false;
+	flag.wspaces = false;
+	flag.wprec = false;
+	flag.isupper = false;
+	flag.zero = false;
+	flag.llen = 0;
+	flag.rlen = 0;
+	return (flag);
+}
+
+t_pfflag	pf_getflag(char *str, int start, int end)
+{
 	t_pfflag	flag;
 
-	f_len = ft_strlen(f);
-	flag.flag = f;
+	flag.simple = end - 1 == start;
+	flag._str = str;
+	flag._start = start;
+	flag._end = end;
 	flag.type = PF_UNKNOWN;
-	if (ft_strchr("dii", f[f_len - 1]))
+	if (ft_strchr("di", str[end]))
 		flag.type = PF_INT;
-	else if (f[f_len - 1] == 'p')
+	else if (str[end] == 'p')
 		flag.type = (PF_POINTER);
-	else if (ft_strchr("xX", f[f_len - 1]))
+	else if (ft_strchr("xX", str[end]))
 		flag.type = (PF_HEX);
-	else if (f[f_len - 1] == 'u')
+	else if (str[end] == 'u')
 		flag.type = (PF_UINT);
-	else if (f[f_len - 1] == '%' && f_len > 1)
+	else if (str[end] == '%')
 		flag.type = (PF_ESCAPE);
-	else if (f[f_len - 1] == 'c')
+	else if (str[end] == 'c')
 		flag.type = (PF_CHAR);
-	else if (f[f_len - 1] == 's')
+	else if (str[end] == 's')
 		flag.type = (PF_STR);
+	if (flag.simple)
+		return (pf_fillempty(flag));
+	flag.flag = ft_strsubstr(str, start, end - start + 1);
 	return (pf_parseflag(flag));
 }

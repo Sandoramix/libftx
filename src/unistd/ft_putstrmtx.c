@@ -6,13 +6,13 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 15:09:22 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/26 21:59:33 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/02 10:24:24 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstrmtx(char **mtx)
+int	ft_putstrmtx(char **mtx)
 {
 	int	i;
 
@@ -26,4 +26,5 @@ void	ft_putstrmtx(char **mtx)
 		ft_putstr_fd("\n", 1);
 		i++;
 	}
+	return (i);
 }

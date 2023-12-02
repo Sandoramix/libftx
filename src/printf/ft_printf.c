@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:51:11 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/26 23:46:35 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:58:58 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,38 @@ size_t	pf_handlechar(char c, t_pfflag flag)
 	return (flag.llen + flag.rlen + 1);
 }
 
+static size_t	pf_getsimpleres(va_list list, t_pfflag flag)
+{
+	const bool	lowercase = ft_ctolower(flag._str[flag._end])
+		== flag._str[flag._end];
+
+	if (flag.type == PF_CHAR)
+		return (ft_putchar_fd((char)va_arg(list, int), 1));
+	else if (flag.type == PF_ESCAPE)
+		return (ft_putchar_fd('%', 1));
+	else if (flag.type == PF_INT)
+		return (ft_putnbr_fd(va_arg(list, int), 1));
+	else if (flag.type == PF_UINT)
+		return (ft_writeulbase_fd(va_arg(list, unsigned int), BASE10, 1));
+	else if (flag.type == PF_HEX && !lowercase)
+		return (ft_writeulbase_fd(va_arg(list, unsigned int), BASE16UPPER, 1));
+	else if (flag.type == PF_HEX && lowercase)
+		return (ft_writeulbase_fd(va_arg(list, unsigned int), BASE16, 1));
+	else if (flag.type == PF_POINTER)
+		return (ft_putaddr_fd(va_arg(list, void *), 1));
+	else
+		return (ft_putstr_fd(va_arg(list, char *), 1));
+	return (0);
+}
+
 static size_t	pf_getres(va_list list, t_pfflag flag)
 {
-	flag.res = NULL;
+	if (flag.simple)
+		return (pf_getsimpleres(list, flag));
 	if (flag.type == PF_CHAR)
-	{
-		flag.reslen = 1;
 		return (pf_handlechar((char)va_arg(list, int), flag));
-	}
 	else if (flag.type == PF_ESCAPE)
-	{
-		ft_putchar_fd('%', 1);
-		return (1);
-	}
+		return (ft_putchar_fd('%', 1));
 	else if (flag.type == PF_INT)
 		flag.res = ft_itoa(va_arg(list, int));
 	else if (flag.type == PF_UINT)
@@ -56,7 +75,6 @@ static void	pf_parseargs(const char *s, va_list list, size_t *len)
 {
 	int			i;
 	int			start;
-	char		*flag;
 	int			print_idx;
 
 	i = -1;
@@ -68,12 +86,10 @@ static void	pf_parseargs(const char *s, va_list list, size_t *len)
 			start = i;
 			while (ft_strchr(PF_ARGS_WHITELIST, s[++i]))
 				;
-			flag = ft_strsubstr(s, start, i - start + 1);
 			write(1, s + print_idx, start - print_idx);
 			print_idx = i + 1;
 			*len = (*len - (i - start + 1))
-				+ pf_getres(list, pf_getflag(flag));
-			free(flag);
+				+ pf_getres(list, pf_getflag((char *)s, start, i));
 		}
 	}
 	write(1, s + print_idx, ft_strlen(s) - print_idx);
