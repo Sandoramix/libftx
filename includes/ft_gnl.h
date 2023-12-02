@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:17:53 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/26 23:51:10 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/02 16:25:21 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ char	*get_next_line(int fd, bool keep_nl);
  *
  * @param fd
  * @param keep_nl Should the `\n` be kept inside the line or not
- * @return char**
+ * @return Always returns a NULL byte terminated matrix
+ * (last element is `NULL`)
  */
 char	**ft_readfile(int fd, bool keep_nl);
 //? ****************************UTILS*****************************************
