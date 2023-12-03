@@ -91,6 +91,7 @@ all: $(NAME)
 
 %.o: %.c
 	@$(COMPILE) $< -o $@ -Iincludes
+	@echo "$(BLUE)[LIBFTX]:\t$< COMPILED!"
 
 $(NAME): $(OBJ)
 	@$(ARCHIVE) $(OBJ)
@@ -98,21 +99,23 @@ $(NAME): $(OBJ)
 
 clean:
 	@$(RM) $(OBJ)
-	@echo "$(BLUE)[LIBFTX]:\tOBJECTS DELETED$(R)"
+	@echo "$(RED)[LIBFTX]:\tOBJECTS DELETED$(R)"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(BLUE)[LIBFTX]:\tLIBRARY DELETED$(R)"
+	@echo "$(RED)[LIBFTX]:\tLIBRARY DELETED$(R)"
 
 re: fclean all
 
-.PHONY: all clean fclean re
 
 printfmain: all ft_printfm.c
 	@$(CC) -w -Iincludes ft_printfm.c -L. -lft
+
 
 # COLORS
 GREEN=\033[0;32m
 RED=\033[0;31m
 BLUE=\033[0;34m
 R=\033[0m
+
+.PHONY: all clean fclean re
