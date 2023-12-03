@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolstr.c                                       :+:      :+:    :+:   */
+/*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 15:26:10 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/03 18:22:43 by odudniak         ###   ########.fr       */
+/*   Created: 2023/12/03 18:21:03 by odudniak          #+#    #+#             */
+/*   Updated: 2023/12/03 18:40:32 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef COLORS_H
+# define COLORS_H
 
-char	*ft_boolstr(bool value)
-{
-	if (value)
-		return (COLOR_GREEN"true"COLOR_R);
-	return (COLOR_RED"false"COLOR_R);
-}
+/**
+ * @brief Color reset
+ */
+# define CR "\033[0m"
+# define COLOR_GREEN "\033[0;32m"
+# define COLOR_RED "\033[0;31m"
+# define COLOR_BLUE "\033[0;34m"
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:49 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/02 12:44:57 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/03 18:22:02 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdarg.h>
 # include <stdbool.h>
 
+# include "colors.h"
 # include "ft_printf.h"
 # include "ft_gnl.h"
 
