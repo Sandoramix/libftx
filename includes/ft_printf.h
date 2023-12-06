@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:04:19 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/02 12:39:36 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:03:38 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,14 @@ typedef struct s_pfflag
  * @return Total printed chars.
  */
 int			ft_printf(const char *str, ...);
+/**
+ * @brief Bad implementation of perror.
+ * Print the given string with red color and terminate the program
+ * with `exit`
+ * @param template template
+ * @param ... va_args
+ */
+int	ft_perror(char *template, ...);
 /**
  * @brief Yep we handle bonus here
  *

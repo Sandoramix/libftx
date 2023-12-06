@@ -76,10 +76,13 @@ SRC = ./src/char/ft_charequals.c \
 	./src/str/ft_strsubstr.c \
 	./src/str/ft_strtolower.c \
 	./src/str/ft_strtoupper.c \
+	./src/str/ft_strendswith.c \
 	./src/str/ft_strtrim.c \
 	./src/unistd/ft_putaddr_fd.c \
 	./src/unistd/ft_putchar_fd.c \
 	./src/unistd/ft_putendl_fd.c \
+	./src/unistd/ft_perror.c \
+	./src/unistd/ft_putnchars_fd.c \
 	./src/unistd/ft_putnbr_fd.c \
 	./src/unistd/ft_putstr_fd.c \
 	./src/unistd/ft_putstrmtx.c \
@@ -111,6 +114,8 @@ re: fclean all
 printfmain: all ft_printfm.c
 	@$(CC) -w -Iincludes ft_printfm.c -L. -lft
 
+test: all
+	@$(CC) -w -Iincludes test.c -L. -lft
 
 # COLORS
 GREEN=\033[0;32m

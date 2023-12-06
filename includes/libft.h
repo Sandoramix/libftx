@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:49 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/03 18:22:02 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:30:03 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -339,7 +339,11 @@ int		ft_putaddr_fd(void *p, int fd);
  * @return Number of characters printed
  */
 int		ft_writeulbase_fd(unsigned long n, char *base, int fd);
-
+/**
+ * @brief Write `n` times the `c` character to `fd`
+ * @return `n`
+ */
+int		ft_putnchars_fd(char c, int n, int fd);
 //!-------------------------LISTS------------------------------
 
 /**
@@ -679,6 +683,13 @@ char	*ft_strtrim(char const *s1, char const *set);
  * @attention Uses: malloc
  */
 char	**ft_strsplit(char const *s, char c);
+/**
+ * @brief Check if the given `s` string ends with `end` string
+ * @param s string to check
+ * @param end expected ending of the string
+ * @return `true` if `s` ends with `end`, `false` otherwise
+ */
+bool	ft_strendswith(const char *s, char *end);
 /**
  * @brief Applies the function 'f' to each character of the
  * string 's', and passing its index as first argument
