@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:17:53 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/15 16:51:14 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/15 17:04:25 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,5 @@ char	*my_substr(char *s, size_t start, size_t end)
 	i = -1;
 	while (++i < (end - start + 1) && s)
 		res[i] = s[i + start];
-	res[i] = 0;
 	return (res);
 }

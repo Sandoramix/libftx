@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   readfile_main.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:37:24 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/24 20:45:12 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/15 17:05:50 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 int	main(void)
 {
-	int fd = open("empty", O_RDONLY);
-	char **lines = ft_readfile(fd);
+	const int		fd = open("mw.ber", O_RDONLY);
+	char		**lines = ft_readfile(fd, false);
 	int i = -1;
 	while(lines && ++i < ft_memmtxlen(lines)){
-		ft_printf("%s", lines[i]);
+		ft_printf("%s\n", lines[i]);
 	}
-	ft_freemtx((void **)lines, i - 1);
+	ft_freemtx((void **)lines, ft_memmtxlen(lines));
 	return (0);
 }

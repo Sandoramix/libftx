@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 10:51:10 by odudniak          #+#    #+#             */
-/*   Updated: 2023/10/31 14:13:06 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/15 17:34:35 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strcount_c(const char *s, char c)
 
 	i = 0;
 	count = 0;
-	while (s[i])
+	while (s && s[i])
 		if (s[i++] == c)
 			count++;
 	return (count);
