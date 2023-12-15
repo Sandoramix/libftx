@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:23:14 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/06 18:29:56 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:53:48 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,3 @@ bool	ft_strendswith(const char *s, char *end)
 		return (true);
 	return (false);
 }
-

@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:17:47 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/26 22:24:42 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:51:20 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ char	*get_next_line(int fd, bool keep_nl)
 			((int [2]){ft_istrlen(buffer[fd]), idxof + 1})[idxof >= 0],
 			ft_istrlen(buffer[fd]));
 	free(buffer[fd]);
-	buffer[fd] = my_substr(tmp, 0, ft_istrlen(tmp));
-	free(tmp);
+	buffer[fd] = my_strjoin(tmp, NULL, ft_istrlen(tmp));
 	return (res);
 }

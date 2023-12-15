@@ -6,12 +6,13 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:17:53 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/26 22:31:08 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:51:14 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_gnl.h"
 #include "libft.h"
+#include "ft_printf.h"
 
 char	*my_strjoin(char *s1, char *s2, size_t s2_n)
 {
@@ -43,7 +44,7 @@ char	*my_substr(char *s, size_t start, size_t end)
 	size_t	i;
 
 	slen = ft_istrlen(s);
-	if (slen == 0 || start > slen || end > slen || start > end)
+	if (start > slen || start > end)
 		return (NULL);
 	res = ft_calloc((end - start + 1) + 1, sizeof(char));
 	if (!res)

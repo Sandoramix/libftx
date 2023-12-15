@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:09:44 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/02 16:23:14 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:51:07 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**ft_readfile(int fd, bool keep_nl)
 	while (true)
 	{
 		line = get_next_line(fd, keep_nl);
-		if (!line && linecount != 0)
+		if (line == NULL && linecount != 0)
 			break ;
 		tmp = ft_calloc(++linecount + 1, sizeof(char *));
 		tmp[linecount] = NULL;

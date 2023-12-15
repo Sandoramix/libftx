@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:04:19 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/06 19:03:38 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:53:07 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int			ft_printf(const char *str, ...);
  * @param template template
  * @param ... va_args
  */
-int	ft_perror(char *template, ...);
+int			ft_perror(char *template, ...);
 /**
  * @brief Yep we handle bonus here
  *

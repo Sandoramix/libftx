@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gnl_main.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:37:24 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/22 14:42:05 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:49:54 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 int	main(void)
 {
-	int fd = open("empty", O_RDONLY);
-	char *str = get_next_line(fd);
-	ft_printf("%s", str);
-	while(str){
+	const int		fd = open("mw.ber", O_RDONLY);
+	char	*str = get_next_line(fd, false);
+
+	ft_printf("%s\n", str);
+	while (str)
+	{
 		free(str);
-		str = get_next_line(fd);
-		printf("%s", str);
+		str = get_next_line(fd, false);
+		printf("%s\n", str);
 	}
 	free(str);
 	return (0);

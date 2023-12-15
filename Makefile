@@ -111,8 +111,10 @@ fclean: clean
 re: fclean all
 
 
-printfmain: all ft_printfm.c
+printfmain: all
 	@$(CC) -w -Iincludes ft_printfm.c -L. -lft
+gnlmain: all
+	@$(CC) -w -Iincludes gnl_main.c -L. -lft
 
 test: all
 	@$(CC) -w -Iincludes test.c -L. -lft
