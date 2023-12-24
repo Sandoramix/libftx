@@ -128,3 +128,4 @@ BLUE=\033[0;34m
 R=\033[0m
 
 .PHONY: all clean fclean re
+.SILENT:
