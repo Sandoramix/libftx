@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:49 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/06 19:30:03 by odudniak         ###   ########.fr       */
+/*   Updated: 2023/12/30 15:15:27 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -659,6 +659,17 @@ char	*ft_strsubstr(char const *s, unsigned int start, size_t len);
  * @attention Uses: malloc
  */
 char	*ft_strjoin(char const *s1, char const *s2);
+/**
+ * @brief Allocates (with malloc(3)) and returns a new
+ * string, which is the result of the concatenation
+ * of 's1' and 's2'. At the end `s1` is deallocated.
+ * @param s1 The prefix string. (will be freeed).
+ * @param s2 The suffix string.
+ * @return The new string.
+ * NULL if the allocation fails.
+ * @attention Uses: malloc, free
+ */
+char	*ft_str_freejoin(char *s1, char const *s2);
 /**
  * @brief Allocates and returns a copy of
  * 's1' with the characters specified in 'set' removed

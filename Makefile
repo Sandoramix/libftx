@@ -52,6 +52,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/printf/ft_pflaghandler.c \
 	./src/printf/ft_printf.c \
 	./src/str/ft_istrlen.c \
+	./src/str/ft_str_freejoin.c \
 	./src/str/ft_strchr.c \
 	./src/str/ft_strcount_c.c \
 	./src/str/ft_strdup.c \
