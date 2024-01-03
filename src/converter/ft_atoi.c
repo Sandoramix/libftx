@@ -6,21 +6,11 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:40 by odudniak          #+#    #+#             */
-/*   Updated: 2023/10/27 08:44:36 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:00:11 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_isspace(int c)
-{
-	return (c == ' ' || (c >= 9 && c <= 13));
-}
-
-static int	ft_issign(int c)
-{
-	return (c == '+' || c == '-');
-}
 
 int	ft_atoi(const char *nptr)
 {

@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:49 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/30 15:15:27 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:01:49 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,34 +46,46 @@ typedef struct s_point
 	int	y;
 }	t_point;
 //!-------------------------CTYPE--------------------------------
-
+/**
+ * @brief Check wether a character is a sign.
+ * @param c char to check
+ * @return true if `c` is either `+` or `-`, `false` otherwise
+ */
+bool	ft_issign(char c);
+/**
+ * @brief Check wether a character is a space
+ * Valid spaces: `' '`, `'\\t'`, `'\\n'`, `'\\v'`, `'\\f'` or `'\\r'`
+ * @param c char to check
+ * @return `true` if the given characte is a space, `false` otherwise.
+ */
+bool	ft_isspace(char c);
 /**
  * @brief Checks for an alphabetic character (isupper(c) || islower(c)).
  * @return `1` in case of success, otherwise `0`.
 */
-int		ft_isalpha(int c);
+bool	ft_isalpha(char c);
 /**
  * @brief Checks for a digit (0 through 9).
  * @return `1` in case of success, otherwise `0`.
  */
-int		ft_isdigit(int c);
+bool	ft_isdigit(char c);
 /**
  * @brief Checks for an alphanumeric character;
  * it is equivalent to (`isalpha(c)` || `isdigit(c)`).
  * @return `1` in case of success, otherwise `0`.
  */
-int		ft_isalnum(int c);
+bool	ft_isalnum(char c);
 /**
  * @brief Checks whether `c` is a `7‐bit unsigned char` value
  * that fits into the ASCII character set.
  * @return `1` in case of success, otherwise `0`.
  */
-int		ft_isascii(int c);
+bool	ft_isascii(char c);
 /**
  * @brief Checks for any printable character including space.
  * @return `1` in case of success, otherwise `0`.
  */
-int		ft_isprint(int c);
+bool	ft_isprint(char c);
 
 //!-------------------------CHAR----------------------------------
 
@@ -104,7 +116,14 @@ int		ft_ctolower(int c);
  */
 bool	ft_charequals(char c1, char c2);
 //!-------------------------MEMORY-------------------------------
-
+/**
+ * @brief Free the given memory and return NULL
+ *
+ * @param mem memory to free
+ * @attention Uses `free`
+ * @return `NULL`
+ */
+void	*ft_free(void *mem);
 /**
  * @brief This function allocates memory for an array of `nmemb` elements
  * of size bytes each and returns a pointer to the allocated memory.
@@ -732,4 +751,14 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
  * @return `true` if every characters pass the function test, `false` otherwise
  */
 bool	ft_strevery(char *str, bool(*check_fn)(char));
+
+//!-------------------------STRICT GANG--------------------------
+/**
+ * @brief Atoi but very strict. doesn't tollerate any non digit characters
+ * except for spaces
+ *
+ * @param s
+ * @return int*
+ */
+int		*strict_atoi(const char *s);
 #endif

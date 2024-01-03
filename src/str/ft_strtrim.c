@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2023/11/26 23:46:35 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/03 13:44:21 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	end;
 
 	start = 0;
+	if (!s1 || !set)
+		return (NULL);
 	end = ft_strlen(s1) - 1;
 	while (ft_strchr(set, s1[start]))
 		start++;

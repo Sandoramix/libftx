@@ -1,7 +1,7 @@
 NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-COMPILE = $(CC) $(CFLAGS) -c
+COMPILE = $(CC) $(CFLAGS)
 ARCHIVE = ar rc $(NAME)
 RM = rm -f
 
@@ -20,6 +20,8 @@ SRC = ./src/char/ft_charequals.c \
 	./src/ctype/ft_isascii.c \
 	./src/ctype/ft_isdigit.c \
 	./src/ctype/ft_isprint.c \
+	./src/ctype/ft_issign.c \
+	./src/ctype/ft_isspace.c \
 	./src/files/ft_readfile.c \
 	./src/getnextline/get_next_line.c \
 	./src/getnextline/get_next_line_utils.c \
@@ -38,6 +40,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/math/ft_ulnbr_len.c \
 	./src/memory/ft_bzero.c \
 	./src/memory/ft_calloc.c \
+	./src/memory/ft_free.c \
 	./src/memory/ft_freemtx.c \
 	./src/memory/ft_getaddr.c \
 	./src/memory/ft_memchr.c \
@@ -56,6 +59,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/str/ft_strchr.c \
 	./src/str/ft_strcount_c.c \
 	./src/str/ft_strdup.c \
+	./src/str/ft_strendswith.c \
 	./src/str/ft_strevery.c \
 	./src/str/ft_stridxofchar.c \
 	./src/str/ft_stridxofstr.c \
@@ -77,14 +81,14 @@ SRC = ./src/char/ft_charequals.c \
 	./src/str/ft_strsubstr.c \
 	./src/str/ft_strtolower.c \
 	./src/str/ft_strtoupper.c \
-	./src/str/ft_strendswith.c \
 	./src/str/ft_strtrim.c \
+	./src/strict/converter/strict_atoi.c \
+	./src/unistd/ft_perror.c \
 	./src/unistd/ft_putaddr_fd.c \
 	./src/unistd/ft_putchar_fd.c \
 	./src/unistd/ft_putendl_fd.c \
-	./src/unistd/ft_perror.c \
-	./src/unistd/ft_putnchars_fd.c \
 	./src/unistd/ft_putnbr_fd.c \
+	./src/unistd/ft_putnchars_fd.c \
 	./src/unistd/ft_putstr_fd.c \
 	./src/unistd/ft_putstrmtx.c \
 	./src/unistd/ft_writeulbase_fd.c
@@ -94,7 +98,7 @@ OBJ = ${SRC:.c=.o}
 all: $(NAME)
 
 %.o: %.c
-	@$(COMPILE) $< -o $@ -Iincludes
+	@$(COMPILE) -c $< -o $@ -Iincludes
 	@echo "$(BLUE)[LIBFTX]:\t$< COMPILED!"
 
 $(NAME): $(OBJ)
@@ -110,17 +114,6 @@ fclean: clean
 	@echo "$(RED)[LIBFTX]:\tLIBRARY DELETED$(R)"
 
 re: fclean all
-
-
-printfmain: all
-	@$(CC) -w -Iincludes ft_printfm.c -L. -lft
-gnlmain: all
-	@$(CC) -w -Iincludes gnl_main.c -L. -lft
-readfilemain: all
-	@$(CC) -w -Iincludes readfile_main.c -L. -lft
-
-test: all
-	@$(CC) -w -Iincludes test.c -L. -lft
 
 # COLORS
 GREEN=\033[0;32m
