@@ -6,7 +6,11 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 13:50:33 by odudniak          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/01/03 19:06:24 by odudniak         ###   ########.fr       */
+=======
+/*   Updated: 2024/01/03 19:03:09 by odudniak         ###   ########.fr       */
+>>>>>>> c1bbb65defe07a50e33dfcd80d950697b1e568df
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +27,11 @@ static void	*x_freetwo(void *m1, void *m2)
 
 int	*strict_atoi(const char *s)
 {
-	int			*r;
-	char		*trim;
-	int			sign;
-	int			prev;
-	int			i;
+	int		*r;
+	char	*trim;
+	int		sign;
+	int		prev;
+	int		i;
 
 	trim = ft_strtrim(s, " \t\n\v\f\r");
 	if (!ft_istrlen(trim) || !ft_strevery(trim + (int [2]){0, 1}
