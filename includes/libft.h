@@ -3,6 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+/*   By: odudniak <odudniak@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/07 09:54:44 by odudniak          #+#    #+#             */
+/*   Updated: 2024/01/07 09:54:44 by odudniak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:49 by odudniak          #+#    #+#             */
@@ -80,7 +92,7 @@ bool	ft_isalnum(char c);
  * that fits into the ASCII character set.
  * @return `1` in case of success, otherwise `0`.
  */
-bool	ft_isascii(char c);
+bool	ft_isascii(int c);
 /**
  * @brief Checks for any printable character including space.
  * @return `1` in case of success, otherwise `0`.
