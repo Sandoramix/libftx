@@ -4,7 +4,6 @@ CFLAGS = -Wall -Wextra -Werror
 COMPILE = $(CC) $(CFLAGS)
 ARCHIVE = ar rc $(NAME)
 RM = rm -f
-
 SRC = ./src/char/ft_charequals.c \
 	./src/char/ft_ctolower.c \
 	./src/char/ft_ctoupper.c \
@@ -22,6 +21,10 @@ SRC = ./src/char/ft_charequals.c \
 	./src/ctype/ft_isprint.c \
 	./src/ctype/ft_issign.c \
 	./src/ctype/ft_isspace.c \
+	./src/dl_list/dll_create.c \
+	./src/dl_list/dll_delete.c \
+	./src/dl_list/dll_search.c \
+	./src/dl_list/dll_utils.c \
 	./src/files/ft_readfile.c \
 	./src/getnextline/get_next_line.c \
 	./src/getnextline/get_next_line_utils.c \

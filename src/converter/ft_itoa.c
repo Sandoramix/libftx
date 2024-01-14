@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:47 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:10:24 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_itoa(int n)
 
 	is_negative = n < 0;
 	digit_count = ft_nbr_len(n, 10);
-	res = ft_calloc(digit_count + 1, sizeof(char));
+	res = (char *)ft_calloc(digit_count + 1, sizeof(char));
 	if (!res)
 		return (NULL);
 	if (n < 0)

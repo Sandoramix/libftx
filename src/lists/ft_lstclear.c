@@ -6,18 +6,18 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:47 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:14:33 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	*ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*next;
 
 	if (!lst || !*lst || !del)
-		return ;
+		return (NULL);
 	while (*lst)
 	{
 		next = (*lst)->next;
@@ -25,4 +25,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		*lst = next;
 	}
 	*lst = NULL;
+	return (NULL);
 }

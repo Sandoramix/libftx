@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 09:54:44 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/14 15:40:59 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:16:22 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ bool		ft_charequals(char c1, char c2);
  * @attention Uses `free`
  * @return `NULL`
  */
-void		ft_free(void *mem);
+void		*ft_free(void *mem);
 /**
  * @brief This function allocates memory for an array of `nmemb` elements
  * of size bytes each and returns a pointer to the allocated memory.
@@ -153,7 +153,7 @@ void		ft_free(void *mem);
  * @return pointer to the created array. NULL if the allocation failed
  * @attention Uses: malloc
  */
-void		ft_calloc(size_t nmemb, size_t size);
+void		*ft_calloc(size_t nmemb, size_t size);
 /**
  * @brief This function erases the data in the `n` bytes of
  * the memory starting at the location pointed to by `s`, by
@@ -161,7 +161,7 @@ void		ft_calloc(size_t nmemb, size_t size);
  * @param s pointer to the memory.
  * @param n number of bytes to overwrite.
  */
-void		t_bzero(void *s, size_t n);
+void		ft_bzero(void *s, size_t n);
 /**
  * @brief This function fills the first `n` bytes of the memory area
  * pointed to by `s` with the constant byte `c`.
@@ -170,7 +170,7 @@ void		t_bzero(void *s, size_t n);
  * @param n number of bytes to affect
  * @return a pointer to the memory area `s`.
  */
-void		ft_memset(void *s, int c, size_t n);
+void		*ft_memset(void *s, int c, size_t n);
 /**
  * @brief This function copies `n` bytes from memory area `src`
  * to memory area `dest`.
@@ -180,7 +180,7 @@ void		ft_memset(void *s, int c, size_t n);
  * @param n number of bytes
  * @return a pointer to `dest`
  */
-void		ft_memcpy(void *dest, const void *src, size_t n);
+void		*ft_memcpy(void *dest, const void *src, size_t n);
 /**
  * @brief Reverse the memory area of n elements.
  * `mem` is mutated.
@@ -188,7 +188,7 @@ void		ft_memcpy(void *dest, const void *src, size_t n);
  * @param len length of the area
  * @return pointer to `mem`
  */
-void		ft_memrev(void *mem, size_t len);
+void		*ft_memrev(void *mem, size_t len);
 /**
  * @brief Free the matrix!
  * @param mtx void * -> any **
@@ -196,7 +196,7 @@ void		ft_memrev(void *mem, size_t len);
  * @return `NULL`
  * @attention Uses: free
  */
-void		ft_freemtx(void *mtx, size_t len);
+void		*ft_freemtx(void *mtx, size_t len);
 /**
  * @brief Get the length of the given matrix
  *
@@ -212,7 +212,7 @@ int			ft_memmtxlen(void *mem);
  * @param n number of bytes
  * @return a pointer to `dest`
  */
-void		*ft_memmtxcpy(void **dest, void **src, size_t n);
+void		**ft_memmtxcpy(void **dest, void **src, size_t n);
 /**
  * @brief This function copies `n` bytes from memory area
  * `src` to memory area `dest`.
@@ -225,7 +225,7 @@ void		*ft_memmtxcpy(void **dest, void **src, size_t n);
  * @param n number of bytes to copy.
  * @return a pointer to dest.
  */
-void		ft_memmove(void *dest, const void *src, size_t n);
+void		*ft_memmove(void *dest, const void *src, size_t n);
 /**
  * @brief This function scans the initial `n` bytes of the memory area
  * pointed to by `s` for the first instance of `c`.
@@ -237,7 +237,7 @@ void		ft_memmove(void *dest, const void *src, size_t n);
  * @return a pointer to the matching byte
  * or `NULL` if the character does not occur in the given memory area.
  */
-void		ft_memchr(const void *s, int c, size_t n);
+void		*ft_memchr(const void *s, int c, size_t n);
 /**
  * @brief This function compares only the first (at most)
  * `n` bytes of memory areas `s1` and `s2`
@@ -421,7 +421,7 @@ t_dllist	*dll_addhead(t_dllist **head, int *val);
 t_dllist	*dll_new(int *val);
 void		*dll_clearlist(t_dllist **head);
 
-int			*dll_idxof(t_dllist *head, int val);
+int			dll_idxof(t_dllist *head, int val);
 //!-------------------------LISTS------------------------------
 
 /**
@@ -440,7 +440,7 @@ t_list		*ft_lstnew(void *content);
  * @param lst The address of a pointer to the first link of a list.
  * @param new The address of a pointer to the node to be added to the list.
  */
-void		t_lstadd_front(t_list **lst, t_list *new);
+void		*ft_lstadd_front(t_list **lst, t_list *new);
 /**
  * @brief Counts the number of nodes in a list.
  * @param lst The beginning of the list.
@@ -458,7 +458,7 @@ t_list		*ft_lstlast(t_list *lst);
  * @param lst The address of a pointer to the first link of a list.
  * @param The address of a pointer to the node to be added to the list.
  */
-void		t_lstadd_back(t_list **lst, t_list *new);
+void		*ft_lstadd_back(t_list **lst, t_list *new);
 /**
  * @brief Takes as a parameter a node and frees the memory of
  * the node's content using the function 'del' given
@@ -467,7 +467,7 @@ void		t_lstadd_back(t_list **lst, t_list *new);
  * @param del The address of the function used to delete the content.
  * @attention Uses: free
  */
-void		t_lstdelone(t_list *lst, void (*del)(void *));
+void		*ft_lstdelone(t_list *lst, void (*del)(void *));
 /**
  * @brief Deletes and frees the given node and every successor of that node,
  * using the function 'del' and free(3).
@@ -477,14 +477,14 @@ void		t_lstdelone(t_list *lst, void (*del)(void *));
  * the content of the node.
  * @attention Uses: malloc
  */
-void		t_lstclear(t_list **lst, void (*del)(void *));
+void		*ft_lstclear(t_list **lst, void (*del)(void *));
 /**
  * @brief Iterates the list 'lst' and applies the function
  * 'f' on the content of each node.
  * @param lst The address of a pointer to a node.
  * @param f  The address of the function used to iterate on the list.
  */
-void		t_lstiter(t_list *lst, void (*f)(void *));
+void		ft_lstiter(t_list *lst, void (*f)(void *));
 /**
  * @brief Iterates the list 'lst' and applies the function
  * 'f' on the content of each node. Creates a new
