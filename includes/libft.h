@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 09:54:44 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/07 09:54:44 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/14 15:40:59 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,52 +52,60 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+typedef struct s_dllist
+{
+	int					*val;
+	struct s_dllist		*next;
+	struct s_dllist		*prev;
+}	t_dllist;
+
 typedef struct s_point
 {
 	int	x;
 	int	y;
 }	t_point;
+
 //!-------------------------CTYPE--------------------------------
 /**
  * @brief Check wether a character is a sign.
  * @param c char to check
  * @return true if `c` is either `+` or `-`, `false` otherwise
  */
-bool	ft_issign(char c);
+bool		ft_issign(char c);
 /**
  * @brief Check wether a character is a space
  * Valid spaces: `' '`, `'\\t'`, `'\\n'`, `'\\v'`, `'\\f'` or `'\\r'`
  * @param c char to check
  * @return `true` if the given characte is a space, `false` otherwise.
  */
-bool	ft_isspace(char c);
+bool		ft_isspace(char c);
 /**
  * @brief Checks for an alphabetic character (isupper(c) || islower(c)).
  * @return `1` in case of success, otherwise `0`.
 */
-bool	ft_isalpha(char c);
+bool		ft_isalpha(char c);
 /**
  * @brief Checks for a digit (0 through 9).
  * @return `1` in case of success, otherwise `0`.
  */
-bool	ft_isdigit(char c);
+bool		ft_isdigit(char c);
 /**
  * @brief Checks for an alphanumeric character;
  * it is equivalent to (`isalpha(c)` || `isdigit(c)`).
  * @return `1` in case of success, otherwise `0`.
  */
-bool	ft_isalnum(char c);
+bool		ft_isalnum(char c);
 /**
  * @brief Checks whether `c` is a `7‐bit unsigned char` value
  * that fits into the ASCII character set.
  * @return `1` in case of success, otherwise `0`.
  */
-bool	ft_isascii(int c);
+bool		ft_isascii(int c);
 /**
  * @brief Checks for any printable character including space.
  * @return `1` in case of success, otherwise `0`.
  */
-bool	ft_isprint(char c);
+bool		ft_isprint(char c);
 
 //!-------------------------CHAR----------------------------------
 
@@ -109,7 +117,7 @@ bool	ft_isprint(char c);
  * @return The value returned is that of the converted letter, or `c`
  * if the conversion was not possible.
  */
-int		ft_ctoupper(int c);
+int			ft_ctoupper(int c);
 /**
  * @brief If `c` is an uppercase letter,
  * `ft_tolower()` returns its lowercase equivalent,
@@ -118,7 +126,7 @@ int		ft_ctoupper(int c);
  * @return The value returned is that of the converted letter, or `c`
  * if the conversion was not possible.
  */
-int		ft_ctolower(int c);
+int			ft_ctolower(int c);
 /**
  * @brief Check if `c1` and `c2` are equal
  *
@@ -126,7 +134,7 @@ int		ft_ctolower(int c);
  * @param c2 char
  * @return true if `c1` and `c2` are equal, false otherwise
  */
-bool	ft_charequals(char c1, char c2);
+bool		ft_charequals(char c1, char c2);
 //!-------------------------MEMORY-------------------------------
 /**
  * @brief Free the given memory and return NULL
@@ -135,7 +143,7 @@ bool	ft_charequals(char c1, char c2);
  * @attention Uses `free`
  * @return `NULL`
  */
-void	*ft_free(void *mem);
+void		ft_free(void *mem);
 /**
  * @brief This function allocates memory for an array of `nmemb` elements
  * of size bytes each and returns a pointer to the allocated memory.
@@ -145,7 +153,7 @@ void	*ft_free(void *mem);
  * @return pointer to the created array. NULL if the allocation failed
  * @attention Uses: malloc
  */
-void	*ft_calloc(size_t nmemb, size_t size);
+void		ft_calloc(size_t nmemb, size_t size);
 /**
  * @brief This function erases the data in the `n` bytes of
  * the memory starting at the location pointed to by `s`, by
@@ -153,7 +161,7 @@ void	*ft_calloc(size_t nmemb, size_t size);
  * @param s pointer to the memory.
  * @param n number of bytes to overwrite.
  */
-void	ft_bzero(void *s, size_t n);
+void		t_bzero(void *s, size_t n);
 /**
  * @brief This function fills the first `n` bytes of the memory area
  * pointed to by `s` with the constant byte `c`.
@@ -162,7 +170,7 @@ void	ft_bzero(void *s, size_t n);
  * @param n number of bytes to affect
  * @return a pointer to the memory area `s`.
  */
-void	*ft_memset(void *s, int c, size_t n);
+void		ft_memset(void *s, int c, size_t n);
 /**
  * @brief This function copies `n` bytes from memory area `src`
  * to memory area `dest`.
@@ -172,7 +180,7 @@ void	*ft_memset(void *s, int c, size_t n);
  * @param n number of bytes
  * @return a pointer to `dest`
  */
-void	*ft_memcpy(void *dest, const void *src, size_t n);
+void		ft_memcpy(void *dest, const void *src, size_t n);
 /**
  * @brief Reverse the memory area of n elements.
  * `mem` is mutated.
@@ -180,7 +188,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
  * @param len length of the area
  * @return pointer to `mem`
  */
-void	*ft_memrev(void *mem, size_t len);
+void		ft_memrev(void *mem, size_t len);
 /**
  * @brief Free the matrix!
  * @param mtx void * -> any **
@@ -188,14 +196,14 @@ void	*ft_memrev(void *mem, size_t len);
  * @return `NULL`
  * @attention Uses: free
  */
-void	*ft_freemtx(void *mtx, size_t len);
+void		ft_freemtx(void *mtx, size_t len);
 /**
  * @brief Get the length of the given matrix
  *
  * @param s matrix
  * @return Length of the matrix as integer
  */
-int		ft_memmtxlen(void *mem);
+int			ft_memmtxlen(void *mem);
 /**
  * @brief This function copies `n` elements from memory area (a matrix) `src`
  * to memory area (matrix) `dest`.
@@ -204,7 +212,7 @@ int		ft_memmtxlen(void *mem);
  * @param n number of bytes
  * @return a pointer to `dest`
  */
-void	**ft_memmtxcpy(void **dest, void **src, size_t n);
+void		*ft_memmtxcpy(void **dest, void **src, size_t n);
 /**
  * @brief This function copies `n` bytes from memory area
  * `src` to memory area `dest`.
@@ -217,7 +225,7 @@ void	**ft_memmtxcpy(void **dest, void **src, size_t n);
  * @param n number of bytes to copy.
  * @return a pointer to dest.
  */
-void	*ft_memmove(void *dest, const void *src, size_t n);
+void		ft_memmove(void *dest, const void *src, size_t n);
 /**
  * @brief This function scans the initial `n` bytes of the memory area
  * pointed to by `s` for the first instance of `c`.
@@ -229,7 +237,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
  * @return a pointer to the matching byte
  * or `NULL` if the character does not occur in the given memory area.
  */
-void	*ft_memchr(const void *s, int c, size_t n);
+void		ft_memchr(const void *s, int c, size_t n);
 /**
  * @brief This function compares only the first (at most)
  * `n` bytes of memory areas `s1` and `s2`
@@ -241,14 +249,14 @@ void	*ft_memchr(const void *s, int c, size_t n);
  * A `negative number` if s1 is less than s2.
  * A `positive number` if s1 is greater than s2.
  */
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
+int			ft_memcmp(const void *s1, const void *s2, size_t n);
 /**
  * @brief Get the address of given pointer in hexadecimal letters
  * @param p memory area
  * @return The pointer's address in hexadecimal characters
  * @attention Uses: malloc
  */
-char	*ft_getaddr(void *p);
+char		*ft_getaddr(void *p);
 
 //!-------------------------CONVERTERS-------------------------
 
@@ -262,13 +270,13 @@ char	*ft_getaddr(void *p);
  * NULL if the allocation fails.
  * @attention Uses: malloc
  */
-char	*ft_itoa(int n);
+char		*ft_itoa(int n);
 /**
  * @brief Get the boolean value as a string
  * @param value boolean
  * @return "true" if the value is `true` otherwise "false"
  */
-char	*ft_boolstr(bool value);
+char		*ft_boolstr(bool value);
 /**
  * @brief Converts the given string into a number.
  * It skips all the `isspace` characters on start, ignores all the non digits
@@ -278,7 +286,7 @@ char	*ft_boolstr(bool value);
  * @attention If the input is invalid it returns `0` (zero)
  * so it might give some issues in future.
  */
-int		ft_atoi(const char *nptr);
+int			ft_atoi(const char *nptr);
 /**
  * @brief print the number in given base
  *
@@ -287,21 +295,21 @@ int		ft_atoi(const char *nptr);
  * @return The converted number in specified base
  * @attention Uses: malloc
  */
-char	*ft_itoa_base(int n, const char *base);
+char		*ft_itoa_base(int n, const char *base);
 /**
  * @brief Convert a number to hex
  * @param n number `int`
  * @return String of the hex number. (`0x`) excluded
  * @attention Uses: malloc
  */
-char	*ft_itohex(unsigned long n);
+char		*ft_itohex(unsigned long n);
 /**
  * @brief Convert an `unsigned int` into a string
  * @param n unsigned int
  * @return The number as a string
  * @attention Uses: malloc.
  */
-char	*ft_uitoa(unsigned int n);
+char		*ft_uitoa(unsigned int n);
 /**
  * @brief Allocates (with malloc(3)) and returns a string
  * representing the integer received as an argument.
@@ -311,7 +319,7 @@ char	*ft_uitoa(unsigned int n);
  * NULL if the allocation fails.
  * @attention Uses: malloc
  */
-char	*ft_ultoa_base(unsigned long n, const char *base);
+char		*ft_ultoa_base(unsigned long n, const char *base);
 
 //!-------------------------UNISTD-----------------------------
 
@@ -322,7 +330,7 @@ char	*ft_ultoa_base(unsigned long n, const char *base);
  * @param fd The file descriptor on which to write.
  * @return number of characters written to fd (always 1).
  */
-int		ft_putchar_fd(char c, int fd);
+int			ft_putchar_fd(char c, int fd);
 /**
  * @brief Outputs the string 's' to the given file
  * descriptor.
@@ -330,7 +338,7 @@ int		ft_putchar_fd(char c, int fd);
  * @param fd The file descriptor on which to write.
  * @return number of characters written to fd.
  */
-int		ft_putstr_fd(char *s, int fd);
+int			ft_putstr_fd(char *s, int fd);
 /**
  * @brief Outputs the string 's' to the given file descriptor
  * followed by a newline.
@@ -338,7 +346,7 @@ int		ft_putstr_fd(char *s, int fd);
  * @param fd The file descriptor on which to write.
  * @return number of characters written to fd.
  */
-int		ft_putendl_fd(char *s, int fd);
+int			ft_putendl_fd(char *s, int fd);
 /**
  * @brief Outputs the integer 'n' to the given file descriptor.
  *
@@ -346,14 +354,14 @@ int		ft_putendl_fd(char *s, int fd);
  * @param fd The file descriptor on which to write.
  * @return number of characters written to fd.
  */
-int		ft_putnbr_fd(long long n, int fd);
+int			ft_putnbr_fd(long long n, int fd);
 /**
  * @brief Print the given matrix
  *
  * @param mtx matrix to print
  * @return int number of rows printed.
  */
-int		ft_putstrmtx(char **mtx);
+int			ft_putstrmtx(char **mtx);
 /**
  * @brief Print address of a given pointer to `fd`
  *
@@ -361,7 +369,7 @@ int		ft_putstrmtx(char **mtx);
  * @param fd file descriptor
  * @return Number of characters printed
  */
-int		ft_putaddr_fd(void *p, int fd);
+int			ft_putaddr_fd(void *p, int fd);
 /**
  * @brief Print the number in given base
  * @param n number to convert
@@ -369,12 +377,51 @@ int		ft_putaddr_fd(void *p, int fd);
  * @param fd file descriptor
  * @return Number of characters printed
  */
-int		ft_writeulbase_fd(unsigned long n, char *base, int fd);
+int			ft_writeulbase_fd(unsigned long n, char *base, int fd);
 /**
  * @brief Write `n` times the `c` character to `fd`
  * @return `n`
  */
-int		ft_putnchars_fd(char c, int n, int fd);
+int			ft_putnchars_fd(char c, int n, int fd);
+//!-----------------------DOUBLE LINKED LISTS------------------
+/**
+ * @brief get list's last node
+ * @param head head of the list
+ * @return pointer to tail
+ */
+t_dllist	*dll_gettail(t_dllist *head);
+/**
+ * @brief Print the list from head to tail
+ * @param head list's head
+ */
+void		dll_printlist(t_dllist *head);
+/**
+ * @brief Print the list from tail to head
+ * @param head list's head
+ */
+void		dll_printrevlist(t_dllist *head);
+/**
+ * @brief Get list's node by it's index
+ * @param head list's head
+ * @param idx index to get
+ * @return list's node or `NULL` if `idx` is not valid
+ */
+t_dllist	*dll_getbyindex(t_dllist *head, int idx);
+/**
+ * @brief Retrieve the list's current size
+ * @param head list's head
+ * @return `int`
+ */
+int			dll_size(t_dllist *head);
+
+t_dllist	*dll_delhead(t_dllist **head);
+t_dllist	*dll_deltail(t_dllist **head);
+t_dllist	*dll_addtail(t_dllist **head, int *val);
+t_dllist	*dll_addhead(t_dllist **head, int *val);
+t_dllist	*dll_new(int *val);
+void		*dll_clearlist(t_dllist **head);
+
+int			*dll_idxof(t_dllist *head, int val);
 //!-------------------------LISTS------------------------------
 
 /**
@@ -386,32 +433,32 @@ int		ft_putnchars_fd(char c, int n, int fd);
  * @return The new node
  * @attention Uses: malloc
  */
-t_list	*ft_lstnew(void *content);
+t_list		*ft_lstnew(void *content);
 /**
  * @brief Adds the node 'new' at the beginning of the list.
  *
  * @param lst The address of a pointer to the first link of a list.
  * @param new The address of a pointer to the node to be added to the list.
  */
-void	ft_lstadd_front(t_list **lst, t_list *new);
+void		t_lstadd_front(t_list **lst, t_list *new);
 /**
  * @brief Counts the number of nodes in a list.
  * @param lst The beginning of the list.
  * @return The length of the list
  */
-int		ft_lstsize(t_list *lst);
+int			ft_lstsize(t_list *lst);
 /**
  * @brief Returns the last node of the list.
  * @param lst The beginning of the list.
  * @return Last node of the list
  */
-t_list	*ft_lstlast(t_list *lst);
+t_list		*ft_lstlast(t_list *lst);
 /**
  * @brief Adds the node 'new' at the end of the list.
  * @param lst The address of a pointer to the first link of a list.
  * @param The address of a pointer to the node to be added to the list.
  */
-void	ft_lstadd_back(t_list **lst, t_list *new);
+void		t_lstadd_back(t_list **lst, t_list *new);
 /**
  * @brief Takes as a parameter a node and frees the memory of
  * the node's content using the function 'del' given
@@ -420,7 +467,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
  * @param del The address of the function used to delete the content.
  * @attention Uses: free
  */
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void		t_lstdelone(t_list *lst, void (*del)(void *));
 /**
  * @brief Deletes and frees the given node and every successor of that node,
  * using the function 'del' and free(3).
@@ -430,14 +477,14 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
  * the content of the node.
  * @attention Uses: malloc
  */
-void	ft_lstclear(t_list **lst, void (*del)(void *));
+void		t_lstclear(t_list **lst, void (*del)(void *));
 /**
  * @brief Iterates the list 'lst' and applies the function
  * 'f' on the content of each node.
  * @param lst The address of a pointer to a node.
  * @param f  The address of the function used to iterate on the list.
  */
-void	ft_lstiter(t_list *lst, void (*f)(void *));
+void		t_lstiter(t_list *lst, void (*f)(void *));
 /**
  * @brief Iterates the list 'lst' and applies the function
  * 'f' on the content of each node. Creates a new
@@ -451,7 +498,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
  * @return The new list. NULL if the allocation fails.
  * @attention Uses: malloc
  */
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 //!-------------------------MATH-------------------------------
 
@@ -461,7 +508,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
  * @param n integer to convert
  * @return positive number
  */
-t_uint	ft_iabs(int n);
+t_uint		ft_iabs(int n);
 /**
  * @brief power of the `int` number
  *
@@ -470,7 +517,7 @@ t_uint	ft_iabs(int n);
  * @return Returns the final value.
  * Returns `0` if `power` is negative
  */
-int		ft_ipow(int nb, int power);
+int			ft_ipow(int nb, int power);
 /**
  * @brief Get the total count of the number in specific base.
  * The minus (`-`) is included
@@ -478,14 +525,14 @@ int		ft_ipow(int nb, int power);
  * @param base_len len of the base (10, 16, etc.)
  * @return count of the final digits
  */
-int		ft_nbr_len(long long n, int base_len);
+int			ft_nbr_len(long long n, int base_len);
 /**
  * @brief Get the total count of the number in specific base.
  * @param n number to check
  * @param base_len len of the base (10, 16, etc.)
  * @return count of the final digits
  */
-int		ft_ulnbr_len(unsigned long n, int base_len);
+int			ft_ulnbr_len(unsigned long n, int base_len);
 
 //!-------------------------STRINGS-----------------------------
 /**
@@ -496,7 +543,7 @@ int		ft_ulnbr_len(unsigned long n, int base_len);
  * It returns NULL if insufficient memory was available.
  * @attention Uses: malloc
  */
-char	*ft_strdup(const char *s);
+char		*ft_strdup(const char *s);
 /**
  * @brief Duplicate an array of strings
  * @param mtx array of strings
@@ -504,20 +551,20 @@ char	*ft_strdup(const char *s);
  * or `NULL` if error occured
  * @attention Uses: malloc + free
  */
-char	**ft_strmtxdup(char **mtx);
+char		**ft_strmtxdup(char **mtx);
 /**
  * @brief Get the length of a string
  * @param s (array of chars) | string
  * @return size_t
  */
-size_t	ft_strlen(const char *s);
+size_t		ft_strlen(const char *s);
 /**
  * @brief Get the length of the string
  *
  * @param s string
  * @return Length of the string as integer
  */
-int		ft_istrlen(const char *s);
+int			ft_istrlen(const char *s);
 /**
  * @brief This function copy a string from src to dest.
  * @param dst destination variable
@@ -526,7 +573,7 @@ int		ft_istrlen(const char *s);
  * @return The total length of the string it tried to create
  * (that means the length of src).
  */
-size_t	ft_strlcpy(char *dst, const char *src, size_t sz);
+size_t		ft_strlcpy(char *dst, const char *src, size_t sz);
 /**
  * @brief This function concatenate a string from src to dest.
  * It copies up to `size - 1` characters
@@ -538,7 +585,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t sz);
  * @return The total length of the string it tried to create
  * (hat means the initial length of dst plus the length of src).
  */
-size_t	ft_strlcat(char *dst, const char *src, size_t sz);
+size_t		ft_strlcat(char *dst, const char *src, size_t sz);
 /**
  * @brief This function returns a pointer to the first occurrence
  *  of the character c in the string s.
@@ -547,7 +594,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t sz);
  * @return a pointer to the matched character `c`
  * or `NULL` if the character is not found.
  */
-char	*ft_strchr(const char *s, int c);
+char		*ft_strchr(const char *s, int c);
 /**
  * @brief This function returns a pointer to the last occurrence
  *  of the character c in the string s.
@@ -556,7 +603,7 @@ char	*ft_strchr(const char *s, int c);
  * @return a pointer to the matched character `c`
  * or `NULL` if the character is not found.
  */
-char	*ft_strrchr(const char *s, int c);
+char		*ft_strrchr(const char *s, int c);
 /**
  * @brief This function compares only the first (at most)
  * `n` bytes of the two strings `s1` and `s2`.
@@ -567,7 +614,7 @@ char	*ft_strrchr(const char *s, int c);
  * A `negative number` if s1 is less than s2.
  * A `positive number` if s1 is greater than s2.
  */
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
 /**
  * @brief This function locates the first occurrence of the
  * null-terminated string s2 in the string s1,
@@ -580,7 +627,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
  * in big, NULL is returned; otherwise a pointer to the first character of
  * the first occurrence of `s2` is returned.
  */
-char	*ft_strnstr(const char *s1, const char *s2, size_t n);
+char		*ft_strnstr(const char *s1, const char *s2, size_t n);
 /**
  * @brief Find the index of first char `c` inside the string `s`
  *
@@ -588,7 +635,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n);
  * @param c char to find
  * @return Index of the first occurence of `c`, or `-1` if it's not present
  */
-int		ft_stridxofchar(const char *s, char c);
+int			ft_stridxofchar(const char *s, char c);
 /**
  * @brief FInd the index of first occurence of substring `find` inside `str`
  *
@@ -597,7 +644,7 @@ int		ft_stridxofchar(const char *s, char c);
  * @return Index of the first occurence of `find` inside `str`,
  * or `-1` if it's not present.
  */
-int		ft_stridxofstr(const char *str, char *find);
+int			ft_stridxofstr(const char *str, char *find);
 /**
  * @brief Add right padding to the string with specified char if necessary.
  * @attention Original string is mutated.
@@ -609,7 +656,7 @@ int		ft_stridxofstr(const char *str, char *find);
  * @return Copy of the string plus the added padding if necessary.
  * @attention Uses: malloc
  */
-char	*ft_strpad(char *s, char c, int n, bool start);
+char		*ft_strpad(char *s, char c, int n, bool start);
 /**
  * @brief Update the string to uppercase.
  * @attention Original string is mutated.
@@ -617,7 +664,7 @@ char	*ft_strpad(char *s, char c, int n, bool start);
  * @param s string to return
  * @return The converted string.
  */
-char	*ft_strtoupper(char *s);
+char		*ft_strtoupper(char *s);
 /**
  * @brief Update the string to lowercase.
  * @attention Original string is mutated.
@@ -625,7 +672,7 @@ char	*ft_strtoupper(char *s);
  * @param s string to return
  * @return The converted string.
  */
-char	*ft_strtolower(char *s);
+char		*ft_strtolower(char *s);
 /**
  * @brief Find and replace the `first` substring of `str` with another string.
  * @attention Uses: malloc, free.
@@ -637,7 +684,7 @@ char	*ft_strtolower(char *s);
  * @param replace string to replace `find` with
  * @return the pointer to the new `str`. Or the same str if something went wrong.
  */
-char	*ft_strreplace_first(char *str, char *find, char *replace);
+char		*ft_strreplace_first(char *str, char *find, char *replace);
 /**
  * @brief Find and replace the `all` substrings of `str` with another string.
  * @attention Uses: malloc, free.
@@ -647,7 +694,7 @@ char	*ft_strreplace_first(char *str, char *find, char *replace);
  * @param replace string to replace `find` with
  * @return the pointer to the new `str`
  */
-char	*ft_strreplace(char *str, char *find, char *replace);
+char		*ft_strreplace(char *str, char *find, char *replace);
 /**
  * @brief Count how many times does `c` appear in `s`
  *
@@ -655,7 +702,7 @@ char	*ft_strreplace(char *str, char *find, char *replace);
  * @param c char
  * @return size_t
  */
-size_t	ft_strcount_c(const char *s, char c);
+size_t		ft_strcount_c(const char *s, char c);
 /**
  * @brief Add a character to the end of a string
  * @attention Uses: malloc, free. Original string is mutated.
@@ -664,7 +711,7 @@ size_t	ft_strcount_c(const char *s, char c);
  * @return pointer to the start of modified string.
  * If there's been an issue with allocation, null is returned
  */
-char	*ft_strpushcar(char *s, char c);
+char		*ft_strpushcar(char *s, char c);
 /**
  * @brief Allocates and returns a substring
  * from the string 's'.
@@ -678,7 +725,7 @@ char	*ft_strpushcar(char *s, char c);
  * NULL if the allocation fails.
  * @attention Uses: malloc
  */
-char	*ft_strsubstr(char const *s, unsigned int start, size_t len);
+char		*ft_strsubstr(char const *s, unsigned int start, size_t len);
 /**
  * @brief Allocates (with malloc(3)) and returns a new
  * string, which is the result of the concatenation
@@ -689,7 +736,7 @@ char	*ft_strsubstr(char const *s, unsigned int start, size_t len);
  * NULL if the allocation fails.
  * @attention Uses: malloc
  */
-char	*ft_strjoin(char const *s1, char const *s2);
+char		*ft_strjoin(char const *s1, char const *s2);
 /**
  * @brief Allocates (with malloc(3)) and returns a new
  * string, which is the result of the concatenation
@@ -700,7 +747,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
  * NULL if the allocation fails.
  * @attention Uses: malloc, free
  */
-char	*ft_str_freejoin(char *s1, char const *s2);
+char		*ft_str_freejoin(char *s1, char const *s2);
 /**
  * @brief Allocates and returns a copy of
  * 's1' with the characters specified in 'set' removed
@@ -711,7 +758,7 @@ char	*ft_str_freejoin(char *s1, char const *s2);
  * NULL if the allocation fails.
  * @attention Uses: malloc
  */
-char	*ft_strtrim(char const *s1, char const *set);
+char		*ft_strtrim(char const *s1, char const *set);
 /**
  * @brief Allocates (with malloc(3)) and returns an array
  * of strings obtained by splitting 's' using the
@@ -724,14 +771,14 @@ char	*ft_strtrim(char const *s1, char const *set);
  * NULL if the allocation fails.
  * @attention Uses: malloc
  */
-char	**ft_strsplit(char const *s, char c);
+char		**ft_strsplit(char const *s, char c);
 /**
  * @brief Check if the given `s` string ends with `end` string
  * @param s string to check
  * @param end expected ending of the string
  * @return `true` if `s` ends with `end`, `false` otherwise
  */
-bool	ft_strendswith(const char *s, char *end);
+bool		ft_strendswith(const char *s, char *end);
 /**
  * @brief Applies the function 'f' to each character of the
  * string 's', and passing its index as first argument
@@ -744,7 +791,7 @@ bool	ft_strendswith(const char *s, char *end);
  * Returns NULL if the allocation fails.
  * @attention Uses: malloc
  */
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 /**
  * @brief Applies the function 'f' on each character of the string
  * passed as argument, passing its index as first argument.
@@ -752,7 +799,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * @param s The string on which to iterate.
  * @param f The function to apply to each character.
  */
-void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void		t_striteri(char *s, void (*f)(unsigned int, char*));
 /**
  * @brief Tests whether all characters in the string
  * pass the test implemented by the provided function.
@@ -762,7 +809,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
  * @note Example: `check_fn:` bool test(char);
  * @return `true` if every characters pass the function test, `false` otherwise
  */
-bool	ft_strevery(char *str, bool(*check_fn)(char));
+bool		ft_strevery(char *str, bool(*check_fn)(char));
 
 //!-------------------------STRICT GANG--------------------------
 /**
@@ -772,5 +819,5 @@ bool	ft_strevery(char *str, bool(*check_fn)(char));
  * @param s
  * @return int*
  */
-int		*strict_atoi(const char *s);
+int			*strict_atoi(const char *s);
 #endif
