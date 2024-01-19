@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 15:20:09 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/14 16:17:59 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/19 18:36:02 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,47 @@ t_dllist	*dll_getbyindex(t_dllist *head, int idx)
 	if (i == idx)
 		return (res);
 	return (NULL);
+}
+
+t_dllist	*dll_minmax(t_dllist *head, bool min)
+{
+	t_dllist	*res;
+
+	res = head;
+	if (!head)
+		return (NULL);
+	head = head->next;
+	while (head)
+	{
+		if ((min && *res->val > *head->val) || (!min && *res->val < *head->val))
+			res = head;
+		head = head->next;
+	}
+	return (res);
+}
+
+int	dll_minmax_idx(t_dllist *head, bool min)
+{
+	t_dllist	*cur;
+	int			result;
+	int			i;
+
+	if (!head)
+		return (-1);
+	cur = head;
+	head = head->next;
+	i = 0;
+	result = 0;
+	while (head)
+	{
+		i++;
+		if ((min && *(cur->val) > *(head->val))
+			|| (!min && *(cur->val) < *(head->val)))
+		{
+			cur = head;
+			result = i;
+		}
+		head = head->next;
+	}
+	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 09:54:44 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/14 16:16:22 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/19 17:43:16 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -414,6 +414,7 @@ t_dllist	*dll_getbyindex(t_dllist *head, int idx);
  */
 int			dll_size(t_dllist *head);
 
+// TODO ADD DOCS
 t_dllist	*dll_delhead(t_dllist **head);
 t_dllist	*dll_deltail(t_dllist **head);
 t_dllist	*dll_addtail(t_dllist **head, int *val);
@@ -422,6 +423,8 @@ t_dllist	*dll_new(int *val);
 void		*dll_clearlist(t_dllist **head);
 
 int			dll_idxof(t_dllist *head, int val);
+t_dllist	*dll_minmax(t_dllist *head, bool min);
+int			dll_minmax_idx(t_dllist *head, bool min);
 //!-------------------------LISTS------------------------------
 
 /**
