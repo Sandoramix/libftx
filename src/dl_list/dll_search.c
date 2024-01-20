@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 15:20:09 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/20 14:32:02 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/20 16:17:06 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,24 +95,28 @@ int	dll_minmax_idx(t_dllist *head, bool min)
 int	dll_first_bigger_idx(t_dllist *head, int prevmax)
 {
 	t_dllist	*cur;
+	t_dllist	*h;
 	int			res;
 	int			i;
 
 	if (!head)
 		return (-1);
+	h = head;
 	cur = head;
-	head = head->next;
+	h = head->next;
 	i = 0;
 	res = -1;
-	while (head)
+	if (*(cur->val) > prevmax)
+		res = i;
+	while (h && h != head)
 	{
 		i++;
-		if (*(head->val) > prevmax && (res == -1 || *(head->val) < *(cur->val)))
+		if (*(h->val) > prevmax && (res == -1 || *(h->val) < *(cur->val)))
 		{
-			cur = head;
+			cur = h;
 			res = i;
 		}
-		head = head->next;
+		h = h->next;
 	}
 	return (res);
 }
