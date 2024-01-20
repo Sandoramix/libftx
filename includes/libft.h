@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 09:54:44 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/20 08:55:59 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/20 11:58:11 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -425,6 +425,7 @@ void		*dll_clearlist(t_dllist **head);
 int			dll_idxof(t_dllist *head, int val);
 t_dllist	*dll_minmax(t_dllist *head, bool min);
 int			dll_minmax_idx(t_dllist *head, bool min);
+int			dll_first_bigger_idx(t_dllist *head, int prevmax);
 //!-------------------------LISTS------------------------------
 
 /**
