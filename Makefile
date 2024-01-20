@@ -29,6 +29,8 @@ SRC = ./src/char/ft_charequals.c \
 	./src/files/ft_readfile.c \
 	./src/getnextline/get_next_line.c \
 	./src/getnextline/get_next_line_utils.c \
+	./src/int/ft_int_minmax_idx.c \
+	./src/int/ft_int_printarr.c \
 	./src/lists/ft_lstadd_back.c \
 	./src/lists/ft_lstadd_front.c \
 	./src/lists/ft_lstclear.c \
@@ -58,6 +60,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/printf/ft_pfflag.c \
 	./src/printf/ft_pflaghandler.c \
 	./src/printf/ft_printf.c \
+	./src/printf/ft_printf_core.c \
 	./src/str/ft_istrlen.c \
 	./src/str/ft_str_freejoin.c \
 	./src/str/ft_strchr.c \
@@ -87,7 +90,6 @@ SRC = ./src/char/ft_charequals.c \
 	./src/str/ft_strtoupper.c \
 	./src/str/ft_strtrim.c \
 	./src/strict/converter/strict_atoi.c \
-	./src/unistd/ft_perror.c \
 	./src/unistd/ft_putaddr_fd.c \
 	./src/unistd/ft_putchar_fd.c \
 	./src/unistd/ft_putendl_fd.c \
@@ -95,9 +97,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/unistd/ft_putnchars_fd.c \
 	./src/unistd/ft_putstr_fd.c \
 	./src/unistd/ft_putstrmtx.c \
-	./src/unistd/ft_writeulbase_fd.c \
-	./src/int/ft_int_minmax_idx.c \
-	./src/int/ft_int_printarr.c
+	./src/unistd/ft_writeulbase_fd.c
 
 OBJ = ${SRC:.c=.o}
 
