@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 15:20:09 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/20 12:02:55 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/20 14:32:02 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	dll_first_bigger_idx(t_dllist *head, int prevmax)
 	int			res;
 	int			i;
 
-	if (!head || dll_idxof(head, prevmax) == -1)
+	if (!head)
 		return (-1);
 	cur = head;
 	head = head->next;
