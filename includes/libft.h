@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 09:54:44 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/19 17:43:16 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/20 08:55:59 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -383,7 +383,7 @@ int			ft_writeulbase_fd(unsigned long n, char *base, int fd);
  * @return `n`
  */
 int			ft_putnchars_fd(char c, int n, int fd);
-//!-----------------------DOUBLE LINKED LISTS------------------
+//!-----------------------DOUBLE LINKED LISTS (INTEGERS)---------
 /**
  * @brief get list's last node
  * @param head head of the list
@@ -537,6 +537,11 @@ int			ft_nbr_len(long long n, int base_len);
  */
 int			ft_ulnbr_len(unsigned long n, int base_len);
 
+//!-------------------------INTEGERS----------------------------
+// TODO UPDATE ME
+
+void		ft_int_printarr(int *arr, int size);
+int			ft_int_minmax_idx(int *arr, int size, bool find_min);
 //!-------------------------STRINGS-----------------------------
 /**
  * @brief Returns a pointer to a new string

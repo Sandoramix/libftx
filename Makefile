@@ -4,6 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 COMPILE = $(CC) $(CFLAGS)
 ARCHIVE = ar rc $(NAME)
 RM = rm -f
+
 SRC = ./src/char/ft_charequals.c \
 	./src/char/ft_ctolower.c \
 	./src/char/ft_ctoupper.c \
@@ -94,7 +95,9 @@ SRC = ./src/char/ft_charequals.c \
 	./src/unistd/ft_putnchars_fd.c \
 	./src/unistd/ft_putstr_fd.c \
 	./src/unistd/ft_putstrmtx.c \
-	./src/unistd/ft_writeulbase_fd.c
+	./src/unistd/ft_writeulbase_fd.c \
+	./src/int/ft_int_minmax_idx.c \
+	./src/int/ft_int_printarr.c
 
 OBJ = ${SRC:.c=.o}
 

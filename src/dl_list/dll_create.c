@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 16:47:57 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/14 15:37:47 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/20 09:57:05 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_dllist	*dll_addhead(t_dllist **head, int *val)
 	if (!val)
 		return (NULL);
 	node = dll_new(val);
-	if (!head)
+	if (!head || !node)
 		return (NULL);
 	if (!*head)
 	{
@@ -58,6 +58,8 @@ t_dllist	*dll_addtail(t_dllist **head, int *val)
 	if (!head || !*head)
 		return (dll_addhead(head, val));
 	node = dll_new(val);
+	if (!node)
+		return (NULL);
 	tail = dll_gettail(*head);
 	node->prev = tail;
 	tail->next = node;
