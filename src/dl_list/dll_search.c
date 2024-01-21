@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 15:20:09 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/20 16:17:06 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/21 01:56:48 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	dll_idxof(t_dllist *head, int val)
 	return (-1);
 }
 
-t_dllist	*dll_getbyindex(t_dllist *head, int idx)
+t_dllist	*dll_byidx(t_dllist *head, int idx)
 {
 	t_dllist	*res;
 	int			i;
@@ -92,26 +92,30 @@ int	dll_minmax_idx(t_dllist *head, bool min)
 	return (result);
 }
 
-int	dll_first_bigger_idx(t_dllist *head, int prevmax)
+/**
+ * @brief Find next first higher/lower occurence of given number
+ * @attention does not handle circular lists
+ */
+int	dll_next_occur_idx(t_dllist *h, int val, bool min)
 {
 	t_dllist	*cur;
-	t_dllist	*h;
 	int			res;
 	int			i;
 
-	if (!head)
+	if (!h)
 		return (-1);
-	h = head;
-	cur = head;
-	h = head->next;
+	cur = h;
+	h = h->next;
 	i = 0;
 	res = -1;
-	if (*(cur->val) > prevmax)
+	if ((!min && *(cur->val) > val) || (min && *(cur->val) < val))
 		res = i;
-	while (h && h != head)
+	while (h)
 	{
 		i++;
-		if (*(h->val) > prevmax && (res == -1 || *(h->val) < *(cur->val)))
+		if (((!min && *(h->val) > val) || (min && *(h->val) < val)) && (res == \
+		-1 || ((!min && *(h->val) < *(cur->val))
+					|| (min && *(h->val) > *(cur->val)))))
 		{
 			cur = h;
 			res = i;
@@ -120,3 +124,34 @@ int	dll_first_bigger_idx(t_dllist *head, int prevmax)
 	}
 	return (res);
 }
+
+//int	dll_next_occur_idx(t_dllist *head, int prev, bool min)
+//{
+//	t_dllist	*cur;
+//	t_dllist	*h;
+//	int			res;
+//	int			i;
+
+//	if (!head)
+//		return (-1);
+//	h = head;
+//	cur = head;
+//	h = head->next;
+//	i = 0;
+//	res = -1;
+//	if ((!min && *(cur->val) > prev) || (min && *(cur->val) < prev))
+//		res = i;
+//	while (h && h != head)
+//	{
+//		i++;
+//		if (((!min && *(cur->val) > prev) || (min && *(cur->val) < prev))
+//			&& (res == -1 || ((min && *(h->val) < *(cur->val))
+//					|| (!min && *(h->val) > *(cur->val)))))
+//		{
+//			cur = h;
+//			res = i;
+//		}
+//		h = h->next;
+//	}
+//	return (res);
+//}

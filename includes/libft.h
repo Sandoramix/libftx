@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 09:54:44 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/20 11:58:11 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/21 01:56:48 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -406,7 +406,7 @@ void		dll_printrevlist(t_dllist *head);
  * @param idx index to get
  * @return list's node or `NULL` if `idx` is not valid
  */
-t_dllist	*dll_getbyindex(t_dllist *head, int idx);
+t_dllist	*dll_byidx(t_dllist *head, int idx);
 /**
  * @brief Retrieve the list's current size
  * @param head list's head
@@ -425,7 +425,7 @@ void		*dll_clearlist(t_dllist **head);
 int			dll_idxof(t_dllist *head, int val);
 t_dllist	*dll_minmax(t_dllist *head, bool min);
 int			dll_minmax_idx(t_dllist *head, bool min);
-int			dll_first_bigger_idx(t_dllist *head, int prevmax);
+int			dll_next_occur_idx(t_dllist *head, int prevmax, bool min);
 //!-------------------------LISTS------------------------------
 
 /**
@@ -543,6 +543,7 @@ int			ft_ulnbr_len(unsigned long n, int base_len);
 
 void		ft_int_printarr(int *arr, int size);
 int			ft_int_minmax_idx(int *arr, int size, bool find_min);
+int			ft_intcmp(int n1, int n2);
 //!-------------------------STRINGS-----------------------------
 /**
  * @brief Returns a pointer to a new string
