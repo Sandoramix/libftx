@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 09:54:44 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/21 01:56:48 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:01:35 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <unistd.h>
 # include <stddef.h>
 # include <stdlib.h>
@@ -34,6 +35,7 @@
 # include "colors.h"
 # include "ft_printf.h"
 # include "ft_gnl.h"
+# include <ft_int.h>
 
 # define BASE10 "0123456789"
 # define BASE16 "0123456789abcdef"
@@ -538,12 +540,6 @@ int			ft_nbr_len(long long n, int base_len);
  */
 int			ft_ulnbr_len(unsigned long n, int base_len);
 
-//!-------------------------INTEGERS----------------------------
-// TODO UPDATE ME
-
-void		ft_int_printarr(int *arr, int size);
-int			ft_int_minmax_idx(int *arr, int size, bool find_min);
-int			ft_intcmp(int n1, int n2);
 //!-------------------------STRINGS-----------------------------
 /**
  * @brief Returns a pointer to a new string

@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_int_printarr.c                                  :+:      :+:    :+:   */
+/*   int_search.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 08:54:15 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/20 09:26:48 by odudniak         ###   ########.fr       */
+/*   Created: 2024/01/21 15:17:44 by odudniak          #+#    #+#             */
+/*   Updated: 2024/01/21 15:54:47 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	ft_int_printarr(int *arr, int size)
+int	intarr_idxof(t_intarr data, int val)
 {
 	int		i;
 
 	i = -1;
-	while (++i < size)
-	{
-		if (i > 0)
-			ft_printf(" ");
-		ft_printf("[%d]", arr[i]);
-	}
-	ft_printf("\n");
+	while (data.arr && ++i < data.size)
+		if (data.arr[i] == val)
+			return (i);
+	return (-1);
+}
+
+int	intmtx_idxof(t_intmtx data, int *val)
+{
+	int		i;
+
+	i = -1;
+	while (data.mtx && ++i < data.size)
+		if (*(data.mtx[i]) == *val)
+			return (i);
+	return (-1);
 }

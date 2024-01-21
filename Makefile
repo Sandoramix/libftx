@@ -30,8 +30,11 @@ SRC = ./src/char/ft_charequals.c \
 	./src/getnextline/get_next_line.c \
 	./src/getnextline/get_next_line_utils.c \
 	./src/int/ft_int_minmax_idx.c \
-	./src/int/ft_int_printarr.c \
 	./src/int/ft_intcmp.c \
+	./src/int/array/int_populate.c \
+	./src/int/array/int_clear.c \
+	./src/int/array/int_print.c \
+	./src/int/array/int_search.c \
 	./src/lists/ft_lstadd_back.c \
 	./src/lists/ft_lstadd_front.c \
 	./src/lists/ft_lstclear.c \
