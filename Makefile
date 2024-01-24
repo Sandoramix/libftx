@@ -1,6 +1,7 @@
 NAME = libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CEXTRAFLAGS=
+CFLAGS = -Wall -Wextra -Werror $(CEXTRAFLAGS)
 COMPILE = $(CC) $(CFLAGS)
 ARCHIVE = ar rc $(NAME)
 RM = rm -f
@@ -124,6 +125,10 @@ fclean: clean
 	@echo "$(RED)[LIBFTX]:\tLIBRARY DELETED$(R)"
 
 re: fclean all
+
+debug:
+	$(MAKE) CEXTRAFLAGS=-g
+debug-re: fclean debug
 
 # COLORS
 GREEN=\033[0;32m
