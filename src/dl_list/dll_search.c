@@ -122,6 +122,8 @@ int	dll_next_occur_idx(t_dllist *h, int val, bool min)
 		}
 		h = h->next;
 	}
+	if (res == -1)
+		return (dll_minmax_idx(h, min));
 	return (res);
 }
 

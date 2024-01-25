@@ -12,17 +12,17 @@
 
 #include <libft.h>
 
-int	ft_int_minmax_idx(int *arr, int size, bool find_min)
+int	ft_int_minmax_idx(t_intarr data, bool find_min)
 {
 	int		res;
 	int		i;
 
-	if (size <= 0)
+	if (data.size <= 0)
 		return (-1);
 	res = 0;
 	i = 0;
-	while (++i < size)
-		if ((find_min && arr[res] > arr[i]) || (!find_min && arr[res] < arr[i]))
+	while (++i < data.size)
+		if ((find_min && data.arr[res] > data.arr[i]) || (!find_min && data.arr[res] < data.arr[i]))
 			res = i;
 	return (res);
 }

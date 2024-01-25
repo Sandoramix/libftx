@@ -44,6 +44,6 @@ void			*intmtx_clear(t_intmtx data);
 
 void		int_printarr(t_intarr data);
 void		intp_printarr(t_intmtx data);
-int			ft_int_minmax_idx(int *arr, int size, bool find_min);
+int			ft_int_minmax_idx(t_intarr data, bool find_min);
 int			ft_intcmp(int n1, int n2);
 #endif
