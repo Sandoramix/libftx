@@ -40,8 +40,7 @@ void	dll_printlist(t_dllist *head)
 		ft_printf("NULL\n");
 		return ;
 	}
-	ft_printf(COLOR_CYAN"[%d]:\t%d\n", ++i, *(head->val));
-	tmp = head->next;
+	tmp = head;
 	while (tmp)
 	{
 		ft_printf(COLOR_CYAN"[%d]:\t%d\n", ++i, *(tmp->val));
@@ -50,37 +49,14 @@ void	dll_printlist(t_dllist *head)
 	ft_printf(""CR);
 }
 
-void	dll_printrevlist(t_dllist *head)
-{
-	t_dllist	*tail;
-	t_dllist	*tmp;
-	int			i;
-
-	i = dll_size(head);
-	if (!head)
-	{
-		ft_printf("NULL\n");
-		return ;
-	}
-	tail = dll_gettail(head);
-	tmp = tail;
-	ft_printf("[%d]:\t%d\n", --i, *(tmp->val));
-	tmp = tmp->prev;
-	while (tmp && tmp != tail)
-	{
-		ft_printf("[%d]:\t%d\n", --i, *(tmp->val));
-		tmp = tmp->prev;
-	}
-}
-
 t_dllist	*dll_gettail(t_dllist *head)
 {
 	t_dllist	*tmp;
 
-	if (!head || !head ->next)
+	if (!head || !head->next)
 		return (head);
-	tmp = head->next;
-	while (tmp->next && tmp->next != head)
+	tmp = head;
+	while (tmp->next)
 		tmp = tmp->next;
 	return (tmp);
 }

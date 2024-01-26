@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dll_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/07 16:47:57 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/20 09:57:05 by odudniak         ###   ########.fr       */
+/*   Created: 2024/01/26 14:58:13 by odudniak          #+#    #+#             */
+/*   Updated: 2024/01/26 19:14:40 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ t_dllist	*dll_new(int *val)
 t_dllist	*dll_addhead(t_dllist **head, int *val)
 {
 	t_dllist	*node;
-	t_dllist	*head_tmp;
 
-	if (!val)
-		return (NULL);
 	node = dll_new(val);
 	if (!head || !node)
 		return (NULL);
@@ -40,11 +37,10 @@ t_dllist	*dll_addhead(t_dllist **head, int *val)
 		*head = node;
 		return (*head);
 	}
-	head_tmp = *head;
+	node->next = *head;
+	node->prev = (*head)->prev;
+	dll_gettail(*head)->next = node;
 	*head = node;
-	(*head)->next = head_tmp;
-	(*head)->prev = head_tmp->prev;
-	head_tmp->prev = node;
 	return (*head);
 }
 
@@ -62,6 +58,24 @@ t_dllist	*dll_addtail(t_dllist **head, int *val)
 		return (NULL);
 	tail = dll_gettail(*head);
 	node->prev = tail;
+	node->next = tail->next;
 	tail->next = node;
+	return (*head);
+}
+t_dllist	*dll_addnode_head(t_dllist **head, t_dllist *node)
+{
+	if (!head)
+		return (NULL);
+	if (!*head)
+	{
+		node->next = NULL;
+		node->prev = NULL;
+		*head = node;
+		return (*head);
+	}
+	node->next = *head;
+	node->prev = (*head)->prev;
+	(*head)->prev = node;
+	*head = node;
 	return (*head);
 }

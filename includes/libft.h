@@ -3,6 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+/*   By: odudniak <odudniak@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/26 17:27:06 by odudniak          #+#    #+#             */
+/*   Updated: 2024/01/26 17:27:06 by odudniak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 09:54:44 by odudniak          #+#    #+#             */
@@ -420,7 +432,9 @@ int			dll_size(t_dllist *head);
 t_dllist	*dll_delhead(t_dllist **head);
 t_dllist	*dll_deltail(t_dllist **head);
 t_dllist	*dll_addtail(t_dllist **head, int *val);
+t_dllist	*dll_addnode_tail(t_dllist **head, t_dllist *node);
 t_dllist	*dll_addhead(t_dllist **head, int *val);
+t_dllist	*dll_addnode_head(t_dllist **head, t_dllist *node);
 t_dllist	*dll_new(int *val);
 void		*dll_clearlist(t_dllist **head);
 
