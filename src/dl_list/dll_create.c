@@ -62,6 +62,7 @@ t_dllist	*dll_addtail(t_dllist **head, int *val)
 	tail->next = node;
 	return (*head);
 }
+
 t_dllist	*dll_addnode_head(t_dllist **head, t_dllist *node)
 {
 	if (!head)
