@@ -32,6 +32,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/getnextline/get_next_line_utils.c \
 	./src/int/ft_int_minmax_idx.c \
 	./src/int/ft_intcmp.c \
+	./src/int/int_imin.c \
 	./src/int/array/int_populate.c \
 	./src/int/array/int_clear.c \
 	./src/int/array/int_print.c \

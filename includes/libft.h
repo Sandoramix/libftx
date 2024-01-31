@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 17:27:06 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/30 22:49:10 by odudniak         ###   ########.fr       */
+/*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
+/*   Updated: 2024/01/31 14:34:06 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -505,7 +505,7 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
  * @param n integer to convert
  * @return positive number
  */
-t_uint		ft_iabs(int n);
+int		ft_iabs(int n);
 /**
  * @brief power of the `int` number
  *
