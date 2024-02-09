@@ -13,7 +13,6 @@
 #ifndef FT_INT_H
 # define FT_INT_H
 # include <libft.h>
-// TODO ADD DOCS
 
 typedef struct s_intarr
 {
@@ -27,6 +26,13 @@ typedef struct s_intmtx
 	int		size;
 }	t_intmtx;
 
+/**
+ * @brief Get the lowest number between the two given
+ *
+ * @param n1 First number
+ * @param n2 Second number
+ * @return
+ */
 int				int_imin(int n1, int n2);
 
 int				*intarr_push(t_intarr *data, int val);
