@@ -6,20 +6,13 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:17:53 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/03 15:19:50 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/09 15:59:55 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_GNL_H
 # define FT_GNL_H
-# include <unistd.h>
-# include <stdbool.h>
-# include <stdlib.h>
-# include <stdint.h>
-# include <fcntl.h>
-# include <stdio.h>
-
-# include "libft.h"
+# include <libft.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42

@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_def.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 00:16:40 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/09 16:02:50 by odudniak         ###   ########.fr       */
+/*   Created: 2024/02/09 15:40:15 by odudniak          #+#    #+#             */
+/*   Updated: 2024/02/09 15:54:30 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#ifndef FT_DEF_H
+# define FT_DEF_H
 
-int	ft_atoi(const char *nptr)
-{
-	int	i;
-	int	sign;
-	int	res;
+# include <unistd.h>
+# include <stddef.h>
+# include <stdlib.h>
+# include <stdint.h>
+# include <stdarg.h>
+# include <stdbool.h>
+# include <sys/types.h>
 
-	if (!nptr)
-		return (0);
-	i = 0;
-	while (ft_isspace(nptr[i]))
-		i++;
-	sign = 1;
-	if (ft_issign(nptr[i]))
-		if (nptr[i++] == '-')
-			sign = -1;
-	res = 0;
-	while (ft_isdigit(nptr[i]))
-		res = res * 10 + (nptr[i++] - '0');
-	return (res * sign);
-}
+# include <ft_structs.h>
+# include <ft_colors.h>
+
+# define BASE10 "0123456789"
+# define BASE16 "0123456789abcdef"
+# define BASE16UPPER "0123456789ABCDEF"
+
+typedef unsigned int	t_uint;
+
+#endif

@@ -110,7 +110,7 @@ OBJ = ${SRC:.c=.o}
 all: $(NAME)
 
 %.o: %.c
-	@$(COMPILE) -c $< -o $@ -Iincludes
+	@$(COMPILE) -Iincludes -c $< -o $@
 	@echo "$(BLUE)[LIBFTX]:\t$< COMPILED!"
 
 $(NAME): $(OBJ)

@@ -6,17 +6,12 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:04:19 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/20 15:02:09 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/09 15:43:26 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include <stdbool.h>
-
 # include <libft.h>
 
 # define PF_ARGS_WHITELIST " .+-#0123456789"

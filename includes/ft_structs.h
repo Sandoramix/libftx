@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   ft_structs.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/03 18:21:03 by odudniak          #+#    #+#             */
-/*   Updated: 2023/12/06 18:49:36 by odudniak         ###   ########.fr       */
+/*   Created: 2024/02/09 15:53:30 by odudniak          #+#    #+#             */
+/*   Updated: 2024/02/09 15:59:29 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLORS_H
-# define COLORS_H
+#ifndef FT_STRUCTS_H
+# define FT_STRUCTS_H
+# include <libft.h>
 
 /**
- * @brief Color reset
+ * @brief `List` data structure
+ * @param content `void *`
+ * @param next `s_list *`
  */
-# define CR "\033[0m"
-# define COLOR_RED "\033[0;31m"
-# define COLOR_GREEN "\033[0;32m"
-# define COLOR_YELLOW "\033[0;33m"
-# define COLOR_BLUE "\033[0;34m"
-# define COLOR_MAGENTA "\033[0;35m"
-# define COLOR_CYAN "\033[0;36m"
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
+typedef struct s_dllist
+{
+	int					*val;
+	struct s_dllist		*next;
+	struct s_dllist		*prev;
+}	t_dllist;
+
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
 
 #endif
