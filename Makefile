@@ -28,6 +28,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/dl_list/dll_search.c \
 	./src/dl_list/dll_utils.c \
 	./src/files/ft_readfile.c \
+	./src/files/file_utils.c \
 	./src/getnextline/get_next_line.c \
 	./src/getnextline/get_next_line_utils.c \
 	./src/int/ft_int_minmax_idx.c \

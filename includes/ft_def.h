@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:40:15 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/09 15:54:30 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/11 18:03:04 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <stdarg.h>
 # include <stdbool.h>
 # include <sys/types.h>
+# include <fcntl.h>
+# include <sys/stat.h>
 
 # include <ft_structs.h>
 # include <ft_colors.h>
