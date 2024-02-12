@@ -6,13 +6,13 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 17:39:55 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/11 20:10:06 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/12 07:53:39 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-bool	file_exists(char *path, mode_t mode)
+bool	file_exists(char *path)
 {
 	return (access(path, F_OK) == 0);
 }

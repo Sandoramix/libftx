@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/11 20:04:57 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/12 07:54:01 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <ft_structs.h>
 # include <ft_unistd.h>
 
-bool		file_exists(char *path, mode_t mode);
+bool		file_exists(char *path);
 
 int			file_open_or_create(char *path, mode_t mode);
 
