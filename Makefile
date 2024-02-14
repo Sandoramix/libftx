@@ -25,6 +25,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/ctype/ft_isspace.c \
 	./src/dl_list/dll_create.c \
 	./src/dl_list/dll_delete.c \
+	./src/dl_list/dll_print.c \
 	./src/dl_list/dll_search.c \
 	./src/dl_list/dll_utils.c \
 	./src/files/ft_readfile.c \

@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:47:35 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/09 16:04:57 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/14 21:15:41 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_dllist	*dll_gettail(t_dllist *head);
  * @param head list's head
  */
 void		dll_printlist(t_dllist *head);
+void		dll_printlist_full(t_dllist *head);
 /**
  * @brief Print the list from tail to head
  * @param head list's head
@@ -60,7 +61,7 @@ int			dll_idxof(t_dllist *head, int val);
 t_dllist	*dll_minmax(t_dllist *head, bool min);
 int			dll_minmax_idx(t_dllist *head, bool min);
 int			dll_next_occur_idx(t_dllist *head, int prevmax, bool min);
-
+int			dll_calc_lis(t_dllist *head);
 //!-------------------------LISTS------------------------------
 
 /**

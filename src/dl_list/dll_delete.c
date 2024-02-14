@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:23:56 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/17 17:48:09 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/14 22:23:10 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	*dll_clearlist(t_dllist **head)
 	{
 		curr = head_tmp->next;
 		free(head_tmp->val);
+		free(head_tmp->_is_lis);
+		free(head_tmp->_lis_max);
 		free(head_tmp);
 		head_tmp = curr;
 	}

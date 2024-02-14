@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:53:30 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/09 15:59:29 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/14 21:12:40 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,12 @@ typedef struct s_list
 typedef struct s_dllist
 {
 	int					*val;
+
 	struct s_dllist		*next;
 	struct s_dllist		*prev;
+
+	bool				*_is_lis;
+	int					*_lis_max;
 }	t_dllist;
 
 typedef struct s_point

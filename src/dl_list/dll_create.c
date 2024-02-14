@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dll_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odudniak <odudniak@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:58:13 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/27 14:37:57 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/14 21:15:15 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,14 @@ t_dllist	*dll_new(int *val)
 	res = malloc(sizeof(t_dllist));
 	if (!res)
 		return (NULL);
+	*res = (t_dllist){0};
+	res->_lis_max = malloc(sizeof (int));
+	res->_is_lis = malloc(sizeof (bool));
+	if (!res->_lis_max || !res->_is_lis)
+		return (free(res->_lis_max), free(res->_is_lis), free(res), NULL);
+	*res->_lis_max = 1;
+	*res->_is_lis = 0;
 	res->val = val;
-	res->next = NULL;
-	res->prev = NULL;
 	return (res);
 }
 
