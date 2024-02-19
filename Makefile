@@ -1,7 +1,8 @@
 NAME = libft.a
+PNAME = [LIBFTX]
+
 CC = cc
-CEXTRAFLAGS=
-CFLAGS = -Wall -Wextra -Werror $(CEXTRAFLAGS)
+CFLAGS = -Wall -Wextra -Werror $(DEBUGFLAGS)
 COMPILE = $(CC) $(CFLAGS)
 ARCHIVE = ar rc $(NAME)
 RM = rm -f
@@ -113,24 +114,24 @@ all: $(NAME)
 
 %.o: %.c
 	@$(COMPILE) -Iincludes -c $< -o $@
-	@echo "$(BLUE)[LIBFTX]:\t$< COMPILED!"
+	@echo "$(BLUE)$(PNAME):\t$< COMPILED!"
 
 $(NAME): $(OBJ)
 	@$(ARCHIVE) $(OBJ)
-	@echo "$(GREEN)[LIBFTX]:\tLIBRARY CREATED$(R)"
-
+	@echo "$(GREEN)$(PNAME):\tLIBRARY CREATED$(R)"
+	[ -z "$(strip $(DEBUGFLAGS))" ] || echo "$(RED)$(PNAME):\tDEBUG MODE ENABLED$(R)"
 clean:
 	@$(RM) $(OBJ)
-	@echo "$(RED)[LIBFTX]:\tOBJECTS DELETED$(R)"
+	@echo "$(RED)$(PNAME):\tOBJECTS DELETED$(R)"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(RED)[LIBFTX]:\tLIBRARY DELETED$(R)"
+	@echo "$(RED)$(PNAME):\tLIBRARY DELETED$(R)"
 
 re: fclean all
 
 debug:
-	$(MAKE) CEXTRAFLAGS=-g
+	$(MAKE) DEBUGFLAGS=-g
 debug-re: fclean debug
 
 # COLORS

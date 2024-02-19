@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 17:39:55 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/12 07:53:39 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/19 22:56:35 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	file_open_or_create(char *path, mode_t mode)
 {
 	int	fd;
 
-	fd = open(path, O_CREAT | O_WRONLY | O_EXCL, S_IRUSR | S_IWUSR);
+	fd = open(path, O_CREAT | mode, 000644);
 	if (fd < 0)
 		return (open(path, mode));
 	close(fd);
