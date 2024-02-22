@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   lst_count.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 00:16:47 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Created: 2024/02/21 23:00:20 by odudniak          #+#    #+#             */
+/*   Updated: 2024/02/21 23:01:58 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	lst_size(t_list *head)
 {
-	t_list	*lstp;
+	t_list		*node;
+	int			i;
 
-	if (!lst || !f)
-		return ;
-	lstp = lst;
-	while (lstp)
+	if (!head)
+		return (0);
+	node = head;
+	i = 1;
+	node = head->next;
+	while (node && node != head)
 	{
-		(*f)(lstp->content);
-		lstp = lstp->next;
+		node = node->next;
+		i++;
 	}
+	return (i);
 }

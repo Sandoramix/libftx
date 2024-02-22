@@ -40,15 +40,11 @@ SRC = ./src/char/ft_charequals.c \
 	./src/int/array/int_clear.c \
 	./src/int/array/int_print.c \
 	./src/int/array/int_search.c \
-	./src/lists/ft_lstadd_back.c \
-	./src/lists/ft_lstadd_front.c \
-	./src/lists/ft_lstclear.c \
-	./src/lists/ft_lstdelone.c \
-	./src/lists/ft_lstiter.c \
-	./src/lists/ft_lstlast.c \
-	./src/lists/ft_lstmap.c \
-	./src/lists/ft_lstnew.c \
-	./src/lists/ft_lstsize.c \
+	./src/lists/lst_count.c \
+	./src/lists/lst_create.c \
+	./src/lists/lst_delete.c \
+	./src/lists/lst_get.c \
+	./src/lists/lst_search.c \
 	./src/math/ft_iabs.c \
 	./src/math/ft_ipow.c \
 	./src/math/ft_nbr_len.c \

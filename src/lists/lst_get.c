@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   lst_get.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 00:16:47 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/14 16:14:16 by odudniak         ###   ########.fr       */
+/*   Created: 2024/02/21 22:48:56 by odudniak          #+#    #+#             */
+/*   Updated: 2024/02/21 22:49:25 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	*ft_lstadd_front(t_list **lst, t_list *new)
+t_list	*lst_gettail(t_list *head)
 {
-	if (!new)
-		return (NULL);
-	if (!lst)
-	{
-		*lst = new;
-		return (*lst);
-	}
-	new->next = *lst;
-	*lst = new;
-	return (*lst);
+	t_list	*node;
+
+	if (!head || !head->next)
+		return (head);
+	node = head;
+	while (node && node->next && node->next != head)
+		node = node->next;
+	return (node);
 }

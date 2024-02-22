@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:53:30 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/14 21:12:40 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/21 22:17:24 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,23 @@
 
 /**
  * @brief `List` data structure
- * @param content `void *`
- * @param next `s_list *`
+ * @param val value of the node.
+ * @param key additional attribute which could be used as search param.
+ * @param next pointer of the next node.
+ * @param prev pointer of the previous node.
+ * @param _is_lis (used on list of numbers) is the node a part of LIS ?
+ * (Longest Increasing sequence).
  */
 typedef struct s_list
 {
-	void			*content;
-	struct s_list	*next;
+	void				*val;
+	void				*key;
+
+	struct s_list		*next;
+	struct s_list		*prev;
+
+	bool				*_is_lis;
+	int					*_lis_max;
 }	t_list;
 
 typedef struct s_dllist

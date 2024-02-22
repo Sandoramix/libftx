@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:47:35 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/14 21:15:41 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/22 01:02:21 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,80 +64,118 @@ int			dll_next_occur_idx(t_dllist *head, int prevmax, bool min);
 int			dll_calc_lis(t_dllist *head);
 //!-------------------------LISTS------------------------------
 
+//! MERGING LISTS WITH DOUBLE LINKED LISTS
 /**
- * @brief Allocates (with malloc(3)) and returns a new node.
- * The member variable 'content' is initialized with
- * the value of the parameter 'content'. The variable
- * 'next' is initialized to NULL.
- * @param content The content to create the node with.
- * @return The new node
+ * @brief Allocates and returns a new list node.
  * @attention Uses: malloc
+ * @note If the allocation failes. `NULL` is returned.
+ * @param val value of the node
+ * @param key possible key/id of the node
+ * @return list node
  */
-t_list		*ft_lstnew(void *content);
-/**
- * @brief Adds the node 'new' at the beginning of the list.
- *
- * @param lst The address of a pointer to the first link of a list.
- * @param new The address of a pointer to the node to be added to the list.
- */
-void		*ft_lstadd_front(t_list **lst, t_list *new);
-/**
- * @brief Counts the number of nodes in a list.
- * @param lst The beginning of the list.
- * @return The length of the list
- */
-int			ft_lstsize(t_list *lst);
+t_list		*lst_new(void *val, void *key);
 /**
  * @brief Returns the last node of the list.
  * @param lst The beginning of the list.
  * @return Last node of the list
  */
-t_list		*ft_lstlast(t_list *lst);
+t_list		*lst_gettail(t_list *head);
 /**
- * @brief Adds the node 'new' at the end of the list.
- * @param lst The address of a pointer to the first link of a list.
- * @param The address of a pointer to the node to be added to the list.
+ * @brief Adds the given node to beginning of the list.
+ * @param head pointer to the list's head.
+ * @param node node to add.
+ * @return updated pointer to the list's head.
  */
-void		*ft_lstadd_back(t_list **lst, t_list *new);
+t_list		*lst_addnode_head(t_list **head, t_list *node);
 /**
- * @brief Takes as a parameter a node and frees the memory of
- * the node's content using the function 'del' given
- * as a parameter and free the node. The memory of 'next' must not be freed.
- * @param lst The node to free.
- * @param del The address of the function used to delete the content.
- * @attention Uses: free
+ * @brief Adds the given node to end of the list.
+ * @param head pointer to the list's head.
+ * @param node node to add.
+ * @return updated pointer to the list's head.
  */
-void		*ft_lstdelone(t_list *lst, void (*del)(void *));
+t_list		*lst_addnode_tail(t_list **head, t_list *node);
 /**
- * @brief Deletes and frees the given node and every successor of that node,
- * using the function 'del' and free(3).
- * Finally, the pointer to the list must be set to NULL.
- * @param lst The address of a pointer to a node.
- * @param del The address of the function used to delete
- * the content of the node.
- * @attention Uses: malloc
+ * @brief Allocates and adds a new node to beginning of the list.
+ * @attention Uses: malloc.
+ * @note If the allocation failes. `NULL` is returned.
+ * @param head pointer to the list's head.
+ * @param val value of new node.
+ * @param key key of new node.
+ * @return updated pointer to the list's head.
  */
-void		*ft_lstclear(t_list **lst, void (*del)(void *));
+t_list		*lst_addnew_head(t_list **head, void *val, void *key);
 /**
- * @brief Iterates the list 'lst' and applies the function
- * 'f' on the content of each node.
- * @param lst The address of a pointer to a node.
- * @param f  The address of the function used to iterate on the list.
+ * @brief Allocates and adds a new node to end of the list.
+ * @attention Uses: malloc.
+ * @note If the allocation failes. `NULL` is returned.
+ * @param head pointer to the list's head.
+ * @param val value of new node.
+ * @param key key of new node.
+ * @return updated pointer to the list's head.
  */
-void		ft_lstiter(t_list *lst, void (*f)(void *));
+t_list		*lst_addnew_tail(t_list **head, void *val, void *key);
 /**
- * @brief Iterates the list 'lst' and applies the function
- * 'f' on the content of each node. Creates a new
- * list resulting of the successive applications of
- * the function 'f'. The 'del' function is used to
- * delete the content of a node if needed.
- * @param lst The address of a pointer to a node.
- * @param f The address of the function used to iterate on the list.
- * @param del The address of the function used to delete
- * the content of a node if needed.
- * @return The new list. NULL if the allocation fails.
- * @attention Uses: malloc
+ * @brief Counts the number of nodes in a list.
+ * @param lst The beginning of the list.
+ * @return The length of the list
  */
-t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int			lst_size(t_list *head);
+
+/**
+ * @brief Frees up all the linked nodes
+ * @param head List's head.
+ * @param valfree_fn function for freeing the value of the node.
+ * @return `NULL`
+ */
+t_list		*lst_free(t_list **head, void (*valfree_fn)(void *));
+/**
+ * @brief Frees the list's head.
+ * @param head List's head.
+ * @param valfree_fn function for freeing the value of the node.
+ * @return `NULL`
+ */
+t_list		*lst_delhead(t_list **head, void (*valfree_fn)(void *));
+
+/**
+ * @brief Get the node at requested index.
+ * @param head List's head.
+ * @param idx index to find.
+ * @return a node or `NULL` if index is out of range.
+ */
+t_list		*lst_getbyidx(t_list *head, int idx);
+/**
+ * @brief Find the first node where the key equals to the one requested.
+ * @param head List's head.
+ * @param key key to find.
+ * @param equal function which compares the given keys.
+ * @return a node or `NULL` if no nodes meets the requirements.
+ */
+t_list		*lst_findbykey(t_list *head, void *key,
+				bool (*equal)(void *a, void *b));
+/**
+ * @brief Return the index of the first node where the value is equal to the
+ * requested one.
+ * @param head List's head.
+ * @param val value to find.
+ * @param equal function which checks if the given two values are equal.
+ * @return an actual index of the found node, otherwise `-1`
+ */
+int			lst_idxof(t_list *head, void *val, bool (*equal)(void *a, void *b));
+
+/**
+ * @brief Print the given list by assuming that each val & key are of `int` type.
+ * @param head List's head.
+ * @return `NULL`
+ */
+void		*lst_printint(t_list *head);
+/**
+ * @brief Print the given list
+ * by assuming that each val & key are of `char *` type.
+ * @param head List's head.
+ * @return `NULL`
+ */
+void		*lst_printstr(t_list *head);
+
+//-----------------------------------------------------------------------------
 
 #endif
