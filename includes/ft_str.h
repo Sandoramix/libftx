@@ -6,13 +6,14 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:36:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/09 15:45:38 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/24 18:59:10 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STR_H
 # define FT_STR_H
 # include <libft.h>
+
 
 /**
  * @brief Returns a pointer to a new string
@@ -251,6 +252,9 @@ char		*ft_strtrim(char const *s1, char const *set);
  * @attention Uses: malloc
  */
 char		**ft_strsplit(char const *s, char c);
+
+char		**ft_strsplit_first(char const *s, char c);
+
 /**
  * @brief Check if the given `s` string ends with `end` string
  * @param s string to check

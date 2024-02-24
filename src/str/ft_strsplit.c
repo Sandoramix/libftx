@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/24 18:58:47 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,21 @@ char	**ft_strsplit(char const *s, char c)
 			return (ft_freemtx((void **)res, idx));
 		i++;
 	}
+	return (res);
+}
+
+char	**ft_strsplit_first(char const *s, char c)
+{
+	char	**res;
+	int		idx;
+
+	idx = ft_stridxofchar(s, c);
+	if (idx == -1)
+		return (NULL);
+	res = ft_calloc(3, sizeof(char *));
+	if (!res)
+		return (NULL);
+	res[0] = ft_strsubstr(s, 0, idx + 1);
+	res[1] = ft_strsubstr(s, idx + 2, ft_strlen(s) - idx + 1);
 	return (res);
 }

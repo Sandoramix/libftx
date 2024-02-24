@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 22:13:29 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/22 00:59:53 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/24 18:43:37 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_list	*lst_new(void *val, void *key)
 	res = ft_calloc(1, sizeof(t_list));
 	if (!res)
 		return (NULL);
+	*res = (t_list){0};
 	res->val = val;
 	res->key = key;
 	return (res);

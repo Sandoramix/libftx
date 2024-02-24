@@ -29,6 +29,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/dl_list/dll_print.c \
 	./src/dl_list/dll_search.c \
 	./src/dl_list/dll_utils.c \
+	./src/env/load.c \
 	./src/files/ft_readfile.c \
 	./src/files/file_utils.c \
 	./src/getnextline/get_next_line.c \
@@ -45,6 +46,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/lists/lst_delete.c \
 	./src/lists/lst_get.c \
 	./src/lists/lst_search.c \
+	./src/lists/lst_print.c \
 	./src/math/ft_iabs.c \
 	./src/math/ft_ipow.c \
 	./src/math/ft_nbr_len.c \

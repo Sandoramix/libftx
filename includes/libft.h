@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/12 07:54:01 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/24 19:01:58 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ bool		file_exists(char *path);
 int			file_open_or_create(char *path, mode_t mode);
 
 bool		file_hasperm(char *path, mode_t perms);
+
+t_list		*env_load(char **envp);
 
 //!-------------------------CONVERTERS-------------------------
 
