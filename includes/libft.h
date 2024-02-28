@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/28 18:47:39 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/28 19:57:22 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ int			file_open_or_create(char *path, mode_t mode);
 
 bool		file_hasperm(char *path, mode_t perms);
 
+char		**env_load_paths(t_list *env);
 t_list		*env_load(char **envp);
-
+t_list		*env_search(t_list *envlist, char *key);
 //!-------------------------CONVERTERS-------------------------
 
 /**

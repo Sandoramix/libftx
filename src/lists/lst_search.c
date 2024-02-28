@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 00:17:30 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/28 18:18:53 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/28 19:31:29 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ t_list	*lst_findbykey(t_list *head, void *key, bool (*equal)(void *a, void *b))
 
 	if (!head)
 		return (NULL);
-	if ((equal)(head->key, key))
-		return (NULL);
+	if ((*equal)(head->key, key))
+		return (head);
 	node = head->next;
 	while (node && node != head)
 	{
