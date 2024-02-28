@@ -68,34 +68,34 @@ SRC = ./src/char/ft_charequals.c \
 	./src/printf/ft_pflaghandler.c \
 	./src/printf/ft_printf.c \
 	./src/printf/ft_printf_core.c \
-	./src/str/ft_istrlen.c \
-	./src/str/ft_str_freejoin.c \
-	./src/str/ft_strchr.c \
-	./src/str/ft_strcount_c.c \
-	./src/str/ft_strdup.c \
-	./src/str/ft_strendswith.c \
-	./src/str/ft_strevery.c \
-	./src/str/ft_stridxofchar.c \
-	./src/str/ft_stridxofstr.c \
-	./src/str/ft_striteri.c \
-	./src/str/ft_strjoin.c \
-	./src/str/ft_strlcat.c \
-	./src/str/ft_strlcpy.c \
-	./src/str/ft_strlen.c \
-	./src/str/ft_strmapi.c \
-	./src/str/ft_strmtxdup.c \
-	./src/str/ft_strncmp.c \
-	./src/str/ft_strnstr.c \
-	./src/str/ft_strpad.c \
+	./src/str/str_ilen.c \
+	./src/str/str_freejoin.c \
+	./src/str/str_chr.c \
+	./src/str/str_count_c.c \
+	./src/str/str_dup.c \
+	./src/str/str_endswith.c \
+	./src/str/str_every.c \
+	./src/str/str_idxofchar.c \
+	./src/str/str_idxofstr.c \
+	./src/str/str_iteri.c \
+	./src/str/str_join.c \
+	./src/str/str_lcat.c \
+	./src/str/str_lcpy.c \
+	./src/str/str_ulen.c \
+	./src/str/str_mapi.c \
+	./src/str/str_mtxdup.c \
+	./src/str/str_ncmp.c \
+	./src/str/str_nstr.c \
+	./src/str/str_pad.c \
 	./src/str/ft_strpushchar.c \
-	./src/str/ft_strrchr.c \
-	./src/str/ft_strreplace.c \
-	./src/str/ft_strreplace_first.c \
-	./src/str/ft_strsplit.c \
-	./src/str/ft_strsubstr.c \
-	./src/str/ft_strtolower.c \
-	./src/str/ft_strtoupper.c \
-	./src/str/ft_strtrim.c \
+	./src/str/str_rchr.c \
+	./src/str/str_replace.c \
+	./src/str/str_replace_first.c \
+	./src/str/str_split.c \
+	./src/str/str_substr.c \
+	./src/str/str_tolower.c \
+	./src/str/str_toupper.c \
+	./src/str/str_trim.c \
 	./src/strict/converter/strict_atoi.c \
 	./src/unistd/ft_putaddr_fd.c \
 	./src/unistd/ft_putchar_fd.c \

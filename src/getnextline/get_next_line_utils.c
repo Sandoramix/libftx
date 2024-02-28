@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:17:53 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:53:33 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*my_strjoin(char *s1, char *s2, size_t s2_n)
 	size_t	i;
 	size_t	j;
 
-	s1len = ft_istrlen(s1);
+	s1len = str_ilen(s1);
 	res = ft_calloc(s1len + s2_n + 1, sizeof(char));
 	if (!res)
 		return (NULL);
@@ -43,7 +43,7 @@ char	*my_substr(char *s, size_t start, size_t end)
 	size_t	slen;
 	size_t	i;
 
-	slen = ft_istrlen(s);
+	slen = str_ilen(s);
 	if (start > slen || start > end)
 		return (NULL);
 	res = ft_calloc((end - start + 1) + 1, sizeof(char));

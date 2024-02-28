@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   str_split.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/24 18:58:47 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:01:51 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static size_t	count_char(const char *s, char chr)
 	return (res);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char	**str_split(char const *s, char c)
 {
 	char	**res;
 	size_t	arr_len;
@@ -53,7 +53,7 @@ char	**ft_strsplit(char const *s, char c)
 		if (is_delim(s[i], c) && !is_delim(s[i + 1], c))
 			start = i + 1;
 		if (!is_delim(s[i], c) && is_delim(s[i + 1], c))
-			res[idx++] = ft_strsubstr(s, start, i + 1 - start);
+			res[idx++] = str_substr(s, start, i + 1 - start);
 		if (idx > 0 && !res[idx - 1])
 			return (ft_freemtx((void **)res, idx));
 		i++;
@@ -61,18 +61,18 @@ char	**ft_strsplit(char const *s, char c)
 	return (res);
 }
 
-char	**ft_strsplit_first(char const *s, char c)
+char	**str_split_first(char const *s, char c)
 {
 	char	**res;
 	int		idx;
 
-	idx = ft_stridxofchar(s, c);
+	idx = str_idxofchar(s, c);
 	if (idx == -1)
 		return (NULL);
 	res = ft_calloc(3, sizeof(char *));
 	if (!res)
 		return (NULL);
-	res[0] = ft_strsubstr(s, 0, idx + 1);
-	res[1] = ft_strsubstr(s, idx + 2, ft_strlen(s) - idx + 1);
+	res[0] = str_substr(s, 0, idx + 1);
+	res[1] = str_substr(s, idx + 2, str_ulen(s) - idx + 1);
 	return (res);
 }

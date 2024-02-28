@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:52:19 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:53:33 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_ultoa_base(unsigned long n, const char *base)
 	int		mod;
 	char	*res;
 
-	base_len = ft_istrlen(base);
+	base_len = str_ilen(base);
 	digit_count = ft_ulnbr_len(n, base_len);
 	res = ft_calloc(digit_count + 1, sizeof(char));
 	if (!res)

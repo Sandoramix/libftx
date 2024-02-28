@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 13:50:33 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/20 15:10:36 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:04:35 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ static void	*x_freetwo(void *m1, void *m2)
 
 static bool	sta_initialcheck(char *trim)
 {
-	const int		size = ft_istrlen(trim);
+	const int		size = str_ilen(trim);
 
 	if (!trim)
 		return (false);
 	if ((size <= 1 && !ft_isdigit(trim[0])))
 		return (false);
-	if (!ft_strevery(trim + (int [2]){0, 1}[ft_issign(trim[0])], &ft_isdigit))
+	if (!str_every(trim + (int [2]){0, 1}[ft_issign(trim[0])], &ft_isdigit))
 		return (false);
 	return (true);
 }
@@ -42,7 +42,7 @@ int	*strict_atoi(const char *s)
 	int		prev;
 	int		i;
 
-	trim = ft_strtrim(s, " \t\n\v\f\r");
+	trim = str_trim(s, " \t\n\v\f\r");
 	if (!sta_initialcheck(trim))
 		return (ft_free(trim));
 	r = malloc(sizeof(int));

@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strreplace_first.c                              :+:      :+:    :+:   */
+/*   str_idxofchar.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 16:44:10 by odudniak          #+#    #+#             */
+/*   Created: 2023/10/19 14:52:19 by odudniak          #+#    #+#             */
 /*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strreplace_first(char *str, char *find, char *replace)
+int	str_idxofchar(const char *s, char c)
 {
-	char	*res;
-	int		occurrence_idx;
-	size_t	res_len;
+	int	i;
 
-	occurrence_idx = ft_stridxofstr(str, find);
-	res_len = ft_strlen(str) - ft_strlen(find) + ft_strlen(replace) + 1;
-	res = ft_calloc(res_len, sizeof(char));
-	if (!res)
-	{
-		return (str);
-	}
-	ft_memcpy(res, str, occurrence_idx);
-	ft_strlcat(res, replace, res_len);
-	ft_strlcat(res, str + occurrence_idx + ft_strlen(find), res_len);
-	free(str);
-	str = res;
-	return (str);
+	i = -1;
+	while (s[++i])
+		if (s[i] == c)
+			return (i);
+	return (-1);
 }

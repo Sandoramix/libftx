@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strevery.c                                      :+:      :+:    :+:   */
+/*   str_freejoin.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 20:12:05 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
+/*   Updated: 2024/02/28 18:00:33 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-bool	ft_strevery(char *str, bool(*check_fn)(char))
+char	*str_freejoin(char *s1, char const *s2)
 {
-	int	i;
+	size_t	res_len;
+	char	*res;
 
-	if (!str)
-		return (false);
-	i = -1;
-	while (str[++i])
-		if (!(*check_fn)(str[i]))
-			return (false);
-	return (true);
+	res_len = str_ulen(s1) + str_ulen(s2) + 1;
+	res = ft_calloc(res_len, sizeof(char));
+	if (!res)
+		return (NULL);
+	str_lcat(res, s1, res_len);
+	str_lcat(res, s2, res_len);
+	free(s1);
+	return (res);
 }

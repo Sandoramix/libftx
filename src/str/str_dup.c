@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_freejoin.c                                  :+:      :+:    :+:   */
+/*   str_dup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,17 +12,17 @@
 
 #include "libft.h"
 
-char	*ft_str_freejoin(char *s1, char const *s2)
+char	*str_dup(const char *s)
 {
-	size_t	res_len;
 	char	*res;
+	size_t	s_len;
 
-	res_len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	res = ft_calloc(res_len, sizeof(char));
+	if (!s)
+		return (NULL);
+	s_len = str_ulen(s);
+	res = ft_calloc(s_len + 1, sizeof(char));
 	if (!res)
 		return (NULL);
-	ft_strlcat(res, s1, res_len);
-	ft_strlcat(res, s2, res_len);
-	free(s1);
+	str_lcpy(res, s, s_len + 1);
 	return (res);
 }

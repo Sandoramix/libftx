@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   str_endswith.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:44:21 by odudniak         ###   ########.fr       */
+/*   Created: 2023/12/06 18:23:14 by odudniak          #+#    #+#             */
+/*   Updated: 2024/02/28 18:02:25 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+bool	str_endswith(const char *s, char *end)
 {
-	size_t	start;
-	size_t	end;
+	int	s_idx;
+	int	end_idx;
 
-	start = 0;
-	if (!s1 || !set)
-		return (NULL);
-	end = ft_strlen(s1) - 1;
-	while (ft_strchr(set, s1[start]))
-		start++;
-	while (end > start && ft_strrchr(set, s1[end]))
-		end--;
-	return (ft_strsubstr(s1, start, end - start + 1));
+	if (!s)
+		return (false);
+	if (!end)
+		return (true);
+	end_idx = str_ilen(end);
+	s_idx = str_ilen(s);
+	while (s_idx >= 0 && end_idx >= 0 && s[s_idx] == end[end_idx])
+	{
+		s_idx--;
+		end_idx--;
+	}
+	if (end_idx < 0)
+		return (true);
+	return (false);
 }

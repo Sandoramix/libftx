@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:51:11 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/20 15:02:59 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:52:43 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ size_t	pf_getres(int fd, va_list list, t_pfflag flag)
 	else if (flag.type == PF_POINTER)
 		flag.res = ft_getaddr(va_arg(list, void *));
 	else
-		flag.res = ft_strdup(va_arg(list, char *));
-	flag.reslen = ft_strlen(flag.res);
+		flag.res = str_dup(va_arg(list, char *));
+	flag.reslen = str_ulen(flag.res);
 	flag.zero = flag.res && flag.res[0] == '0';
 	flag.minus = flag.res && flag.res[0] == '-';
 	return (pf_handleflags(fd, flag));
@@ -84,7 +84,7 @@ void	pf_parseargs(int fd, const char *s, va_list list, size_t *len)
 		if (s[i] == '%')
 		{
 			start = i;
-			while (ft_strchr(PF_ARGS_WHITELIST, s[++i]))
+			while (str_chr(PF_ARGS_WHITELIST, s[++i]))
 				;
 			write(fd, s + print_idx, start - print_idx);
 			print_idx = i + 1;
@@ -92,5 +92,5 @@ void	pf_parseargs(int fd, const char *s, va_list list, size_t *len)
 				+ pf_getres(fd, list, pf_getflag((char *)s, start, i));
 		}
 	}
-	write(fd, s + print_idx, ft_strlen(s) - print_idx);
+	write(fd, s + print_idx, str_ulen(s) - print_idx);
 }

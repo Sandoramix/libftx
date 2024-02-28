@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   str_mtxdup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Created: 2023/12/01 21:42:16 by odudniak          #+#    #+#             */
+/*   Updated: 2024/02/28 17:50:35 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	**str_mtxdup(char **mtx)
 {
-	char	*s_p;
+	char	**res;
 	int		i;
+	int		idx;
 
-	s_p = (char *) s;
-	i = ft_strlen(s_p) + 1;
-	while (--i >= 0)
-		if (s_p[i] == (char)c)
-			return (&s_p[i]);
-	return (NULL);
+	i = -1;
+	idx = 0;
+	res = ft_calloc(ft_memmtxlen(mtx) + 1, sizeof(char *));
+	if (!res)
+		return (NULL);
+	while (mtx && mtx[++i])
+	{
+		res[idx++] = str_dup(mtx[i]);
+		if (!res[idx - 1])
+			return (ft_freemtx(res, idx));
+	}
+	mtx[i] = NULL;
+	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 10:54:41 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:53:33 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_writeulbase_fd(unsigned long n, char *base, int fd)
 {
-	const size_t	baselen = ft_istrlen(base);
+	const size_t	baselen = str_ilen(base);
 
 	if (n >= baselen)
 		ft_writeulbase_fd(n / baselen, base, fd);

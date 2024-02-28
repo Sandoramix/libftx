@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:36:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/24 18:59:10 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:04:35 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  * It returns NULL if insufficient memory was available.
  * @attention Uses: malloc
  */
-char		*ft_strdup(const char *s);
+char		*str_dup(const char *s);
 /**
  * @brief Duplicate an array of strings
  * @param mtx array of strings
@@ -31,20 +31,20 @@ char		*ft_strdup(const char *s);
  * or `NULL` if error occured
  * @attention Uses: malloc + free
  */
-char		**ft_strmtxdup(char **mtx);
+char		**str_mtxdup(char **mtx);
 /**
  * @brief Get the length of a string
  * @param s (array of chars) | string
  * @return size_t
  */
-size_t		ft_strlen(const char *s);
+size_t		str_ulen(const char *s);
 /**
  * @brief Get the length of the string
  *
  * @param s string
  * @return Length of the string as integer
  */
-int			ft_istrlen(const char *s);
+int			str_ilen(const char *s);
 /**
  * @brief This function copy a string from src to dest.
  * @param dst destination variable
@@ -53,7 +53,7 @@ int			ft_istrlen(const char *s);
  * @return The total length of the string it tried to create
  * (that means the length of src).
  */
-size_t		ft_strlcpy(char *dst, const char *src, size_t sz);
+size_t		str_lcpy(char *dst, const char *src, size_t sz);
 /**
  * @brief This function concatenate a string from src to dest.
  * It copies up to `size - 1` characters
@@ -65,7 +65,7 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t sz);
  * @return The total length of the string it tried to create
  * (hat means the initial length of dst plus the length of src).
  */
-size_t		ft_strlcat(char *dst, const char *src, size_t sz);
+size_t		str_lcat(char *dst, const char *src, size_t sz);
 /**
  * @brief This function returns a pointer to the first occurrence
  *  of the character c in the string s.
@@ -74,7 +74,7 @@ size_t		ft_strlcat(char *dst, const char *src, size_t sz);
  * @return a pointer to the matched character `c`
  * or `NULL` if the character is not found.
  */
-char		*ft_strchr(const char *s, int c);
+char		*str_chr(const char *s, int c);
 /**
  * @brief This function returns a pointer to the last occurrence
  *  of the character c in the string s.
@@ -83,7 +83,7 @@ char		*ft_strchr(const char *s, int c);
  * @return a pointer to the matched character `c`
  * or `NULL` if the character is not found.
  */
-char		*ft_strrchr(const char *s, int c);
+char		*str_rchr(const char *s, int c);
 /**
  * @brief This function compares only the first (at most)
  * `n` bytes of the two strings `s1` and `s2`.
@@ -94,7 +94,7 @@ char		*ft_strrchr(const char *s, int c);
  * A `negative number` if s1 is less than s2.
  * A `positive number` if s1 is greater than s2.
  */
-int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			str_ncmp(const char *s1, const char *s2, size_t n);
 /**
  * @brief This function locates the first occurrence of the
  * null-terminated string s2 in the string s1,
@@ -107,7 +107,7 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
  * in big, NULL is returned; otherwise a pointer to the first character of
  * the first occurrence of `s2` is returned.
  */
-char		*ft_strnstr(const char *s1, const char *s2, size_t n);
+char		*str_nstr(const char *s1, const char *s2, size_t n);
 /**
  * @brief Find the index of first char `c` inside the string `s`
  *
@@ -115,7 +115,7 @@ char		*ft_strnstr(const char *s1, const char *s2, size_t n);
  * @param c char to find
  * @return Index of the first occurence of `c`, or `-1` if it's not present
  */
-int			ft_stridxofchar(const char *s, char c);
+int			str_idxofchar(const char *s, char c);
 /**
  * @brief FInd the index of first occurence of substring `find` inside `str`
  *
@@ -124,7 +124,7 @@ int			ft_stridxofchar(const char *s, char c);
  * @return Index of the first occurence of `find` inside `str`,
  * or `-1` if it's not present.
  */
-int			ft_stridxofstr(const char *str, char *find);
+int			str_idxofstr(const char *str, char *find);
 /**
  * @brief Add right padding to the string with specified char if necessary.
  * @attention Original string is mutated.
@@ -136,7 +136,7 @@ int			ft_stridxofstr(const char *str, char *find);
  * @return Copy of the string plus the added padding if necessary.
  * @attention Uses: malloc
  */
-char		*ft_strpad(char *s, char c, int n, bool start);
+char		*str_pad(char *s, char c, int n, bool start);
 /**
  * @brief Update the string to uppercase.
  * @attention Original string is mutated.
@@ -144,7 +144,7 @@ char		*ft_strpad(char *s, char c, int n, bool start);
  * @param s string to return
  * @return The converted string.
  */
-char		*ft_strtoupper(char *s);
+char		*str_toupper(char *s);
 /**
  * @brief Update the string to lowercase.
  * @attention Original string is mutated.
@@ -152,7 +152,7 @@ char		*ft_strtoupper(char *s);
  * @param s string to return
  * @return The converted string.
  */
-char		*ft_strtolower(char *s);
+char		*str_tolower(char *s);
 /**
  * @brief Find and replace the `first` substring of `str` with another string.
  * @attention Uses: malloc, free.
@@ -164,7 +164,7 @@ char		*ft_strtolower(char *s);
  * @param replace string to replace `find` with
  * @return the pointer to the new `str`. Or the same str if something went wrong.
  */
-char		*ft_strreplace_first(char *str, char *find, char *replace);
+char		*str_replace_first(char *str, char *find, char *replace);
 /**
  * @brief Find and replace the `all` substrings of `str` with another string.
  * @attention Uses: malloc, free.
@@ -174,7 +174,7 @@ char		*ft_strreplace_first(char *str, char *find, char *replace);
  * @param replace string to replace `find` with
  * @return the pointer to the new `str`
  */
-char		*ft_strreplace(char *str, char *find, char *replace);
+char		*str_replace(char *str, char *find, char *replace);
 /**
  * @brief Count how many times does `c` appear in `s`
  *
@@ -182,7 +182,7 @@ char		*ft_strreplace(char *str, char *find, char *replace);
  * @param c char
  * @return size_t
  */
-size_t		ft_strcount_c(const char *s, char c);
+size_t		str_count_c(const char *s, char c);
 /**
  * @brief Add a character to the end of a string
  * @attention Uses: malloc, free. Original string is mutated.
@@ -191,7 +191,7 @@ size_t		ft_strcount_c(const char *s, char c);
  * @return pointer to the start of modified string.
  * If there's been an issue with allocation, null is returned
  */
-char		*ft_strpushcar(char *s, char c);
+char		*str_pushchar(char *s, char c);
 /**
  * @brief Allocates and returns a substring
  * from the string 's'.
@@ -205,7 +205,7 @@ char		*ft_strpushcar(char *s, char c);
  * NULL if the allocation fails.
  * @attention Uses: malloc
  */
-char		*ft_strsubstr(char const *s, unsigned int start, size_t len);
+char		*str_substr(char const *s, unsigned int start, size_t len);
 /**
  * @brief Allocates (with malloc(3)) and returns a new
  * string, which is the result of the concatenation
@@ -216,7 +216,7 @@ char		*ft_strsubstr(char const *s, unsigned int start, size_t len);
  * NULL if the allocation fails.
  * @attention Uses: malloc
  */
-char		*ft_strjoin(char const *s1, char const *s2);
+char		*str_join(char const *s1, char const *s2);
 /**
  * @brief Allocates (with malloc(3)) and returns a new
  * string, which is the result of the concatenation
@@ -227,7 +227,7 @@ char		*ft_strjoin(char const *s1, char const *s2);
  * NULL if the allocation fails.
  * @attention Uses: malloc, free
  */
-char		*ft_str_freejoin(char *s1, char const *s2);
+char		*str_freejoin(char *s1, char const *s2);
 /**
  * @brief Allocates and returns a copy of
  * 's1' with the characters specified in 'set' removed
@@ -238,7 +238,7 @@ char		*ft_str_freejoin(char *s1, char const *s2);
  * NULL if the allocation fails.
  * @attention Uses: malloc
  */
-char		*ft_strtrim(char const *s1, char const *set);
+char		*str_trim(char const *s1, char const *set);
 /**
  * @brief Allocates (with malloc(3)) and returns an array
  * of strings obtained by splitting 's' using the
@@ -251,9 +251,9 @@ char		*ft_strtrim(char const *s1, char const *set);
  * NULL if the allocation fails.
  * @attention Uses: malloc
  */
-char		**ft_strsplit(char const *s, char c);
+char		**str_split(char const *s, char c);
 
-char		**ft_strsplit_first(char const *s, char c);
+char		**str_split_first(char const *s, char c);
 
 /**
  * @brief Check if the given `s` string ends with `end` string
@@ -261,7 +261,7 @@ char		**ft_strsplit_first(char const *s, char c);
  * @param end expected ending of the string
  * @return `true` if `s` ends with `end`, `false` otherwise
  */
-bool		ft_strendswith(const char *s, char *end);
+bool		str_endswith(const char *s, char *end);
 /**
  * @brief Applies the function 'f' to each character of the
  * string 's', and passing its index as first argument
@@ -274,7 +274,7 @@ bool		ft_strendswith(const char *s, char *end);
  * Returns NULL if the allocation fails.
  * @attention Uses: malloc
  */
-char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char		*str_mapi(char const *s, char (*f)(unsigned int, char));
 /**
  * @brief Applies the function 'f' on each character of the string
  * passed as argument, passing its index as first argument.
@@ -282,7 +282,7 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * @param s The string on which to iterate.
  * @param f The function to apply to each character.
  */
-void		t_striteri(char *s, void (*f)(unsigned int, char*));
+void		str_iteri(char *s, void (*f)(unsigned int, char*));
 /**
  * @brief Tests whether all characters in the string
  * pass the test implemented by the provided function.
@@ -292,6 +292,6 @@ void		t_striteri(char *s, void (*f)(unsigned int, char*));
  * @note Example: `check_fn:` bool test(char);
  * @return `true` if every characters pass the function test, `false` otherwise
  */
-bool		ft_strevery(char *str, bool(*check_fn)(char));
+bool		str_every(char *str, bool(*check_fn)(char));
 
 #endif

@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strendswith.c                                   :+:      :+:    :+:   */
+/*   str_pushchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 18:23:14 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Created: 2023/10/25 19:43:58 by odudniak          #+#    #+#             */
+/*   Updated: 2024/02/28 17:59:06 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-bool	ft_strendswith(const char *s, char *end)
+char	*str_pushchar(char *s, char c)
 {
-	int	s_idx;
-	int	end_idx;
+	char	*res;
+	size_t	s_len;
 
-	if (!s)
-		return (false);
-	if (!end)
-		return (true);
-	end_idx = ft_istrlen(end);
-	s_idx = ft_istrlen(s);
-	while (s_idx >= 0 && end_idx >= 0 && s[s_idx] == end[end_idx])
-	{
-		s_idx--;
-		end_idx--;
-	}
-	if (end_idx < 0)
-		return (true);
-	return (false);
+	s_len = str_ulen(s);
+	res = ft_calloc(s_len + 2, sizeof(char));
+	if (!res)
+		return (NULL);
+	str_lcat(res, s, s_len + 2);
+	res[s_len] = (char) c;
+	free(s);
+	s = res;
+	return (s);
 }

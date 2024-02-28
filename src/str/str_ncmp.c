@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsubstr.c                                     :+:      :+:    :+:   */
+/*   str_ncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,24 +12,18 @@
 
 #include "libft.h"
 
-char	*ft_strsubstr(char const *s, unsigned int start, size_t len)
+int	str_ncmp(const char *s1, const char *s2, size_t n)
 {
-	char	*res;
-	size_t	s_len;
+	size_t			i;
+	unsigned char	*s1p;
+	unsigned char	*s2p;
 
-	s_len = ft_strlen(s);
-	if (len > s_len)
-		len = s_len;
-	if (start > s_len)
-	{
-		len = 0;
-		start = s_len;
-	}
-	if (start + len > s_len)
-		len = s_len - start;
-	res = ft_calloc(len + 1, sizeof(char));
-	if (!res)
-		return (NULL);
-	ft_memcpy(res, &s[start], len);
-	return (res);
+	s1p = (unsigned char *)s1;
+	s2p = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
+	i = 0;
+	while ((i < n - 1) && s2p[i] == s1p[i] && s2p[i] && s1p[i])
+		i++;
+	return (s1p[i] - s2p[i]);
 }

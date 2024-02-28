@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtolower.c                                    :+:      :+:    :+:   */
+/*   str_ilen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,14 +12,12 @@
 
 #include "libft.h"
 
-char	*ft_strtolower(char *s)
+int	str_ilen(const char *s)
 {
-	int		i;
+	int	i;
 
-	i = -1;
-	if (!s)
-		return (s);
-	while (s[++i])
-		s[i] = ft_ctolower(s[i]);
-	return (s);
+	i = 0;
+	while (s && s[i])
+		i++;
+	return (i);
 }

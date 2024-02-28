@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcount_c.c                                    :+:      :+:    :+:   */
+/*   str_pad.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 10:51:10 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Created: 2023/10/24 19:50:59 by odudniak          #+#    #+#             */
+/*   Updated: 2024/02/28 17:56:41 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strcount_c(const char *s, char c)
+char	*str_pad(char *s, char c, int n, bool start)
 {
-	size_t	i;
-	size_t	count;
+	int		s_len;
+	char	*res;
 
-	i = 0;
-	count = 0;
-	while (s && s[i])
-		if (s[i++] == c)
-			count++;
-	return (count);
+	s_len = str_ilen(s);
+	if (s_len > n || n < 0)
+		n = s_len;
+	res = ft_calloc(n + 1, sizeof(char));
+	if (start)
+	{
+		ft_memset(res, c, n);
+		if (s)
+			ft_memcpy(res + (n - s_len), s, s_len);
+	}
+	else
+	{
+		if (s)
+			ft_memcpy(res, s, s_len);
+		ft_memset(res + s_len, c, n - s_len);
+	}
+	free(s);
+	s = res;
+	return (res);
 }

@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   str_idxofstr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Created: 2023/10/22 10:54:27 by odudniak          #+#    #+#             */
+/*   Updated: 2024/02/28 17:56:25 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	str_idxofstr(const char *str, char *find)
 {
-	size_t	s_len;
-	char	*s_p;
-	size_t	i;
+	int		i;
+	size_t	j;
+	size_t	find_len;
 
-	s_len = ft_strlen(s);
-	s_p = (char *)s;
+	if (!str || !find)
+		return (-1);
+	find_len = str_ulen(find);
+	if (find_len == 0)
+		return (0);
 	i = 0;
-	while (i <= s_len)
+	j = 0;
+	while (str[i])
 	{
-		if (s_p[i] == (char)c)
-			return (&s_p[i]);
+		j = 0;
+		while (find[j] && find[j] == str[i + j])
+			j++;
+		if (j == find_len)
+			return (i);
 		i++;
 	}
-	return (NULL);
+	return (-1);
 }

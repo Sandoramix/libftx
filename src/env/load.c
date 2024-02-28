@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 19:01:29 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/24 19:01:42 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:01:25 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_list	*env_load(char **envp)
 	res = NULL;
 	while (envp && envp[++i])
 	{
-		split = ft_strsplit_first(envp[i], '=');
+		split = str_split_first(envp[i], '=');
 		len = ft_memmtxlen(split);
 		if (!split || len != 2
 			|| !lst_addnew_tail(&res, split[1], split[0]))

@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   str_join.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:00:16 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*str_join(char const *s1, char const *s2)
 {
-	char	*s1_p;
-	size_t	i;
-	size_t	j;
-	size_t	s2_len;
+	size_t	res_len;
+	char	*res;
 
-	s1_p = (char *)s1;
-	s2_len = ft_strlen(s2);
-	if (s2_len == 0)
-		return (&s1_p[0]);
-	if (n == 0)
+	res_len = str_ulen(s1) + str_ulen(s2) + 1;
+	res = ft_calloc(res_len, sizeof(char));
+	if (!res)
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (s1[i])
-	{
-		j = 0;
-		while (s2[j] && s2[j] == s1[i + j])
-			j++;
-		if (j == s2_len && i + j <= n)
-			return (&s1_p[i]);
-		i++;
-	}
-	return (NULL);
+	str_lcat(res, s1, res_len);
+	str_lcat(res, s2, res_len);
+	return (res);
 }

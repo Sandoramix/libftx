@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strpushchar.c                                   :+:      :+:    :+:   */
+/*   str_substr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 19:43:58 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
+/*   Updated: 2024/02/28 17:59:59 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strpushcar(char *s, char c)
+char	*str_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*res;
 	size_t	s_len;
 
-	s_len = ft_strlen(s);
-	res = ft_calloc(s_len + 2, sizeof(char));
+	s_len = str_ulen(s);
+	if (len > s_len)
+		len = s_len;
+	if (start > s_len)
+	{
+		len = 0;
+		start = s_len;
+	}
+	if (start + len > s_len)
+		len = s_len - start;
+	res = ft_calloc(len + 1, sizeof(char));
 	if (!res)
 		return (NULL);
-	ft_strlcat(res, s, s_len + 2);
-	res[s_len] = (char) c;
-	free(s);
-	s = res;
-	return (s);
+	ft_memcpy(res, &s[start], len);
+	return (res);
 }

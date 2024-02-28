@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_istrlen.c                                       :+:      :+:    :+:   */
+/*   str_count_c.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 14:52:19 by odudniak          #+#    #+#             */
+/*   Created: 2023/10/21 10:51:10 by odudniak          #+#    #+#             */
 /*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_istrlen(const char *s)
+size_t	str_count_c(const char *s, char c)
 {
-	int	i;
+	size_t	i;
+	size_t	count;
 
 	i = 0;
+	count = 0;
 	while (s && s[i])
-		i++;
-	return (i);
+		if (s[i++] == c)
+			count++;
+	return (count);
 }

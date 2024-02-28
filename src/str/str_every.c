@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stridxofchar.c                                  :+:      :+:    :+:   */
+/*   str_every.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 14:52:19 by odudniak          #+#    #+#             */
+/*   Created: 2023/11/29 20:12:05 by odudniak          #+#    #+#             */
 /*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_stridxofchar(const char *s, char c)
+bool	str_every(char *str, bool(*check_fn)(char))
 {
 	int	i;
 
+	if (!str)
+		return (false);
 	i = -1;
-	while (s[++i])
-		if (s[i] == c)
-			return (i);
-	return (-1);
+	while (str[++i])
+		if (!(*check_fn)(str[i]))
+			return (false);
+	return (true);
 }

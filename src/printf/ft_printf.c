@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 14:42:50 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/20 15:02:23 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:52:43 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_fprintf(int fd, const char *str, ...)
 	size_t		res_len;
 
 	va_start(list, str);
-	res_len = ft_strlen(str);
+	res_len = str_ulen(str);
 	pf_parseargs(fd, str, list, &res_len);
 	va_end(list);
 	return (res_len);
@@ -35,7 +35,7 @@ int	ft_perror(char *str, ...)
 	size_t		res_len;
 
 	va_start(list, str);
-	res_len = ft_strlen(str);
+	res_len = str_ulen(str);
 	pf_parseargs(2, str, list, &res_len);
 	va_end(list);
 	return (res_len);
@@ -47,7 +47,7 @@ int	ft_printf(const char *str, ...)
 	size_t		res_len;
 
 	va_start(list, str);
-	res_len = ft_strlen(str);
+	res_len = str_ulen(str);
 	pf_parseargs(1, str, list, &res_len);
 	va_end(list);
 	return (res_len);

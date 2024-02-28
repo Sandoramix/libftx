@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   str_replace_first.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2024/01/03 13:37:36 by odudniak         ###   ########.fr       */
+/*   Created: 2023/10/22 16:44:10 by odudniak          #+#    #+#             */
+/*   Updated: 2024/02/28 17:57:34 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*str_replace_first(char *str, char *find, char *replace)
 {
 	char	*res;
-	size_t	s_len;
+	int		occurrence_idx;
+	size_t	res_len;
 
-	if (!s)
-		return (NULL);
-	s_len = ft_strlen(s);
-	res = ft_calloc(s_len + 1, sizeof(char));
+	occurrence_idx = str_idxofstr(str, find);
+	res_len = str_ulen(str) - str_ulen(find) + str_ulen(replace) + 1;
+	res = ft_calloc(res_len, sizeof(char));
 	if (!res)
-		return (NULL);
-	ft_strlcpy(res, s, s_len + 1);
-	return (res);
+	{
+		return (str);
+	}
+	ft_memcpy(res, str, occurrence_idx);
+	str_lcat(res, replace, res_len);
+	str_lcat(res, str + occurrence_idx + str_ulen(find), res_len);
+	free(str);
+	str = res;
+	return (str);
 }
