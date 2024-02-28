@@ -6,13 +6,27 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/24 19:01:58 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:47:39 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <ft_def.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <stdint.h>
+# include <stddef.h>
+# include <stdarg.h>
+# include <stdbool.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <signal.h>
+# include <limits.h>
+
+# include <ft_structs.h>
+# include <ft_colors.h>
+
 # include <ft_char.h>
 # include <ft_ctype.h>
 # include <ft_gnl.h>
@@ -24,6 +38,10 @@
 # include <ft_str.h>
 # include <ft_structs.h>
 # include <ft_unistd.h>
+
+# define BASE10 "0123456789"
+# define BASE16 "0123456789abcdef"
+# define BASE16UPPER "0123456789ABCDEF"
 
 bool		file_exists(char *path);
 

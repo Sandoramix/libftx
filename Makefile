@@ -30,23 +30,23 @@ SRC = ./src/char/ft_charequals.c \
 	./src/dl_list/dll_search.c \
 	./src/dl_list/dll_utils.c \
 	./src/env/load.c \
-	./src/files/ft_readfile.c \
 	./src/files/file_utils.c \
+	./src/files/ft_readfile.c \
 	./src/getnextline/get_next_line.c \
 	./src/getnextline/get_next_line_utils.c \
+	./src/int/array/int_clear.c \
+	./src/int/array/int_populate.c \
+	./src/int/array/int_print.c \
+	./src/int/array/int_search.c \
 	./src/int/ft_int_minmax_idx.c \
 	./src/int/ft_intcmp.c \
 	./src/int/int_imin.c \
-	./src/int/array/int_populate.c \
-	./src/int/array/int_clear.c \
-	./src/int/array/int_print.c \
-	./src/int/array/int_search.c \
 	./src/lists/lst_count.c \
 	./src/lists/lst_create.c \
 	./src/lists/lst_delete.c \
 	./src/lists/lst_get.c \
-	./src/lists/lst_search.c \
 	./src/lists/lst_print.c \
+	./src/lists/lst_search.c \
 	./src/math/ft_iabs.c \
 	./src/math/ft_ipow.c \
 	./src/math/ft_nbr_len.c \
@@ -68,26 +68,26 @@ SRC = ./src/char/ft_charequals.c \
 	./src/printf/ft_pflaghandler.c \
 	./src/printf/ft_printf.c \
 	./src/printf/ft_printf_core.c \
-	./src/str/str_ilen.c \
-	./src/str/str_freejoin.c \
 	./src/str/str_chr.c \
+	./src/str/str_cmp.c \
 	./src/str/str_count_c.c \
 	./src/str/str_dup.c \
 	./src/str/str_endswith.c \
+	./src/str/str_equals.c \
 	./src/str/str_every.c \
+	./src/str/str_freejoin.c \
 	./src/str/str_idxofchar.c \
 	./src/str/str_idxofstr.c \
+	./src/str/str_ilen.c \
 	./src/str/str_iteri.c \
 	./src/str/str_join.c \
 	./src/str/str_lcat.c \
 	./src/str/str_lcpy.c \
-	./src/str/str_ulen.c \
 	./src/str/str_mapi.c \
 	./src/str/str_mtxdup.c \
-	./src/str/str_ncmp.c \
 	./src/str/str_nstr.c \
 	./src/str/str_pad.c \
-	./src/str/ft_strpushchar.c \
+	./src/str/str_pushchar.c \
 	./src/str/str_rchr.c \
 	./src/str/str_replace.c \
 	./src/str/str_replace_first.c \
@@ -96,6 +96,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/str/str_tolower.c \
 	./src/str/str_toupper.c \
 	./src/str/str_trim.c \
+	./src/str/str_ulen.c \
 	./src/strict/converter/strict_atoi.c \
 	./src/unistd/ft_putaddr_fd.c \
 	./src/unistd/ft_putchar_fd.c \
@@ -105,6 +106,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/unistd/ft_putstr_fd.c \
 	./src/unistd/ft_putstrmtx.c \
 	./src/unistd/ft_writeulbase_fd.c
+
 
 OBJ = ${SRC:.c=.o}
 

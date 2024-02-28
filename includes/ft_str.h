@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:36:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/28 18:04:35 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:45:27 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,9 @@ char		*str_rchr(const char *s, int c);
  * A `positive number` if s1 is greater than s2.
  */
 int			str_ncmp(const char *s1, const char *s2, size_t n);
+//TODO
+int			str_cmp(const char *s1, const char *s2);
+bool		str_equals(char *a, char *b);
 /**
  * @brief This function locates the first occurrence of the
  * null-terminated string s2 in the string s1,
