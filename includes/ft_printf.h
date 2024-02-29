@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:04:19 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/09 15:43:26 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/29 08:02:09 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,7 @@ int			ft_printf(const char *str, ...);
 int			ft_fprintf(int fd, const char *str, ...);
 /**
  * @brief Bad implementation of perror.
- * Print the given string with red color and terminate the program
- * with `exit`
+ * Print the given string with red color to error std.
  * @param template template
  * @param ... va_args
  */

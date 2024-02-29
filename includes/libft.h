@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/28 19:57:22 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/29 08:00:43 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 
 # include <ft_structs.h>
 # include <ft_colors.h>
+# include <ft_errors.h>
 
 # include <ft_char.h>
 # include <ft_ctype.h>
