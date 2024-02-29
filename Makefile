@@ -69,6 +69,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/printf/ft_pflaghandler.c \
 	./src/printf/ft_printf.c \
 	./src/printf/ft_printf_core.c \
+	./src/printf/pf_errcode.c \
 	./src/str/str_chr.c \
 	./src/str/str_cmp.c \
 	./src/str/str_count_c.c \

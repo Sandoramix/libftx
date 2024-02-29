@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/29 08:00:43 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/29 08:04:19 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_list		*env_search(t_list *envlist, char *key);
  *
  * @param n the integer to convert.
  * @return The string representing the integer.
- * NULL if the allocation fails.
+ * `NULL` if the allocation fails.
  * @attention Uses: malloc
  */
 char		*ft_itoa(int n);

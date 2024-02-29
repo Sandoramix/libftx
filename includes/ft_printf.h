@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:04:19 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/29 08:02:09 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/02/29 08:37:04 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int			ft_printf(const char *str, ...);
 int			ft_fprintf(int fd, const char *str, ...);
 /**
  * @brief Bad implementation of perror.
- * Print the given string with red color to error std.
+ * Print the given string with red color to stderr.
  * @param template template
  * @param ... va_args
  */
@@ -104,7 +104,14 @@ size_t		pf_handleflags(int fd, t_pfflag flag);
  * @return t_pfflag the structure
  */
 t_pfflag	pf_getflag(char *str, int start, int end);
+//TODO
 size_t		pf_handle_flag_end(int fd, t_pfflag flag);
 size_t		pf_handle_flag_start(int fd, t_pfflag flag);
+/**
+ * @brief Print to stderr an error message based on given error `code`
+ * @param code Error's code.
+ * @return Total printed chars.
+ */
+int			pf_errcode(t_errorcode code);
 
 #endif
