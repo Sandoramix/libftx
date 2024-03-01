@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:17:53 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/28 18:18:53 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/01 20:49:29 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,15 @@ char	*my_strjoin(char *s1, char *s2, size_t s2_n)
 {
 	char	*res;
 	size_t	s1len;
-	size_t	i;
-	size_t	j;
+	size_t	totlen;
 
 	s1len = str_ilen(s1);
-	res = ft_calloc(s1len + s2_n + 1, sizeof(char));
+	totlen = s1len + s2_n + 1;
+	res = ft_calloc(totlen, sizeof(char));
 	if (!res)
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (i < s1len && s1 && s1[i])
-		res[i++] = s1[j++];
-	j = 0;
-	while (j < s2_n && s2 && s2[j])
-		res[i++] = s2[j++];
+	str_lcat(res, s1, totlen);
+	str_lcat(res, s2, totlen);
 	free(s1);
 	s1 = res;
 	return (res);
