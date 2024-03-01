@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/29 08:04:19 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/01 17:37:34 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,27 @@
 # include <ft_structs.h>
 # include <ft_unistd.h>
 
+typedef enum e_status
+{
+	OK,
+	KO
+}	t_status;
+
 # define BASE10 "0123456789"
 # define BASE16 "0123456789abcdef"
 # define BASE16UPPER "0123456789ABCDEF"
 
 bool		file_exists(char *path);
 
+int			file_open(char *path, mode_t mode);
+
+char		*file_gen_name(char *prefix, mode_t mode);
+
 int			file_open_or_create(char *path, mode_t mode);
 
 bool		file_hasperm(char *path, mode_t perms);
+
+bool		file_isdir(char *path);
 
 char		**env_load_paths(t_list *env);
 t_list		*env_load(char **envp);

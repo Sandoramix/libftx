@@ -31,6 +31,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/dl_list/dll_utils.c \
 	./src/env/env_load.c \
 	./src/env/env_search.c \
+	./src/files/file_gen.c \
 	./src/files/file_utils.c \
 	./src/files/ft_readfile.c \
 	./src/getnextline/get_next_line.c \
