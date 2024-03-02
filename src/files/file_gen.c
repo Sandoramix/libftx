@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:36:39 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/01 20:38:44 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/02 16:27:38 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,28 @@ char	*file_gen_name(char *prefix, mode_t mode)
 		free(name);
 	}
 	return (NULL);
+}
+
+int	file_open(char *path, mode_t mode)
+{
+	int		fd;
+
+	if (file_isdir(path))
+		return (ft_perror("%s: you can't open a directory.\n"), -1);
+	fd = open(path, mode);
+	if (fd == -1)
+		ft_perror("%s: File does not exist or %s\n", path,
+			"doesn't have enough permissions");
+	return (fd);
+}
+
+int	file_open_or_create(char *path, mode_t mode)
+{
+	int	fd;
+
+	fd = open(path, O_CREAT | mode, 0644);
+	if (fd == -1)
+		return (open(path, mode));
+	close(fd);
+	return (file_open(path, mode));
 }

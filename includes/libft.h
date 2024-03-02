@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/01 17:37:34 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/02 16:22:48 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,37 @@
 # include <ft_structs.h>
 # include <ft_unistd.h>
 
+# define BASE10 "0123456789"
+# define BASE16 "0123456789abcdef"
+# define BASE16UPPER "0123456789ABCDEF"
+
+# ifndef FILE_HEREDOC
+#  define FILE_HEREDOC ".heredoc"
+# endif
+
 typedef enum e_status
 {
 	OK,
 	KO
 }	t_status;
 
-# define BASE10 "0123456789"
-# define BASE16 "0123456789abcdef"
-# define BASE16UPPER "0123456789ABCDEF"
-
 bool		file_exists(char *path);
-
+/**
+ * @brief Open a file with in requested mode. An error would be returned if
+ * it is a directory or the user doesn't have enough permissions.
+ * @param path path of file to open.
+ * @param mode how should the file be opened.
+ * @return `fd` of the opened file, of `-1` and a possible print to console if
+ * there's been an error.
+ */
 int			file_open(char *path, mode_t mode);
+/**
+ * @brief Close all files inside the given array of `fds`
+ * @param fds array of `fd`s to close
+ * @param n size of `fds`
+ * @return number of files closed
+ */
+int			file_close(int fds[], int n);
 
 char		*file_gen_name(char *prefix, mode_t mode);
 
@@ -62,9 +80,15 @@ bool		file_hasperm(char *path, mode_t perms);
 
 bool		file_isdir(char *path);
 
+t_list		*sys_loadcmds(char **cmds, char **paths);
 char		**env_load_paths(t_list *env);
 t_list		*env_load(char **envp);
 t_list		*env_search(t_list *envlist, char *key);
+
+char		*sys_findcmdpath(char **paths, char *cmd);
+
+void		*str_freemtx(char **mtx);
+void		*str_freemtx_from(char **mtx, int start);
 //!-------------------------CONVERTERS-------------------------
 
 /**

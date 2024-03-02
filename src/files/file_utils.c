@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 17:39:55 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/01 20:41:18 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/02 10:31:31 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,21 @@ bool	file_exists(char *path)
 	return (!file_isdir(path) && access(path, F_OK) == 0);
 }
 
-int	file_open(char *path, mode_t mode)
+int	file_close(int fds[], int n)
 {
-	if (file_isdir(path))
-		return (-1);
-	return (open(path, mode));
-}
+	int			res;
+	int			i;
 
-int	file_open_or_create(char *path, mode_t mode)
-{
-	int	fd;
-
-	fd = open(path, O_CREAT | mode, 0644);
-	if (fd == -1)
-		return (open(path, mode));
-	close(fd);
-	return (file_open(path, mode));
+	i = -1;
+	res = 0;
+	while (++i < n)
+	{
+		if (fds[i] == -1)
+			continue ;
+		res++;
+		close(fds[i]);
+	}
+	return (res);
 }
 
 bool	file_hasperm(char *path, mode_t perms)

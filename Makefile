@@ -101,6 +101,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/str/str_trim.c \
 	./src/str/str_ulen.c \
 	./src/strict/converter/strict_atoi.c \
+	./src/sys/sys_cmd.c \
 	./src/unistd/ft_putaddr_fd.c \
 	./src/unistd/ft_putchar_fd.c \
 	./src/unistd/ft_putendl_fd.c \
