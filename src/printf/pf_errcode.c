@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 08:23:24 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/29 08:40:11 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/03 17:54:46 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ static int	errswitch(t_errorcode code)
 	if (code == ERR_FILE_PERMISSION_DENIED)
 		return (ft_perror("File permissions denied."));
 	if (code == ERR_ENV_LOAD)
-		return (ft_perror("Failed loading ENV variables"));
+		return (ft_perror("Failed loading ENV variables."));
 	if (code == ERR_PATH_LOAD)
-		return (ft_perror("Failed loading \"PATH\" from env"));
+		return (ft_perror("Failed loading \"PATH\" from env."));
+	if (code == ERR_FORK)
+		return (ft_perror("Fork failure."));
 	return (ft_perror("."));
 }
 

@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/02 16:22:48 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/03 18:00:55 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ t_list		*env_search(t_list *envlist, char *key);
 char		*sys_findcmdpath(char **paths, char *cmd);
 
 void		*str_freemtx(char **mtx);
+void		*str_freemtx_cube(char ***mtx);
 void		*str_freemtx_from(char **mtx, int start);
 //!-------------------------CONVERTERS-------------------------
 
