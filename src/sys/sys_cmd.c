@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 10:38:09 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/02 16:09:33 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/03 16:00:05 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ t_list	*sys_loadcmds(char **cmds, char **paths)
 		if (!lst_addnew_tail(&res, path, cmdname))
 			return (str_freemtx(spl), NULL);
 		str_freemtx(spl);
-		i++;
 	}
 	return (res);
 }
