@@ -42,6 +42,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/int/array/int_search.c \
 	./src/int/ft_int_minmax_idx.c \
 	./src/int/ft_intcmp.c \
+	./src/int/int_free.c \
 	./src/int/int_imin.c \
 	./src/lists/lst_count.c \
 	./src/lists/lst_create.c \

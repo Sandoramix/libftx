@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 19:01:29 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/02 11:18:32 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/03 23:29:18 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	**env_load_paths(t_list *env)
 {
 	t_list	*path_node;
 
-	path_node = env_search(env, "PATH");
+	path_node = lst_findbykey_str(env, "PATH");
 	if (!path_node)
 		return (NULL);
 	return (str_split(path_node->val, ':'));

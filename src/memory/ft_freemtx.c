@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:44:16 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/03 21:40:28 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/04 00:12:57 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,25 @@ void	*ft_freemtx(void *mtx, size_t rows)
 	while (i < rows)
 		free(mtxp[i++]);
 	free(mtxp);
+	return (NULL);
+}
+
+void	*ft_freemtx_cubes(char ***mtx, int length)
+{
+	int		i;
+	int		j;
+
+	i = -1;
+	while (mtx && ++i < length)
+	{
+		if (!mtx[i])
+			continue ;
+		j = -1;
+		while (mtx[i][++j])
+			free(mtx[i][j]);
+		free(mtx[i]);
+	}
+	free(mtx);
 	return (NULL);
 }
 

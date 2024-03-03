@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 00:17:30 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/28 19:31:29 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/03 23:28:50 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,11 @@ t_list	*lst_findbykey(t_list *head, void *key, bool (*equal)(void *a, void *b))
 		node = node->next;
 	}
 	return (NULL);
+}
+
+t_list	*lst_findbykey_str(t_list *envlist, char *key)
+{
+	if (!envlist || !key)
+		return (NULL);
+	return (lst_findbykey(envlist, key, str_equals));
 }

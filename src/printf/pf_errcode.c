@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 08:23:24 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/03 17:54:46 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/03 23:29:24 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ static int	errswitch(t_errorcode code)
 		return (ft_perror("Failed loading \"PATH\" from env."));
 	if (code == ERR_FORK)
 		return (ft_perror("Fork failure."));
+	if (code == ERR_PIPE)
+		return (ft_perror("Pipe failure."));
+	if (code == ERR_DUP2)
+		return (ft_perror("Dup2 failure."));
 	return (ft_perror("."));
 }
 

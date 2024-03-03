@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/03 18:00:55 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/04 00:30:00 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <sys/stat.h>
 # include <signal.h>
 # include <limits.h>
+# include <sys/wait.h>
 
 # include <ft_structs.h>
 # include <ft_colors.h>
@@ -83,12 +84,13 @@ bool		file_isdir(char *path);
 t_list		*sys_loadcmds(char **cmds, char **paths);
 char		**env_load_paths(t_list *env);
 t_list		*env_load(char **envp);
-t_list		*env_search(t_list *envlist, char *key);
+t_list		*lst_findbykey_str(t_list *envlist, char *key);
 
 char		*sys_findcmdpath(char **paths, char *cmd);
 
 void		*str_freemtx(char **mtx);
 void		*str_freemtx_cube(char ***mtx);
+void		*ft_freemtx_cubes(char ***mtx, int length);
 void		*str_freemtx_from(char **mtx, int start);
 //!-------------------------CONVERTERS-------------------------
 

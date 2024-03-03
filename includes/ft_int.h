@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:38:43 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/09 15:43:35 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/04 00:11:10 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_intmtx
  * @return
  */
 int				int_imin(int n1, int n2);
+
+void			*int_freemtx(int **mtx, int rows);
 
 int				*intarr_push(t_intarr *data, int val);
 int				**intmtx_push(t_intmtx *data, int *val);
