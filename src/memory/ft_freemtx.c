@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:44:16 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/03 18:00:19 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/03 21:40:28 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	*str_freemtx_cube(char ***mtx)
 		free(mtx[i]);
 	}
 	free(mtx);
+	return (NULL);
 }
 
 void	*str_freemtx(char **mtx)
