@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 10:38:09 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/03 22:26:35 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/03 22:53:08 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*sys_findcmdpath(char **paths, char *cmd)
 			return (res);
 		free(res);
 	}
-	return (cmd);
+	return (str_dup(cmd));
 }
 
 t_list	*sys_loadcmds(char **cmds, char **paths)
@@ -55,8 +55,7 @@ t_list	*sys_loadcmds(char **cmds, char **paths)
 		if (!spl)
 			return (NULL);
 		cmdname = spl[0];
-		if (lst_findbykey(res, cmdname, str_equals) && ++i
-			&& (str_freemtx(spl) || 1))
+		if (lst_findbykey(res, cmdname, str_equals) && (str_freemtx(spl) || 1))
 			continue ;
 		path = sys_findcmdpath(paths, cmdname);
 		if (!path || !lst_addnew_tail(&res, path, cmdname))
