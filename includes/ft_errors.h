@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 07:47:06 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/03 23:19:46 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/05 19:40:56 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ typedef enum e_errorcode
 	ERR_PATH_LOAD,
 	ERR_FORK,
 	ERR_PIPE,
-	ERR_DUP2
+	ERR_DUP2,
+	ERR_EXECVE
 }	t_errorcode;
 
 #endif
