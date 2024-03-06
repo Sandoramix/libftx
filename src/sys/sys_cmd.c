@@ -6,13 +6,12 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 10:38:09 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/03 22:53:08 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:01:54 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-// TODO decision: return `NULL` or copy of `cmd`
 char	*sys_findcmdpath(char **paths, char *cmd)
 {
 	int			i;

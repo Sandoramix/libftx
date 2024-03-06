@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 14:42:50 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/29 08:02:09 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:07:37 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ int	ft_perror(char *str, ...)
 
 	va_start(list, str);
 	res_len = str_ulen(str);
+	ft_putstr_fd(COLOR_RED, 2);
 	pf_parseargs(2, str, list, &res_len);
+	ft_putstr_fd(CR, 2);
 	va_end(list);
 	return (res_len);
 }

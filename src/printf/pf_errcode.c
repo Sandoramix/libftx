@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 08:23:24 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/05 19:43:55 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:06:50 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	pf_errcode(t_errorcode code)
 {
 	int	len;
 
-	len = ft_perror("Error");
+	len = ft_perror("[Error]");
 	if (code != ERR_DEFAULT)
 		len += ft_perror(":\t") + errswitch(code);
 	return (len + ft_perror("\n"));
