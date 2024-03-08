@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:49:25 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/09 16:00:06 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/07 13:17:24 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@ int			ft_ctolower(int c);
  * @return true if `c1` and `c2` are equal, false otherwise
  */
 bool		ft_charequals(char c1, char c2);
+
+//TODO
+bool		chr_isquote(char c);
 
 #endif

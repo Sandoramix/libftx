@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/04 00:30:00 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/08 15:22:49 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ bool		file_hasperm(char *path, mode_t perms);
 
 bool		file_isdir(char *path);
 
+char		**cmd_parse(const char *command);
+char		*cmd_get_progname(char *str);
 t_list		*sys_loadcmds(char **cmds, char **paths);
 char		**env_load_paths(t_list *env);
 t_list		*env_load(char **envp);

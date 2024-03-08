@@ -7,7 +7,8 @@ COMPILE = $(CC) $(CFLAGS)
 ARCHIVE = ar rc $(NAME)
 RM = rm -f
 
-SRC = ./src/char/ft_charequals.c \
+SRC = ./src/char/chr_isquote.c \
+	./src/char/ft_charequals.c \
 	./src/char/ft_ctolower.c \
 	./src/char/ft_ctoupper.c \
 	./src/converter/ft_atoi.c \
@@ -102,6 +103,7 @@ SRC = ./src/char/ft_charequals.c \
 	./src/str/str_trim.c \
 	./src/str/str_ulen.c \
 	./src/strict/converter/strict_atoi.c \
+	./src/sys/cmd_parseargs.c \
 	./src/sys/sys_cmd.c \
 	./src/unistd/ft_putaddr_fd.c \
 	./src/unistd/ft_putchar_fd.c \
@@ -111,7 +113,6 @@ SRC = ./src/char/ft_charequals.c \
 	./src/unistd/ft_putstr_fd.c \
 	./src/unistd/ft_putstrmtx.c \
 	./src/unistd/ft_writeulbase_fd.c
-
 
 OBJ = ${SRC:.c=.o}
 
