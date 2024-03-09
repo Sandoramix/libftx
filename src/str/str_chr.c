@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/28 18:18:53 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/09 12:25:51 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,19 @@ char	*str_chr(const char *s, int c)
 		i++;
 	}
 	return (NULL);
+}
+
+// TODO move me somewhere else
+bool	str_isblank(char *s)
+{
+	int		len;
+
+	if (!s)
+		return (true);
+	s = str_trim(s, " \n\t\n\v\f\r");
+	if (!s)
+		return (-1);
+	len = str_ilen(s);
+	free(s);
+	return (!len);
 }

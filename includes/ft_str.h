@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:36:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/03 22:00:31 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/09 12:22:55 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ char		*str_rchr(const char *s, int c);
  */
 int			str_ncmp(const char *s1, const char *s2, size_t n);
 //TODO
+bool		str_isblank(char *s);
 int			str_cmp(const char *s1, const char *s2);
 bool		str_equals(void *a, void *b);
 /**

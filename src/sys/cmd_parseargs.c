@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:16:03 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/09 11:36:12 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/09 12:21:07 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	**cmd_parse(char *raw)
 	info.args_count = count_arguments(raw);
 	res = ft_calloc(info.args_count + 1, sizeof(char *));
 	if (!res)
-		return (pf_errcode(ERR_MALLOC), free(raw), NULL);
+		return (free(raw), NULL);
 	i = -1;
 	while (raw[++i])
 	{
@@ -72,11 +72,9 @@ char	**cmd_parse(char *raw)
 		{
 			if (i > 0 && !ft_isspace(raw[i - 1]))
 			{
-				bool excl = 0;
-				res[info.res_idx] = my_substr(raw, info.start + excl, i - 1 - excl);
+				res[info.res_idx] = my_substr(raw, info.start, i - 1);
 				if (!res[info.res_idx])
-					return (pf_errcode(ERR_MALLOC), str_freemtx(res), free(raw), NULL);
-				ft_printf("[%d][%s]\texcl[%s]\n", info.res_idx, res[info.res_idx], ft_boolstr(excl));
+					return (str_freemtx(res), free(raw), NULL);
 				info.res_idx++;
 			}
 			info.start = i + 1;
@@ -88,11 +86,11 @@ char	**cmd_parse(char *raw)
 		else
 			info.escaped = false;
 	}
-	if (raw[info.start])
+	if (raw[info.start] || raw)
 	{
 		res[info.res_idx] = str_dup(raw + info.start);
 		if (!res[info.res_idx])
-			return (pf_errcode(ERR_MALLOC), free(raw), str_freemtx(res), NULL);
+			return (free(raw), str_freemtx(res), NULL);
 		info.res_idx++;
 	}
 	return (free(raw), res);
