@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:53:30 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/07 13:30:50 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/09 18:00:52 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,14 @@ typedef struct s_counter
 	int		j;
 	int		k;
 }	t_counter;
+
+typedef struct s_cmdparse
+{
+	bool		escaped;
+	char		cur_quote;
+	int			args_count;
+	int			start;
+	int			res_idx;
+}	t_cmdparse;
 
 #endif
