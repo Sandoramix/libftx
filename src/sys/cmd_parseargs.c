@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:16:03 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/08 16:46:31 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/09 11:36:12 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,79 +14,86 @@
 #include <string.h>
 #include <stdio.h>
 
-int	count_arguments(const char *raw_str)
+typedef struct s_cmdparse
 {
-	int			arg_count;
+	bool		escaped;
 	char		cur_quote;
-	int			escaped;
-	int			i;
+	int			args_count;
+	int			start;
+	int			res_idx;
+}	t_cmdparse;
 
-	escaped = 0;
-	arg_count = 0;
-	cur_quote = '\0';
+int	count_arguments(const char *raw)
+{
+	t_cmdparse				info;
+	int						i;
+
+	info = (t_cmdparse){0};
 	i = -1;
-	while (raw_str && raw_str[++i])
+	while (raw && raw[++i])
 	{
-		if (raw_str[i] == ' ' && cur_quote == '\0' && !escaped && i > 0
-			&& raw_str[i - 1] != ' ')
-			arg_count++;
-		else if ((raw_str[i] == '\'' || raw_str[i] == '"') && !escaped)
-			cur_quote = (int [2]){false, raw_str[i]}[cur_quote == raw_str[i]];
-		else if (raw_str[i] == '\\' && !escaped)
-			escaped = 1;
+		if (raw[i] == ' ' && info.cur_quote == '\0' && !info.escaped)
+		{
+			if (i > 0 && raw[i - 1] != ' ')
+				info.args_count++;
+		}
+		else if ((raw[i] == '\'' || raw[i] == '"') && !info.escaped)
+			info.cur_quote = (int [2]){false, raw[i]}[info.cur_quote == raw[i]];
+		else if (raw[i] == '\\' && !info.escaped)
+			info.escaped = true;
 		else
-			escaped = 0;
+			info.escaped = false;
 	}
-	if (raw_str && raw_str[0] != '\0')
-		arg_count++;
-	return (arg_count);
+	if (raw && raw[0] != '\0')
+		info.args_count++;
+	return (info.args_count);
 }
 
-char	**cmd_parse(const char *command)
+char	**cmd_parse(char *raw)
 {
-	int arg_count = count_arguments(command);
-	char **args = ft_calloc(arg_count + 1, sizeof(char *));
-	if (!args)
-		return (pf_errcode(ERR_MALLOC), NULL);
+	t_cmdparse			info;
+	char				**res;
+	int					i;
 
-	int arg_index = 0;
-	char cur_quote = '\0';
-	int escaped = 0;
-	int arg_start = 0;
-	int	slen = str_ilen(command);
-
-	for (int i = 0; i < slen; i++)
+	if (!raw)
+		return (NULL);
+	info = (t_cmdparse){0};
+	raw = str_trim(raw, " \n\t\n\v\f\r");
+	if (!raw)
+		return (NULL);
+	info.args_count = count_arguments(raw);
+	res = ft_calloc(info.args_count + 1, sizeof(char *));
+	if (!res)
+		return (pf_errcode(ERR_MALLOC), free(raw), NULL);
+	i = -1;
+	while (raw[++i])
 	{
-		if (command[i] == ' ' && cur_quote == '\0' && !escaped)
+		if (ft_isspace(raw[i]) && !info.cur_quote && !info.escaped)
 		{
-			if (i > 0 && command[i - 1] != ' ')
+			if (i > 0 && !ft_isspace(raw[i - 1]))
 			{
 				bool excl = 0;
-				args[arg_index] = str_substr(command, arg_start + excl, i - excl);
-				if (!args[arg_index])
-					return (pf_errcode(ERR_MALLOC), str_freemtx(args), NULL);
-				ft_printf("[%d][%s]\texcl[%s]\n", arg_index, args[arg_index], ft_boolstr(excl));
-				//args[arg_index] = ft_calloc(i - arg_start + 1, sizeof(char));
-				//if (!args[arg_index])
-				//	return (pf_errcode(ERR_MALLOC), str_freemtx(args), NULL);
-				//ft_memcpy(args[arg_index], command + arg_start + excl, i - arg_start - excl);
-				arg_index++;
+				res[info.res_idx] = my_substr(raw, info.start + excl, i - 1 - excl);
+				if (!res[info.res_idx])
+					return (pf_errcode(ERR_MALLOC), str_freemtx(res), free(raw), NULL);
+				ft_printf("[%d][%s]\texcl[%s]\n", info.res_idx, res[info.res_idx], ft_boolstr(excl));
+				info.res_idx++;
 			}
-			arg_start = i + 1;
+			info.start = i + 1;
 		}
-		else if ((command[i] == '\'' || command[i] == '"') && !escaped)
-			cur_quote = (int [2]){0, command[i]}[cur_quote == command[i]];
-		else if (command[i] == '\\' && !escaped)
-			escaped = 1;
+		else if (chr_isquote(raw[i]) && !info.escaped)
+			info.cur_quote = (int [2]){raw[i], 0}[info.cur_quote == raw[i]];
+		else if (raw[i] == '\\' && !info.escaped)
+			info.escaped = true;
 		else
-			escaped = 0;
+			info.escaped = false;
 	}
-	if (command[arg_start] != '\0')
+	if (raw[info.start])
 	{
-		args[arg_index] = str_dup(command + arg_start);
-		if (!args[arg_index])
-			return (pf_errcode(ERR_MALLOC), str_freemtx(args), NULL);
-		arg_index++;
+		res[info.res_idx] = str_dup(raw + info.start);
+		if (!res[info.res_idx])
+			return (pf_errcode(ERR_MALLOC), free(raw), str_freemtx(res), NULL);
+		info.res_idx++;
 	}
-	return (args);
+	return (free(raw), res);
 }
