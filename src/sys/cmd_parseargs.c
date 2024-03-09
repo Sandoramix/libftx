@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:16:03 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/09 17:58:21 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/09 18:02:14 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ static char	**checklast(t_cmdparse info, char *raw, char **res)
 	free(raw);
 	return (res);
 }
+
+// TODO REMOVE EXTERNAL QUOTES
 
 char	**cmd_parse(char *raw)
 {
