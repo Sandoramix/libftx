@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/10 09:56:23 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/10 12:07:30 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,20 @@
 #  define FILE_HEREDOC ".heredoc"
 # endif
 
+/**
+ * @brief Parse the string of a command.
+ * It even handles internal quotes.
+ * @param command command's string to parse
+ * @return Array of args parsed.
+ */
 char		**cmd_parse(char *command);
-char		*cmd_get_progname(char *str);
+/**
+ * @brief Generate list of commands where the `key` is the command of `cmds`
+ * and the `val` is it's absolute path or if not found the same `key`
+ * @param cmds Commands executable to find (cannot be a string of length `0`)
+ * @param paths paths from `PATH` env
+ * @return list of commands
+ */
 t_list		*sys_loadcmds(char **cmds, char **paths);
 /**
  * @brief Generate an array of all setted `PATH` paths0

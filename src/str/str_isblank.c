@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_chr.c                                          :+:      :+:    :+:   */
+/*   str_isblank.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 00:16:48 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/10 12:06:25 by odudniak         ###   ########.fr       */
+/*   Created: 2024/03/10 12:06:09 by odudniak          #+#    #+#             */
+/*   Updated: 2024/03/10 12:06:16 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-char	*str_chr(const char *s, int c)
+bool	str_isblank(char *s)
 {
-	size_t	s_len;
-	char	*s_p;
-	size_t	i;
+	int		len;
 
-	s_len = str_ulen(s);
-	s_p = (char *)s;
-	i = 0;
-	while (i <= s_len)
-	{
-		if (s_p[i] == (char)c)
-			return (&s_p[i]);
-		i++;
-	}
-	return (NULL);
+	if (!s)
+		return (true);
+	s = str_trim(s, " \n\t\n\v\f\r");
+	if (!s)
+		return (-1);
+	len = str_ilen(s);
+	free(s);
+	return (!len);
 }

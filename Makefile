@@ -84,6 +84,7 @@ SRC = ./src/char/chr_isquote.c \
 	./src/str/str_idxofchar.c \
 	./src/str/str_idxofstr.c \
 	./src/str/str_ilen.c \
+	./src/str/str_isblank.c \
 	./src/str/str_iteri.c \
 	./src/str/str_join.c \
 	./src/str/str_lcat.c \
@@ -113,6 +114,7 @@ SRC = ./src/char/chr_isquote.c \
 	./src/unistd/ft_putstr_fd.c \
 	./src/unistd/ft_putstrmtx.c \
 	./src/unistd/ft_writeulbase_fd.c
+
 
 OBJ = ${SRC:.c=.o}
 

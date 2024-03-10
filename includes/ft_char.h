@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:49:25 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/07 13:17:24 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/10 12:05:42 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,11 @@ int			ft_ctolower(int c);
  */
 bool		ft_charequals(char c1, char c2);
 
-//TODO
+/**
+ * @brief Check if `c` is a quote (`"` or `'`)
+ * @param c char to check
+ * @return `true` if `c` is a quote, `false` otherwise.
+ */
 bool		chr_isquote(char c);
 
 #endif
