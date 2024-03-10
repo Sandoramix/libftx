@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:16:03 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/09 18:02:14 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/10 09:12:48 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,13 @@ static bool	cmdparse_init(t_cmdparse *data, char **raw, char ***res, int *i)
 	return (true);
 }
 
-static char	**checklast(t_cmdparse info, char *raw, char **res)
+static char	**checklast(t_cmdparse info, char *raw, char **res, int i)
 {
+	i--;
 	if (raw[info.start])
 	{
-		res[info.res_idx] = str_dup(raw + info.start);
+		res[info.res_idx] = my_substr(raw, info.start
+				+ chr_isquote(raw[info.start]), i - chr_isquote(raw[i]));
 		if (!res[info.res_idx])
 			return (free(raw), str_freemtx(res), NULL);
 		info.res_idx++;
@@ -68,8 +70,6 @@ static char	**checklast(t_cmdparse info, char *raw, char **res)
 	free(raw);
 	return (res);
 }
-
-// TODO REMOVE EXTERNAL QUOTES
 
 char	**cmd_parse(char *raw)
 {
@@ -85,7 +85,8 @@ char	**cmd_parse(char *raw)
 		{
 			if (i > 0 && !ft_isspace(raw[i - 1]))
 			{
-				res[info.res_idx++] = my_substr(raw, info.start, i - 1);
+				res[info.res_idx++] = my_substr(raw, info.start + chr_isquote(\
+				raw[info.start]), i - 1 - chr_isquote(raw[info.start]));
 				if (!res[info.res_idx - 1])
 					return (str_freemtx(res), free(raw), NULL);
 			}
@@ -96,5 +97,5 @@ char	**cmd_parse(char *raw)
 		else
 			info.escaped = (raw[i] == '\\' && !info.escaped);
 	}
-	return (checklast(info, raw, res));
+	return (checklast(info, raw, res, i));
 }
