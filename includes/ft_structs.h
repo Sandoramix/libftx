@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:53:30 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/09 18:00:52 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/10 09:29:40 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,11 @@ typedef struct s_cmdparse
 	int			start;
 	int			res_idx;
 }	t_cmdparse;
+
+typedef enum e_status
+{
+	OK,
+	KO
+}	t_status;
 
 #endif

@@ -6,20 +6,20 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:36:39 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/06 12:06:09 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/10 09:32:40 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	*file_gen_name(char *prefix, mode_t mode)
+char	*file_gen_name(char *prefix, int mode)
 {
 	int		count;
 	char	*name;
 	char	*suffix;
 
 	count = 0;
-	if (!file_exists(prefix) || file_hasperm(prefix, W_OK | R_OK))
+	if (!file_exists(prefix) || file_hasperm(prefix, mode))
 		return (str_dup(prefix));
 	while (true)
 	{
@@ -52,7 +52,7 @@ int	file_open_or_create(char *path, mode_t mode)
 
 	fd = open(path, O_CREAT | mode, 0644);
 	if (fd == -1)
-		return (open(path, mode));
+		return (file_open(path, mode));
 	close(fd);
 	return (file_open(path, mode));
 }

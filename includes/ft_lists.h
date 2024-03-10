@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:47:35 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/22 01:02:21 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/10 09:52:48 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,13 @@ t_list		*lst_getbyidx(t_list *head, int idx);
  */
 t_list		*lst_findbykey(t_list *head, void *key,
 				bool (*equal)(void *a, void *b));
+/**
+ *@brief Find the first node where the key (string) equals to the one requested.
+ * @param envlist List's head.
+ * @param key key to find
+ * @return node with the `key` key, `NULL` if not found.
+ */
+t_list		*lst_findbykey_str(t_list *envlist, char *key);
 /**
  * @brief Return the index of the first node where the value is equal to the
  * requested one.

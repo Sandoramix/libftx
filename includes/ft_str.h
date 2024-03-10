@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:36:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/09 12:22:55 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/10 09:47:27 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,59 @@ char		*str_rchr(const char *s, int c);
  * A `positive number` if s1 is greater than s2.
  */
 int			str_ncmp(const char *s1, const char *s2, size_t n);
-//TODO
+/**
+ * @brief Check if the given string `s` is blank
+ * (after removing all whitespaces it's length is `0`)
+ * @attention Uses: `malloc`
+ * @param s string to check
+ * @return `true` if the string `s` is blank, `false` otherwise.
+ */
 bool		str_isblank(char *s);
+/**
+ * @brief Compare two strings (`strcmp`).
+ * @param s1 first string
+ * @param s2 second string
+ * @return `0` if both strings are equal.
+ * If they're not equal, the difference of the first different character of the
+ * first string (s1[i]) and the second string (s2[i]) is returned
+ * (`s1[i] - s2[i]`)
+ */
 int			str_cmp(const char *s1, const char *s2);
+/**
+ * @brief Check whether the two strings are equal
+ * @param a first string
+ * @param b second string
+ * @return `true` if the strings are equal, `false` otherwise.
+ */
 bool		str_equals(void *a, void *b);
+/**
+ * @brief Deallocate a matrix of chars (array of strings)
+ * @param mtx matrix to free
+ * @return `NULL`
+ */
+void		*str_freemtx(char **mtx);
+/**
+ * @brief Deallocate a cube of chars (array of array of strings)
+ * @param mtx cube to free
+ * @return `NULL`
+ */
+void		*str_freemtx_cube(char ***mtx);
+/**
+ * @brief Deallocate a cube of chars (array of array of strings)
+ * until the given `length` (starting from 1)
+ * @param mtx cube to free
+ * @param length how many elements to free
+ * @return `NULL`
+ */
+void		*ft_freemtx_cubes(char ***mtx, int length);
+/**
+ * @brief Deallocate a matrix of chars (array of strings)
+ * from a starting position
+ * @param mtx matrix to free
+ * @param start index from where start deallocating
+ * @return `NULL`
+ */
+void		*str_freemtx_from(char **mtx, int start);
 /**
  * @brief This function locates the first occurrence of the
  * null-terminated string s2 in the string s1,
