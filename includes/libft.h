@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/10 12:07:30 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/10 16:19:39 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@
 # include <ft_str.h>
 # include <ft_structs.h>
 # include <ft_unistd.h>
+# include <ft_file.h>
+# include <ft_convert.h>
 
 # define BASE10 "0123456789"
 # define BASE16 "0123456789abcdef"

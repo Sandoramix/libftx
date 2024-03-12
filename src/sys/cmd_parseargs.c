@@ -6,14 +6,14 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:16:03 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/10 09:12:48 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/12 21:09:27 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <string.h>
 #include <stdio.h>
-
+// TODO REFACTOR ME
 static int	count_arguments(const char *raw)
 {
 	t_cmdparse				info;
@@ -23,17 +23,31 @@ static int	count_arguments(const char *raw)
 	i = -1;
 	while (raw && raw[++i])
 	{
-		if (raw[i] == ' ' && info.cur_quote == '\0' && !info.escaped)
+		if (raw[i] == ' ' && !info.outside_quote && !info.escaped && !info.inside_quote)
 		{
 			if (i > 0 && raw[i - 1] != ' ')
 				info.args_count++;
 		}
-		else if ((raw[i] == '\'' || raw[i] == '"') && !info.escaped)
-			info.cur_quote = (int [2]){false, raw[i]}[info.cur_quote == raw[i]];
-		else if (raw[i] == '\\' && !info.escaped)
+		else if (chr_isquote(raw[i]) && !info.escaped && !info.outside_quote)
+		{
+			if (!info.inside_quote)
+			{
+				info.outside_quote = raw[i];
+				info.inside_quote = true;
+			}
+			else if (raw[i] == info.outside_quote)
+			{
+				info.inside_quote = false;
+				info.outside_quote = 0;
+			}
+		}
+		else if (raw[i] == '\\' && !info.escaped && chr_isquote(info.outside_quote) && chr_isquote(raw[i + 1]))
+		{
 			info.escaped = true;
+			i++;
+		}
 		else
-			info.escaped = false;
+			info.escaped = raw[i] == '\\' && !info.escaped && chr_isquote(info.outside_quote);
 	}
 	if (raw && raw[0] != '\0')
 		info.args_count++;
@@ -81,21 +95,36 @@ char	**cmd_parse(char *raw)
 		return (NULL);
 	while (raw[++i])
 	{
-		if (ft_isspace(raw[i]) && !info.cur_quote && !info.escaped)
+		if (ft_isspace(raw[i]) && !info.outside_quote && !info.escaped && !info.inside_quote)
 		{
-			if (i > 0 && !ft_isspace(raw[i - 1]))
+			if (i > 0 && !ft_isspace(raw[i - 1]) && (i == 1 || (i > 1 && raw[i - 2] != '\\')))
 			{
-				res[info.res_idx++] = my_substr(raw, info.start + chr_isquote(\
-				raw[info.start]), i - 1 - chr_isquote(raw[info.start]));
+				res[info.res_idx++] = my_substr(raw, info.start + chr_isquote(raw[info.start]), i - 1 - (i > 1 && chr_isquote(raw[i - 2])));
 				if (!res[info.res_idx - 1])
 					return (str_freemtx(res), free(raw), NULL);
 			}
 			info.start = i + 1;
 		}
-		else if (chr_isquote(raw[i]) && !info.escaped)
-			info.cur_quote = (int [2]){raw[i], 0}[info.cur_quote == raw[i]];
+		else if (chr_isquote(raw[i]) && !info.escaped && !info.outside_quote)
+		{
+			if (!info.inside_quote)
+			{
+				info.outside_quote = raw[i];
+				info.inside_quote = true;
+			}
+			else if (raw[i] == info.outside_quote)
+			{
+				info.inside_quote = false;
+				info.outside_quote = 0;
+			}
+		}
+		else if (raw[i] == '\\' && !info.escaped && chr_isquote(info.outside_quote) && chr_isquote(raw[i + 1]))
+		{
+			info.escaped = true;
+			i++;
+		}
 		else
-			info.escaped = (raw[i] == '\\' && !info.escaped);
+			info.escaped = raw[i] == '\\' && !info.escaped && chr_isquote(info.outside_quote);
 	}
 	return (checklast(info, raw, res, i));
 }
