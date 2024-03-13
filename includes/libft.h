@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/13 11:36:46 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/13 15:45:44 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,9 @@
 # define BASE16 "0123456789abcdef"
 # define BASE16UPPER "0123456789ABCDEF"
 
+// Maybe should use `/tmp/.heredoc` ?
 # ifndef FILE_HEREDOC
-#  define FILE_HEREDOC "~/.heredoc"
+#  define FILE_HEREDOC ".heredoc"
 # endif
 
 /**
