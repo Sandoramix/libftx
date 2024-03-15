@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:16:03 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/13 11:45:57 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:41:35 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,13 @@ static bool	cmdparse_init(t_cmdparse *data, char **raw, char ***res)
 		return (false);
 	*data = (t_cmdparse){0};
 	*raw = str_trim(*raw, " \n\t\n\v\f\r");
-	data->i = -1;
 	if (!*raw)
 		return (false);
-	while (raw && raw[++data->i])
+	data->i = -1;
+	while (*raw && (*raw)[++data->i])
 		update_info(*raw, data);
 	if (*raw && *raw[0] != '\0')
-		data->args_count++;
+		(data->args_count)++;
 	*res = ft_calloc(data->args_count + 1, sizeof(char *));
 	if (!*res)
 		return (free(*raw), false);
