@@ -6,13 +6,17 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:53:30 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/15 16:41:34 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:48:09 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STRUCTS_H
 # define FT_STRUCTS_H
 # include <libft.h>
+
+typedef struct timeval	t_time;
+typedef struct timeval	t_timeval;
+typedef unsigned long	t_ulong;
 
 /**
  * @brief Struct for handling arrays of integers

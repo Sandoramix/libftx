@@ -6,7 +6,6 @@ CFLAGS = -Wall -Wextra -Werror $(DEBUGFLAGS)
 COMPILE = $(CC) $(CFLAGS)
 ARCHIVE = ar rc $(NAME)
 RM = rm -f
-
 SRC = ./src/char/chr_isquote.c \
 	./src/char/ft_charequals.c \
 	./src/char/ft_ctolower.c \
@@ -73,6 +72,11 @@ SRC = ./src/char/chr_isquote.c \
 	./src/printf/ft_printf.c \
 	./src/printf/ft_printf_core.c \
 	./src/printf/pf_errcode.c \
+	./src/pthread/mutex/mutex_getters.c \
+	./src/pthread/mutex/mutex_increments.c \
+	./src/pthread/mutex/mutex_setters.c \
+	./src/pthread/mutex/mutex_wrapper.c \
+	./src/pthread/pthread_wrapper.c \
 	./src/str/str_chr.c \
 	./src/str/str_cmp.c \
 	./src/str/str_count_c.c \
@@ -104,8 +108,10 @@ SRC = ./src/char/chr_isquote.c \
 	./src/str/str_trim.c \
 	./src/str/str_ulen.c \
 	./src/strict/converter/strict_atoi.c \
+	./src/sys/cleanup.c \
 	./src/sys/cmd_parseargs.c \
 	./src/sys/sys_cmd.c \
+	./src/sys/sys_time.c \
 	./src/unistd/ft_putaddr_fd.c \
 	./src/unistd/ft_putchar_fd.c \
 	./src/unistd/ft_putendl_fd.c \

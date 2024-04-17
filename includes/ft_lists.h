@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:47:35 by odudniak          #+#    #+#             */
-/*   Updated: 2024/03/10 09:52:48 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:10:02 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <libft.h>
 
 //!-----------------------DOUBLE LINKED LISTS (INTEGERS)---------
-
+//!DEPRECATED
 /**
  * @brief get list's last node
  * @param head head of the list
