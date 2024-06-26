@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:36:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/06/19 22:24:54 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/06/27 00:11:59 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -440,5 +440,22 @@ char		str_ischar_inquotes(char *str, int idx);
  * failure.
  */
 char		*str_nfreejoin(char *s1, char *s2, size_t s2_n);
-
+/**
+ * TODO docs
+ */
+bool		str_isvariable(char *s);
+/**
+ * TODO docs
+ */
+int			str_var_ending_idx(char *s, int start);
+/**
+## Cleanup della stringa, rimuovendo le quotes di apertura + chiusura.
+- Si alloca la stringa finale con 1 byte (per semplificare controlli interni)
+e si scorre `*str`
+- Se si trova un carattere spazio con il successivo `non spazio` si aggiorna
+`edge` che indica lo start/fine di un blocco di stringa (parola/quotes)
+- Si gestiscono i casi delle quotes e non in due if separati.
+- Si aggiorna la stringa finale e la si restituisce.
+*/
+char		*str_clearquotes(char **str);
 #endif
