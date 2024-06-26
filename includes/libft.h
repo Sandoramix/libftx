@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:33:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/06/26 23:25:44 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/06/27 00:19:11 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,15 @@
 # include <ft_unistd.h>
 # include <ft_system.h>
 
+// First of all you need to check @link `t_var` in ft_structs.h
+
 /**
  * @brief General purpose Cleanup funcion
  * @param var gobal variable
  * @param doexit if the function should use `exit` or not
  * @param statuscode status code of the `exit` call.
+ * @attention the library doesn't have an implementation of this function.
+ * Create one when using `t_var` it in your project.
  */
 int		cleanup(t_var *var, bool doexit, int statuscode);
 
