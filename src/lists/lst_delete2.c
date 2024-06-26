@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   lst_delete2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 13:53:19 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/28 18:18:53 by odudniak         ###   ########.fr       */
+/*   Created: 2024/05/31 11:44:49 by odudniak          #+#    #+#             */
+/*   Updated: 2024/06/09 14:24:11 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-bool	ft_isspace(char c)
+t_list	*lst_delnode(t_list **node, void (*valfree_fn)(void *))
 {
-	return (c == ' ' || (c >= 9 && c <= 13));
+	t_list	*n;
+
+	n = *node;
+	free(n->key);
+	(*valfree_fn)(n->val);
+	free(n->_is_lis);
+	free(n->_lis_max);
+	free(n);
+	*node = NULL;
+	return (NULL);
 }

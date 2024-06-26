@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ctolower.c                                      :+:      :+:    :+:   */
+/*   chr_isprint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 18:18:31 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/28 18:52:36 by odudniak         ###   ########.fr       */
+/*   Created: 2024/05/27 21:07:42 by odudniak          #+#    #+#             */
+/*   Updated: 2024/05/27 21:07:43 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_ctolower(int c)
+bool	chr_isprint(char c)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	if (c >= 32 && c < 127)
+		return (1);
+	return (0);
 }

@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   str_startswith.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 18:18:31 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/28 18:52:36 by odudniak         ###   ########.fr       */
+/*   Created: 2024/04/24 15:07:10 by odudniak          #+#    #+#             */
+/*   Updated: 2024/04/24 15:10:22 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-bool	ft_isdigit(char c)
+bool	str_startswith(const char *s, const char *check)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	int			i;
+
+	if (!s || !check)
+		return (false);
+	i = -1;
+	while (check && check[++i])
+	{
+		if (!s || check[i] != s[i])
+			return (false);
+	}
+	return (true);
 }

@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_idxofchar.c                                    :+:      :+:    :+:   */
+/*   chr_closequote_idx.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 14:52:19 by odudniak          #+#    #+#             */
-/*   Updated: 2024/05/22 15:05:19 by odudniak         ###   ########.fr       */
+/*   Created: 2024/05/04 16:54:00 by odudniak          #+#    #+#             */
+/*   Updated: 2024/05/29 15:29:20 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-int	str_idxofchar(const char *s, char c)
+int	chr_quoteclose_idx(char *s, int start)
 {
-	int	i;
+	char	quote_opener;
 
-	i = -1;
-	while (s && s[++i])
-		if (s[i] == c)
-			return (i);
-	return (-1);
-}
-
-int	str_idxofchar_from(const char *s, int start, char c)
-{
-	int	i;
-
-	i = start - 1;
-	while (s && s[++i])
-		if (s[i] == c)
-			return (i);
+	if (!s)
+		return (-1);
+	quote_opener = s[start];
+	if (!chr_isquote(quote_opener))
+		return (-1);
+	while (s && s[++start])
+		if (s[start] == quote_opener)
+			return (start);
 	return (-1);
 }

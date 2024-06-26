@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_idxofchar.c                                    :+:      :+:    :+:   */
+/*   str_mtxcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 14:52:19 by odudniak          #+#    #+#             */
-/*   Updated: 2024/05/22 15:05:19 by odudniak         ###   ########.fr       */
+/*   Created: 2024/04/25 18:09:51 by odudniak          #+#    #+#             */
+/*   Updated: 2024/05/22 15:36:26 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-int	str_idxofchar(const char *s, char c)
+char	**str_mtxcpy(char **dest, char **src, size_t n)
 {
-	int	i;
+	size_t			i;
 
-	i = -1;
-	while (s && s[++i])
-		if (s[i] == c)
-			return (i);
-	return (-1);
-}
-
-int	str_idxofchar_from(const char *s, int start, char c)
-{
-	int	i;
-
-	i = start - 1;
-	while (s && s[++i])
-		if (s[i] == c)
-			return (i);
-	return (-1);
+	if (!src)
+		return (dest);
+	i = 0;
+	while (src && src[i] && i < n)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	return (dest);
 }

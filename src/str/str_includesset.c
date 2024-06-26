@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmtxlen.c                                     :+:      :+:    :+:   */
+/*   str_includesset.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 20:37:35 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/28 18:18:53 by odudniak         ###   ########.fr       */
+/*   Created: 2024/04/24 15:26:10 by odudniak          #+#    #+#             */
+/*   Updated: 2024/04/24 15:28:44 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-int	ft_memmtxlen(void *mem)
+bool	str_includesset(char *s, char *set)
 {
-	unsigned char	**m;
-	int				i;
+	int		i;
 
-	i = 0;
-	m = (unsigned char **)mem;
-	while (m && m[i])
-		i++;
-	return (i);
+	i = -1;
+	while (set && set[++i])
+	{
+		if (str_chr(s, set[i]))
+			return (true);
+	}
+	return (false);
 }

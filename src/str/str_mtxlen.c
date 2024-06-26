@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   str_mtxlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 18:18:31 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/28 18:52:36 by odudniak         ###   ########.fr       */
+/*   Created: 2024/04/25 18:01:47 by odudniak          #+#    #+#             */
+/*   Updated: 2024/04/25 18:02:51 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-bool	ft_isalnum(char c)
+int	str_mtxlen(char **mtx)
 {
-	return (ft_isalpha(c) || ft_isdigit(c));
+	int				i;
+
+	i = 0;
+	while (mtx && mtx[i])
+		i++;
+	return (i);
 }

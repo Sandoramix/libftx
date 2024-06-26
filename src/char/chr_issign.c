@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_idxofchar.c                                    :+:      :+:    :+:   */
+/*   chr_issign.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 14:52:19 by odudniak          #+#    #+#             */
-/*   Updated: 2024/05/22 15:05:19 by odudniak         ###   ########.fr       */
+/*   Created: 2024/05/27 21:07:53 by odudniak          #+#    #+#             */
+/*   Updated: 2024/05/27 21:07:54 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-int	str_idxofchar(const char *s, char c)
+bool	chr_issign(char c)
 {
-	int	i;
-
-	i = -1;
-	while (s && s[++i])
-		if (s[i] == c)
-			return (i);
-	return (-1);
-}
-
-int	str_idxofchar_from(const char *s, int start, char c)
-{
-	int	i;
-
-	i = start - 1;
-	while (s && s[++i])
-		if (s[i] == c)
-			return (i);
-	return (-1);
+	return (c == '+' || c == '-');
 }

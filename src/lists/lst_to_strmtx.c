@@ -1,18 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_issign.c                                        :+:      :+:    :+:   */
+/*   lst_to_strmtx.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 14:00:19 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/28 18:18:53 by odudniak         ###   ########.fr       */
+/*   Created: 2024/06/09 13:55:21 by odudniak          #+#    #+#             */
+/*   Updated: 2024/06/12 10:31:59 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-bool	ft_issign(char c)
+char	**lst_to_strmtx(t_list *lst)
 {
-	return (c == '+' || c == '-');
+	char	**arr;
+	int		i;
+
+	arr = ft_calloc(lst_size(lst) + 1, sizeof(char *));
+	if (!arr)
+		return (NULL);
+	i = 0;
+	while (lst)
+	{
+		arr[i] = str_dup(lst->val);
+		if (!arr[i])
+		{
+			pf_errcode(E_MALLOC);
+			str_freemtx(arr);
+			return (NULL);
+		}
+		lst = lst->next;
+		i++;
+	}
+	return (arr);
 }

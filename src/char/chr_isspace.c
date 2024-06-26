@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   chr_isspace.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 00:16:47 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/28 18:18:53 by odudniak         ###   ########.fr       */
+/*   Created: 2024/05/27 21:07:57 by odudniak          #+#    #+#             */
+/*   Updated: 2024/05/27 21:07:58 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-bool	ft_isprint(char c)
+bool	chr_isspace(char c)
 {
-	if (c >= 32 && c < 127)
-		return (1);
-	return (0);
+	return (c == ' ' || (c >= 9 && c <= 13));
 }
