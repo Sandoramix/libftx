@@ -5,7 +5,7 @@ PNAME = [LIBFTX]
 DEBUG_VALUE=0
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -DDEBUG=$(DEBUG_VALUE)
+CFLAGS = -Wall -Wextra -Werror -g -Iincludes -DDEBUG=$(DEBUG_VALUE)
 
 ARCHIVE = ar rc $(NAME)
 
@@ -25,6 +25,7 @@ SRC = ./src/char/chr_closequote_idx.c \
 	./src/char/chr_istoken.c \
 	./src/char/chr_tolower.c \
 	./src/char/chr_toupper.c \
+	./src/cleanup.c \
 	./src/converter/ft_atoi.c \
 	./src/converter/ft_boolstr.c \
 	./src/converter/ft_itoa.c \
@@ -83,6 +84,7 @@ SRC = ./src/char/chr_closequote_idx.c \
 	./src/pthread/mutex/mutex_setters.c \
 	./src/pthread/mutex/mutex_wrapper.c \
 	./src/str/str_chr.c \
+	./src/str/str_clearquotes.c \
 	./src/str/str_cmp.c \
 	./src/str/str_count_c.c \
 	./src/str/str_dup.c \
@@ -96,6 +98,7 @@ SRC = ./src/char/chr_closequote_idx.c \
 	./src/str/str_includesset.c \
 	./src/str/str_isblank.c \
 	./src/str/str_ischar_inquotes.c \
+	./src/str/str_isvariable.c \
 	./src/str/str_iteri.c \
 	./src/str/str_join.c \
 	./src/str/str_lcat.c \
@@ -118,6 +121,7 @@ SRC = ./src/char/chr_closequote_idx.c \
 	./src/str/str_toupper.c \
 	./src/str/str_trim.c \
 	./src/str/str_ulen.c \
+	./src/str/str_var_ending_idx.c \
 	./src/strict/strict_atoi.c \
 	./src/sys/cleanup.c \
 	./src/sys/sys_time.c \
@@ -158,7 +162,7 @@ re-debug: fclean debug
 # ----RULE-UTILS-----
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -Iincludes -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "$(BLUE)$(PNAME):\t$< COMPILED!"
 
 # --------------

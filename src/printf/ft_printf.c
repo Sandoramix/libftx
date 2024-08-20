@@ -6,11 +6,13 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 14:42:50 by odudniak          #+#    #+#             */
-/*   Updated: 2024/06/19 10:47:42 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:08:54 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
+
+// TODO: remake printf.
 
 size_t	pf_handlechar(int fd, char c, t_pfflag flag);
 size_t	pf_getsimpleres(int fd, va_list *list, t_pfflag flag);

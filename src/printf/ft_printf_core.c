@@ -20,6 +20,7 @@ size_t	pf_handlechar(int fd, char c, t_pfflag flag)
 	flag.llen = pf_handle_flag_start(fd, flag);
 	ft_putchar_fd(c, fd);
 	flag.rlen = pf_handle_flag_end(fd, flag);
+	free(flag.flag);
 	return (flag.llen + flag.rlen + 1);
 }
 
@@ -36,11 +37,9 @@ size_t	pf_getsimpleres(int fd, va_list *list, t_pfflag flag)
 		return (ft_putnbr_fd(va_arg(*list, int), fd));
 	else if (flag.type == PF_UINT)
 		return (ft_writeulbase_fd(va_arg(*list, unsigned int), BASE10, fd));
-	else if (flag.type == PF_HEX && !lowercase)
+	else if (flag.type == PF_HEX)
 		return (ft_writeulbase_fd(va_arg(*list, unsigned int),
-				BASE16UPPER, fd));
-	else if (flag.type == PF_HEX && lowercase)
-		return (ft_writeulbase_fd(va_arg(*list, unsigned int), BASE16, fd));
+				(char *[2]){BASE16UPPER, BASE16}[lowercase], fd));
 	else if (flag.type == PF_POINTER)
 		return (ft_putaddr_fd(va_arg(*list, void *), fd));
 	else

@@ -6,9 +6,11 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 00:08:47 by odudniak          #+#    #+#             */
-/*   Updated: 2024/06/27 00:08:55 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/08/20 14:06:01 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <libft.h>
 
 int	str_var_ending_idx(char *s, int start)
 {
