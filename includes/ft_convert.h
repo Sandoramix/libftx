@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 09:48:00 by odudniak          #+#    #+#             */
-/*   Updated: 2024/06/19 21:48:28 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/08/20 13:32:36 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,21 @@
 /**
  * @brief Allocates (with malloc(3)) and returns a string
  * representing the integer received as an argument.
- * Negative numbers must be handled.
  *
  * @param n the integer to convert.
  * @return The string representing the integer.
  * `NULL` if the allocation fails.
- * @attention Uses: malloc
  */
 char		*ft_itoa(int n);
+/**
+ * @brief Allocates (with malloc(3)) and returns a string
+ * representing the double received as an argument.
+ *
+ * @param n the double to convert.
+ * @return The string representing the integer.
+ * `NULL` if the allocation fails.
+ */
+char	*ft_dtoa(double n, int precision);
 /**
  * @brief Get the boolean value as a string
  * @param value boolean

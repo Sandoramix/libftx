@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:04:19 by odudniak          #+#    #+#             */
-/*   Updated: 2024/06/26 23:09:57 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:00:36 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ typedef enum e_pftype
 	PF_CHAR,
 	PF_STR,
 	PF_HEX,
-	PF_POINTER
+	PF_POINTER,
+	PF_DOUBLE
 }	t_pftype;
 
 typedef struct s_pfflag
@@ -88,7 +89,7 @@ int			ft_fprintf(int fd, const char *str, ...);
  * @param template template
  * @param ... va_args
  */
-int			ft_perror(char *template, ...);
+int			ft_perror(char *str, ...);
 /**
  * @brief Yep we handle bonus here
  *

@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:51:11 by odudniak          #+#    #+#             */
-/*   Updated: 2024/05/27 21:03:47 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:19:08 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ size_t	pf_getsimpleres(int fd, va_list *list, t_pfflag flag)
 				(char *[2]){BASE16UPPER, BASE16}[lowercase], fd));
 	else if (flag.type == PF_POINTER)
 		return (ft_putaddr_fd(va_arg(*list, void *), fd));
-	else
-		return (ft_putstr_fd(va_arg(*list, char *), fd));
-	return (0);
+	else if (flag.type == PF_DOUBLE)
+		return (ft_writedouble_fd(va_arg(*list, double), flag.prec, fd));
+	return (ft_putstr_fd(va_arg(*list, char *), fd));
 }
 
 size_t	pf_getres(int fd, va_list *list, t_pfflag flag)
@@ -63,6 +63,8 @@ size_t	pf_getres(int fd, va_list *list, t_pfflag flag)
 		flag.res = ft_itohex(va_arg(*list, unsigned int));
 	else if (flag.type == PF_POINTER)
 		flag.res = ft_getaddr(va_arg(*list, void *));
+	else if (flag.type == PF_DOUBLE)
+		flag.res = ft_dtoa(va_arg(*list, long long), flag.prec);
 	else
 		flag.res = str_dup(va_arg(*list, char *));
 	flag.reslen = str_ulen(flag.res);

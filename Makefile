@@ -28,6 +28,7 @@ SRC = ./src/char/chr_closequote_idx.c \
 	./src/cleanup.c \
 	./src/converter/ft_atoi.c \
 	./src/converter/ft_boolstr.c \
+	./src/converter/ft_dtoa.c \
 	./src/converter/ft_itoa.c \
 	./src/converter/ft_itoa_base.c \
 	./src/converter/ft_itohex.c \
@@ -123,7 +124,6 @@ SRC = ./src/char/chr_closequote_idx.c \
 	./src/str/str_ulen.c \
 	./src/str/str_var_ending_idx.c \
 	./src/strict/strict_atoi.c \
-	./src/sys/cleanup.c \
 	./src/sys/sys_time.c \
 	./src/unistd/ft_putaddr_fd.c \
 	./src/unistd/ft_putchar_fd.c \
@@ -132,8 +132,8 @@ SRC = ./src/char/chr_closequote_idx.c \
 	./src/unistd/ft_putnchars_fd.c \
 	./src/unistd/ft_putstr_fd.c \
 	./src/unistd/ft_putstrmtx.c \
-	./src/unistd/ft_writeulbase_fd.c
-
+	./src/unistd/ft_writedouble_fd.c \
+	./src/unistd/ft_writeulbase_fd.c \
 
 OBJ = ${SRC:.c=.o}
 
@@ -148,6 +148,7 @@ $(NAME): $(OBJ)
 	@$(ARCHIVE) $(OBJ)
 	@echo "$(GREEN)$(PNAME):\tLIBRARY CREATED$(R)"
 	[ "$(strip $(DEBUG_VALUE))" = "0" ] || echo "$(RED)[$(PNAME)]:\tDEBUG MODE ENABLED$(R)"
+
 clean:
 	@$(RM) $(OBJ)
 	@echo "$(RED)$(PNAME):\tOBJECTS DELETED$(R)"

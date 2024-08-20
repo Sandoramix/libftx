@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:00:18 by odudniak          #+#    #+#             */
-/*   Updated: 2024/05/27 21:24:13 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/08/20 14:35:00 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static t_pfflag	pf_parseflag(t_pfflag flag)
 	rawlen = str_ulen(flag.flag);
 	flag.convert = false;
 	flag.wzeros = false;
-	flag.prec = -1;
+	flag.prec = (int [2]){-1, 2}[flag.type == PF_DOUBLE];
 	flag.wminus = !!str_chr(flag.flag, '-');
 	flag.wplus = !!str_chr(flag.flag, '+');
 	flag.wspaces = !!str_chr(flag.flag, ' ') && !flag.wplus;
@@ -50,7 +50,7 @@ static t_pfflag	pf_fillempty(t_pfflag flag)
 	flag.convert = false;
 	flag.wzeros = false;
 	flag.width = 0;
-	flag.prec = -1;
+	flag.prec = (int [2]){-1, 2}[flag.type == PF_DOUBLE];
 	flag.wminus = false;
 	flag.minus = false;
 	flag.wplus = false;
@@ -65,27 +65,27 @@ static t_pfflag	pf_fillempty(t_pfflag flag)
 
 t_pfflag	pf_getflag(char *str, int start, int end)
 {
-	t_pfflag	flag;
+	const char		*valid_ids[] = {"di", "p", "xX", "u", "%", "c", "s", "f"};
+	const t_pftype	ids_value[] = {PF_INT, PF_POINTER, PF_HEX, PF_UINT,
+		PF_ESCAPE, PF_CHAR, PF_STR, PF_DOUBLE};
+	t_pfflag		flag;
+	int				i;
 
 	flag = (t_pfflag){0};
 	flag.simple = end - 1 == start;
 	flag._str = str;
 	flag._start = start;
 	flag._end = end;
-	if (str_chr("di", str[end]))
-		flag.type = PF_INT;
-	else if (str[end] == 'p')
-		flag.type = (PF_POINTER);
-	else if (str_chr("xX", str[end]))
-		flag.type = (PF_HEX);
-	else if (str[end] == 'u')
-		flag.type = (PF_UINT);
-	else if (str[end] == '%')
-		flag.type = (PF_ESCAPE);
-	else if (str[end] == 'c')
-		flag.type = (PF_CHAR);
-	else if (str[end] == 's')
-		flag.type = (PF_STR);
+	i = -1;
+	while (++i < 8)
+	{
+		if (str_chr(valid_ids[i], str[end]))
+			flag.type = ids_value[i];
+		if (str_chr(valid_ids[i], str[end]))
+			break ;
+	}
+	if (!valid_ids[i])
+		flag.type = PF_UNKNOWN;
 	if (flag.simple)
 		return (pf_fillempty(flag));
 	flag.flag = str_lensubstr(str, start, end - start + 1);

@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:36:51 by odudniak          #+#    #+#             */
-/*   Updated: 2024/06/27 00:11:59 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/08/20 14:40:37 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,7 +192,8 @@ int			str_idxofstr_from(const char *str, int start, char *find);
  * @param c pad character
  * @param n total len with the string should have.
  * @param start Choose if the padding should be at start or end of the string
- * E.g. if `n` is 2, `c` is '0' and the s is `"4"` the result will be `"40"`
+ * E.g. with `start` == `false` if `n` is 2, `c` is '0'
+ * and the s is `"4"` the result will be `"40"`, otherwise it'll be `"04"`
  * @return Copy of the string plus the added padding if necessary.
  * @attention Uses: malloc
  */

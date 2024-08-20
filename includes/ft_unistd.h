@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:46:10 by odudniak          #+#    #+#             */
-/*   Updated: 2024/02/09 15:59:28 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/08/20 13:18:57 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,14 @@ int			ft_putaddr_fd(void *p, int fd);
  * @return Number of characters printed
  */
 int			ft_writeulbase_fd(unsigned long n, char *base, int fd);
+/**
+ * @brief Print the given double number to `fd`
+ * @param n number to print
+ * @param precision how many digits to print after the floating point
+ * @param fd The file descriptor on which to write
+ * @return number of characters written to fd.
+ */
+int			ft_writedouble_fd(double n, int precision, int fd);
 /**
  * @brief Write `n` times the `c` character to `fd`
  * @return `n`

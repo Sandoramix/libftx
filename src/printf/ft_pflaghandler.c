@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:07:41 by odudniak          #+#    #+#             */
-/*   Updated: 2024/04/25 19:19:37 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/08/20 14:32:18 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ size_t	pf_handleflags(int fd, t_pfflag flag)
 	if (flag.wprec && flag.prec <= flag.reslen && flag.type == PF_STR)
 		flag.reslen = flag.prec;
 	flag.llen = pf_handle_flag_start(fd, flag);
-	if (flag.type == PF_INT)
+	if (flag.type == PF_INT || flag.type == PF_DOUBLE)
 		write(fd, flag.res + offset, flag.reslen);
 	else
 		write(fd, flag.res, flag.reslen);
