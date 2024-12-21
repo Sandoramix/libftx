@@ -6,7 +6,7 @@
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:17:53 by odudniak          #+#    #+#             */
-/*   Updated: 2024/06/26 23:03:20 by odudniak         ###   ########.fr       */
+/*   Updated: 2024/12/21 15:12:03 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
+# endif
+
+# ifndef GNL_MAX_FD_COUNT
+#  define GNL_MAX_FD_COUNT 1024
 # endif
 
 /**

@@ -40,7 +40,6 @@ SRC = ./src/char/chr_closequote_idx.c \
 	./src/files/ft_readfile.c \
 	./src/ft_isdebug.c \
 	./src/getnextline/get_next_line.c \
-	./src/getnextline/get_next_line_utils.c \
 	./src/int/array/int_clear.c \
 	./src/int/array/int_populate.c \
 	./src/int/array/int_print.c \
@@ -123,7 +122,6 @@ SRC = ./src/char/chr_closequote_idx.c \
 	./src/str/str_ulen.c \
 	./src/str/str_var_ending_idx.c \
 	./src/strict/strict_atoi.c \
-	./src/sys/cleanup.c \
 	./src/sys/sys_time.c \
 	./src/unistd/ft_putaddr_fd.c \
 	./src/unistd/ft_putchar_fd.c \
@@ -141,8 +139,8 @@ OBJ = ${SRC:.c=.o}
 
 all: $(NAME)
 
-debug:
-	$(MAKE) DEBUGFLAGS="-DDEBUG=1"
+debug: DEBUG_VALUE=1
+debug: all
 
 $(NAME): $(OBJ)
 	@$(ARCHIVE) $(OBJ)
