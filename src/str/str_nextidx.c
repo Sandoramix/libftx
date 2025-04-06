@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_mtxlen.c                                       :+:      :+:    :+:   */
+/*   str_nextidx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odudniak <odudniak@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/25 18:01:47 by odudniak          #+#    #+#             */
-/*   Updated: 2024/04/25 18:02:51 by odudniak         ###   ########.fr       */
+/*   Created: 2025/04/05 16:30:40 by odudniak          #+#    #+#             */
+/*   Updated: 2025/04/06 02:45:54 by odudniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	str_mtxlen(char **mtx)
+int	str_find_next_idx(char *str, char c, int start_idx, bool skip_escaped)
 {
-	int				i;
+	const int	len = str_ilen(str);
+	int			i;
 
-	i = 0;
-	while (mtx && mtx[i])
-		i++;
-	return (i);
-}
-
-int	str_mtxcublen(char ***mtxcub)
-{
-	int				i;
-
-	i = 0;
-	while (mtxcub && mtxcub[i])
-		i++;
-	return (i);
+	if (start_idx < 0 || start_idx >= len)
+		return (-1);
+	i = start_idx;
+	while (++i < len)
+	{
+		if (str[i] == c)
+		{
+			if (i > 0 && skip_escaped && str[i - 1] == '\\')
+				continue ;
+			return (i);
+		}
+	}
+	return (-1);
 }

@@ -402,6 +402,7 @@ bool		str_includesset(char *s, char *set);
  * @return Length of the matrix as `int`. If `NULL` is passed, the return is `0`
  */
 int			str_mtxlen(char **mtx);
+int			str_mtxcublen(char ***mtxcub);
 /**
  * @brief This function copies `n` elements from `src` to `dest`.
  * @param dest mtx
@@ -410,6 +411,7 @@ int			str_mtxlen(char **mtx);
  * @return a pointer to `dest`
  */
 char		**str_mtxcpy(char **dest, char **src, size_t n);
+char		***str_mtxcubcpy(char ***dest, char ***src, size_t n);
 /**
  * @brief add a new string to the matrix of chars/array of strings.
  * Original matrix may be mutated.
@@ -421,6 +423,7 @@ char		**str_mtxcpy(char **dest, char **src, size_t n);
  * or `NULL` if any error happened.
  */
 char		**str_mtxpush(char ***mtxp, char *s);
+char		***str_mtxcubpush(char ****mtxcubp, char **s);
 /**
  * @brief Check if the given char at `idx` position of `str` is surrounded
  * by quotes.
@@ -458,4 +461,8 @@ e si scorre `*str`
 - Si aggiorna la stringa finale e la si restituisce.
 */
 char		*str_clearquotes(char **str);
+
+int			str_find_next_idx(char *str, char c,
+				int start_idx, bool skip_escaped);
+
 #endif

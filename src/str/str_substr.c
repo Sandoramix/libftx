@@ -33,3 +33,21 @@ char	*str_lensubstr(char *s, size_t start, size_t len)
 	ft_memcpy(res, &s[start], len);
 	return (res);
 }
+
+char	*str_substr(char *s, size_t start, size_t end)
+{
+	char	*res;
+	size_t	slen;
+	size_t	i;
+
+	slen = str_ilen(s);
+	if (start > slen || start > end)
+		return (NULL);
+	res = ft_calloc((end - start + 1) + 1, sizeof(char));
+	if (!res)
+		return (NULL);
+	i = -1;
+	while (++i < (end - start + 1) && s)
+		res[i] = s[i + start];
+	return (res);
+}

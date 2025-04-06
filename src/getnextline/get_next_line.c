@@ -28,7 +28,6 @@ static char	*append_string(char *str, char *buff, int newline_idx, bool keep_nl)
 	const int	str_size = str_ilen(str);
 	int			buff_size;
 	char		*result;
-	int			i;
 
 	if (str_ilen(buff) == 0)
 		return (str);
@@ -39,7 +38,6 @@ static char	*append_string(char *str, char *buff, int newline_idx, bool keep_nl)
 	result = ft_calloc(str_size + buff_size + 1, sizeof(char));
 	if (!result)
 		return (free(str), NULL);
-	i = -1;
 	ft_memmove(result, str, str_size);
 	ft_memmove(result + str_size, buff, buff_size);
 	ft_memmove(buff, buff + buff_size + (newline_idx != -1 && !keep_nl),

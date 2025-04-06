@@ -3,6 +3,8 @@ PNAME = [LIBFTX]
 
 # -----VARIABLES-DECLARATIONS-+-OVVERRIDES-----
 DEBUG_VALUE=0
+debug: DEBUG_VALUE=1
+re-debug: DEBUG_VALUE=1
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g -Iincludes -DDEBUG=$(DEBUG_VALUE)
@@ -26,6 +28,7 @@ SRC = ./src/char/chr_closequote_idx.c \
 	./src/char/chr_tolower.c \
 	./src/char/chr_toupper.c \
 	./src/cleanup.c \
+	./src/cmd/cmd_split_args.c \
 	./src/converter/ft_atoi.c \
 	./src/converter/ft_boolstr.c \
 	./src/converter/ft_itoa.c \
@@ -107,6 +110,7 @@ SRC = ./src/char/chr_closequote_idx.c \
 	./src/str/str_mtxdup.c \
 	./src/str/str_mtxlen.c \
 	./src/str/str_mtxpush.c \
+	./src/str/str_nextidx.c \
 	./src/str/str_nstr.c \
 	./src/str/str_pad.c \
 	./src/str/str_pushchar.c \
@@ -122,6 +126,8 @@ SRC = ./src/char/chr_closequote_idx.c \
 	./src/str/str_ulen.c \
 	./src/str/str_var_ending_idx.c \
 	./src/strict/strict_atoi.c \
+	./src/sys/sys_findcmdpath.c \
+	./src/sys/sys_load_cmds.c \
 	./src/sys/sys_time.c \
 	./src/unistd/ft_putaddr_fd.c \
 	./src/unistd/ft_putchar_fd.c \
@@ -132,15 +138,12 @@ SRC = ./src/char/chr_closequote_idx.c \
 	./src/unistd/ft_putstrmtx.c \
 	./src/unistd/ft_writeulbase_fd.c
 
-
 OBJ = ${SRC:.c=.o}
 
 # ----RULES-----
 
 all: $(NAME)
-
-debug: DEBUG_VALUE=1
-debug: all
+debug: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(ARCHIVE) $(OBJ)

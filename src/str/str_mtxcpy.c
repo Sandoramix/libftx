@@ -19,7 +19,22 @@ char	**str_mtxcpy(char **dest, char **src, size_t n)
 	if (!src)
 		return (dest);
 	i = 0;
-	while (src && src[i] && i < n)
+	while (i < n && src && src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	return (dest);
+}
+
+char	***str_mtxcubcpy(char ***dest, char ***src, size_t n)
+{
+	size_t			i;
+
+	if (!src)
+		return (dest);
+	i = 0;
+	while (i < n && src && src[i])
 	{
 		dest[i] = src[i];
 		i++;

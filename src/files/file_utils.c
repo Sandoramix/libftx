@@ -60,5 +60,5 @@ int	files_close(int fds[], int n)
 
 bool	file_hasperm(char *path, mode_t perms)
 {
-	return (!file_isdir(path) && !access(path, perms));
+	return (!file_isdir(path) && !access(path, F_OK | perms));
 }

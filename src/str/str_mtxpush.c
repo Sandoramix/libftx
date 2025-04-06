@@ -29,3 +29,19 @@ char	**str_mtxpush(char ***mtxp, char *s)
 	*mtxp = res;
 	return (res);
 }
+
+char	***str_mtxcubpush(char ****mtxcubp, char **s)
+{
+	int		mtxlen;
+	char	***res;
+
+	mtxlen = str_mtxcublen(*mtxcubp);
+	res = ft_calloc(mtxlen + 2, sizeof(char **));
+	if (!res)
+		return (NULL);
+	str_mtxcubcpy(res, *mtxcubp, mtxlen);
+	res[mtxlen] = s;
+	free(*mtxcubp);
+	*mtxcubp = res;
+	return (res);
+}

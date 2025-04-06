@@ -45,4 +45,6 @@ t_ulong		timestamp(t_timeunit unit);
 */
 void		ssleep(t_ulong value, t_timeunit unit);
 
+char		*sys_findcmdpath(char **paths, char *cmd);
+char		***sys_loadcmds(char **cmd_raws, char **paths);
 #endif

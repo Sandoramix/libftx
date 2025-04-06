@@ -38,6 +38,7 @@
 # include <ft_structs.h>
 
 # include <ft_char.h>
+# include <ft_cmd.h>
 # include <ft_convert.h>
 # include <ft_file.h>
 # include <ft_gnl.h>
